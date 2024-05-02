@@ -43,7 +43,7 @@ if (testimonials_error.value?.statusCode){
   handleFetchError(testimonials, testimonials_error.value.statusCode);
 }
 
-// TODO: compute alt picture
+// TODO: compute alt service picture
 
 </script>
 
@@ -56,7 +56,7 @@ if (testimonials_error.value?.statusCode){
       <!--TODO: <Loader/> -->
     </div>
     <div v-else>
-      <TestimonialsCarousel :testimonials="testimonials!"/>
+      <TestimonialsCarousel :testimonials="testimonials"/>
     </div>
   </div>
 </template>

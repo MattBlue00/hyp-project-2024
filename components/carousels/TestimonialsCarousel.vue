@@ -3,7 +3,7 @@ import TestimonialCard from "~/components/cards/TestimonialCard.vue";
 import type {Testimonial} from "~/types/Testimonial";
 
 interface Props {
-  testimonials?: Testimonial[];
+  testimonials?: Testimonial[] | null;
 }
 
 const { testimonials } = defineProps<Props>();
@@ -21,7 +21,7 @@ const { testimonials } = defineProps<Props>();
           :class="{ active: index === 0 }"
           :aria-current="index === 0 ? 'true' : 'false'"
           :aria-label="'Slide ' + (index + 1)"
-      ></button>
+      />
     </div>
     <div class="carousel-inner">
       <TestimonialCard
@@ -45,7 +45,7 @@ const { testimonials } = defineProps<Props>();
 </template>
 
 <style scoped>
-#testimonialsCarousel{
+.carousel{
   width: 800px;
 }
 </style>
