@@ -10,7 +10,16 @@ const { testimonials } = defineProps<Props>();
 </script>
 
 <template>
-  <div id="carouselControls" class="carousel slide" data-ride="carousel">
+  <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li
+          v-for="(testimonial, index) in testimonials"
+          :key="testimonial.id"
+          :data-target="'#testimonialsCarousel'"
+          :data-slide-to="index"
+          :class="{ active: index === 0 }"
+      ></li>
+    </ol>
     <div class="carousel-inner">
       <TestimonialCard
           v-for="(testimonial, index) in testimonials"
@@ -22,11 +31,11 @@ const { testimonials } = defineProps<Props>();
           :altText="'Slide ' + (index + 1)"
       />
     </div>
-    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#testimonialsCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#testimonialsCarousel" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -34,5 +43,7 @@ const { testimonials } = defineProps<Props>();
 </template>
 
 <style scoped>
-
+#testimonialsCarousel{
+  width: 250px;
+}
 </style>

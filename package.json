@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.6.0",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
     "jquery": "^3.7.1",
     "nuxt": "^3.11.2",
     "popper.js": "^1.16.1",
-    "vue": "^3.4.21",
+    "vue": "^3.4.26",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
