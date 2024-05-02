@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     redirect: false
   },
   css: [
-    'bootstrap/dist/css/bootstrap.css',
-    'bootstrap-vue/dist/bootstrap-vue.css'
+    '~/assets/scss/custom.scss',
   ],
 })

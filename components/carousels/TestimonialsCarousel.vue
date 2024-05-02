@@ -31,7 +31,6 @@ const { testimonials } = defineProps<Props>();
           :name="testimonial.author_full_name"
           :statement="testimonial.statement"
           :isActive="index===0"
-          :altText="'Slide ' + (index + 1)"
       />
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
@@ -47,6 +46,6 @@ const { testimonials } = defineProps<Props>();
 
 <style scoped>
 #testimonialsCarousel{
-  width: 250px;
+  width: 800px;
 }
 </style>
