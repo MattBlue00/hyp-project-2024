@@ -3,6 +3,7 @@
 import type {Service} from '~/types/Service';
 import type {Testimonial} from "~/types/Testimonial";
 import {handleFetchError} from "~/composables/errorHandlers";
+import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vue";
 
 useSeoMeta({
   title: 'SheRise | Service',
@@ -48,13 +49,15 @@ if (testimonials_error.value?.statusCode){
 
 <template>
   <div v-if="is_service_loading">
-    <!--TODO: <LoaderComponent/> -->
+    <!--TODO: <Loader/> -->
   </div>
   <div v-else v-if="service">
-    <nuxt-img :src="service?.picture" alt="Service's picture"/>
-  </div>
-  <div v-else>
-    ERROR
+    <div v-if="are_testimonials_loading">
+      <!--TODO: <Loader/> -->
+    </div>
+    <div v-else>
+      <TestimonialsCarousel :testimonials="testimonials!"/>
+    </div>
   </div>
 </template>
 

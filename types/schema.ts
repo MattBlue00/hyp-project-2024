@@ -122,21 +122,21 @@ export type Database = {
         Row: {
           author_full_name: string
           id: number
-          picture: string
+          author_picture: string
           service_id: number
           statement: string
         }
         Insert: {
           author_full_name: string
           id?: number
-          picture: string
+          author_picture: string
           service_id: number
           statement: string
         }
         Update: {
           author_full_name?: string
           id?: number
-          picture?: string
+          author_picture?: string
           service_id?: number
           statement?: string
         }
