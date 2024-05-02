@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { img, name, statement, isActive, altText } = defineProps<Props>();
+
+// TODO: replace altText with computed property with author's name
 </script>
 
 <template>

@@ -10,16 +10,19 @@ const { testimonials } = defineProps<Props>();
 </script>
 
 <template>
-  <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li
+  <div id="testimonialsCarousel" class="carousel slide">
+    <div class="carousel-indicators">
+      <button
           v-for="(testimonial, index) in testimonials"
           :key="testimonial.id"
-          :data-target="'#testimonialsCarousel'"
-          :data-slide-to="index"
+          type="button"
+          data-bs-target="#testimonialsCarousel"
+          :data-bs-slide-to="index"
           :class="{ active: index === 0 }"
-      ></li>
-    </ol>
+          :aria-current="index === 0 ? 'true' : 'false'"
+          :aria-label="'Slide ' + (index + 1)"
+      ></button>
+    </div>
     <div class="carousel-inner">
       <TestimonialCard
           v-for="(testimonial, index) in testimonials"
@@ -31,14 +34,14 @@ const { testimonials } = defineProps<Props>();
           :altText="'Slide ' + (index + 1)"
       />
     </div>
-    <a class="carousel-control-prev" href="#testimonialsCarousel" role="button" data-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#testimonialsCarousel" role="button" data-slide="next">
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </template>
 
