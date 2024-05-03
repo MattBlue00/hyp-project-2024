@@ -4,6 +4,7 @@ import type {Service} from '~/types/Service';
 import type {Testimonial} from "~/types/Testimonial";
 import {handleFetchError} from "~/composables/errorHandlers";
 import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vue";
+import ServiceInfoContainer from "~/components/containers/ServiceInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Service',
@@ -52,6 +53,11 @@ if (testimonials_error.value?.statusCode){
     <!--TODO: <Loader/> -->
   </div>
   <div v-else v-if="service">
+    <ServiceInfoContainer
+        :opening_hours="service?.opening_hours"
+        :duration="service?.duration"
+        :contacts="service?.contacts"
+    />
     <div v-if="are_testimonials_loading">
       <!--TODO: <Loader/> -->
     </div>
