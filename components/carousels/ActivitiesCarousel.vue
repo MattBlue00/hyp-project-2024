@@ -60,6 +60,7 @@ console.log(activities)
 
 <style scoped>
 .carousel{
+  height: 300px;
   width: 800px;
 }
 </style>

@@ -21,8 +21,11 @@ const altPicture = computed(() => {
         <td id="activityCard">
           <!-- TODO: activity card -->
         </td>
-        <td id="activityDescriptionContainer">
-          <p id="activityDescription">{{ description }}</p>
+        <td>
+          <div id="activityDescriptionContainer" class="overflow-auto">
+            <p id="activityDescriptionHeader">Description</p>
+            <p id="activityDescription">{{ description }}</p>
+          </div>
         </td>
       </tr>
     </table>
@@ -34,6 +37,15 @@ const altPicture = computed(() => {
   padding-left: 100px;
   padding-right: 100px;
   padding-bottom: 30px;
+}
+#activityDescriptionContainer{
+  height: 250px;
+  width: 600px;
+}
+#activityDescriptionHeader{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 6px;
 }
 #activityDescription{
   font-size: 14px;
