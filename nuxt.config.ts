@@ -8,10 +8,11 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-        Inter: true,
-        Roboto: true,
-        Montserrat: true,
-        Lato: true,
+      Comme: true,
+      Montserrat: true,
+      Lato: true,
+      Nunito: true,
     }
-  }
+  },
+  css: ['@/assets/global.css']
 })
