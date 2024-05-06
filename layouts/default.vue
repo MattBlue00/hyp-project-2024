@@ -3,6 +3,7 @@
 
 <template>
   <NavBar/>
+  <FloatingButton/>
   <slot/>
 </template>
 
