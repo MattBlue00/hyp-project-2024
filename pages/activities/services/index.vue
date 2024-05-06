@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  Services
+  Services<br>
+  <NuxtLink :to="`/activities/services/1`">TEST</NuxtLink>
 </template>
 
 <style scoped>
