@@ -12,7 +12,7 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getAllServices');
+} = await useLazyFetch<Service[]>('/api/service/getServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }

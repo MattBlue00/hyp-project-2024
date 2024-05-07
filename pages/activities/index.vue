@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {Project} from "~/types/Project";
+import type {Service} from "~/types/Service";
 import ActivitiesCarousel from "~/components/carousels/ActivitiesCarousel.vue";
 
 useSeoMeta({
@@ -20,7 +21,7 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Project[]>('/api/service/getServices');
+} = await useLazyFetch<Service[]>('/api/service/getServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
