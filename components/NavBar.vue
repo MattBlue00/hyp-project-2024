@@ -1,22 +1,58 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
-  <nav>
-    <NuxtLink to="/">HOME</NuxtLink>
-    <NuxtLink to="/about">ABOUT US</NuxtLink>
-    <NuxtLink to="/persons">ALL PERSONS</NuxtLink>
-    <NuxtLink to="/activities">ALL ACTIVITIES</NuxtLink>
-    <NuxtLink to="/activities/projects">OUR PROJECTS</NuxtLink>
-    <NuxtLink to="/activities/services">OUR SERVICES</NuxtLink>
-    <NuxtLink to="/contact">CONTACTS</NuxtLink>
-  </nav>
+  <header class="nav-container">
+    <nav class="nav-group">
+        <div class="logo"><NuxtLink class="nuxt-link" to="/">SheRise</NuxtLink></div>
+        <ul class="nav-links">
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/about">ABOUT US</NuxtLink></li>
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/persons">OUR TEAM</NuxtLink></li>
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/activities">ACTIVITIES</NuxtLink></li>
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/activities/projects">PROJECTS</NuxtLink></li>
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/activities/services">SERVICES</NuxtLink></li>
+            <li><NuxtLink class="nuxt-link" active-class="active-link" to="/contact">CONTACTS</NuxtLink></li>
+        </ul>
+    </nav>
+  </header>
 </template>
 
 <style scoped>
-nav {
-  display: flex;
-  gap: 30px;
-}
+  .nav-container {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    background-color: var(--nbar-color);
+    color: var(--bg-color);
+  }
+  .nav-group {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 2rem;
+    font-family: Nunito;
+    font-weight: bold;
+    color: var(--bg-color);
+  }
+  .nav-links {
+    font-family: Nunito;
+    font-size: 1rem;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    gap: 3rem;
+    list-style: none;
+  }
+  .nuxt-link {
+    color: var(--bg-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nuxt-link:visited {
+    color: var(--bg-color);
+  }
+
 </style>
