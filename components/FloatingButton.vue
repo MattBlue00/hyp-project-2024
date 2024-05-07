@@ -32,18 +32,22 @@
         <i class="icon"></i>
     </div>
     
-    <div v-if="isChatOpen" class="chat-window">
+    <transition name="slide-up">
+      <div v-if="isChatOpen" class="chat-window">
+        <!-- Chat content -->
         <div class="chat-header">
-            <h4 class="chat-title">Chat with Bot</h4>
+          <span class="close-btn" @click="toggleChat">&times;</span>
+          <h2 class="chat-title">Chat with Bot</h2>
         </div>
         <div class="chat-messages">
-            <p>{{ lastMessage }}</p>
+          <p>{{ lastMessage }}</p>
         </div>
         <div class="chat-input">
-            <input type="text" placeholder="Type your message here"  @keydown.enter="sendMessageOnEnter" v-model="message"/>
-            <button @click="sendMessage" class="send-button">Send</button>
+          <input type="text" placeholder="Type your message here" @keydown.enter="sendMessageOnEnter" v-model="message" />
+          <button @click="sendMessage" class="send-button">Send</button>
         </div>
-    </div>
+      </div>
+    </transition>
     
 
     
@@ -85,6 +89,19 @@
   z-index: 2; /* Ensure the chat window is on top of the floating button */
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.slide-up-enter-active, .slide-up-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-up-enter, .slide-up-leave-to {
+  transform: translateY(100%);
+}
+
+.slide-up-leave, .slide-up-enter-to {
+  transform: translateY(0%);
 }
 
 .chat-header {
