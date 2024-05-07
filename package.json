@@ -10,12 +10,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/image": "^1.6.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
+    "jquery": "^3.7.1",
     "nuxt": "^3.11.2",
-    "vue": "^3.4.21",
+    "popper.js": "^1.16.1",
+    "sass": "^1.76.0",
+    "vue": "^3.4.26",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/supabase": "^1.2.1"
+    "@nuxtjs/supabase": "^1.2.1",
+    "supabase": "^1.164.1"
   }
 }

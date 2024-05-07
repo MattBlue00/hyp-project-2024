@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts'],
+
+  modules: ['@nuxtjs/supabase', "@nuxt/image", '@nuxtjs/google-fonts'],
   supabase: {
     redirect: false
   },
@@ -14,5 +15,8 @@ export default defineNuxtConfig({
       Nunito: true,
     }
   },
-  css: ['@/assets/global.css']
+  css: [
+    '~/assets/scss/custom.scss',
+    '~/assets/global.css'
+  ],
 })
