@@ -4,14 +4,8 @@
 <template>
   <NavBar/>
   <FloatingButton/>
-  <div class="content">
-    <slot/>
-  </div>
+  <slot/>
 </template>
 
 <style scoped>
-.content {
-  display: flex;
-  justify-content: center;
-}
 </style>

@@ -26,7 +26,7 @@ if (services_error.value?.statusCode){
     <div v-if="are_services_loading">
       <Loader/>
     </div>
-    <div class="activity-list" v-else>
+    <div class="activity-list" v-else v-if="services">
       <div v-for="service in services">
         <ActivityCard class="clickable-activity" :img="service?.picture" :name="service?.name" />
       </div>
