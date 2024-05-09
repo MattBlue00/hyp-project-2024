@@ -21,7 +21,7 @@ if (projects_error.value?.statusCode){
 <template>
   <section class="list-container">
     <div v-if="are_projects_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
     <div class="activity-list" v-else v-if="projects">
       <div v-for="project in projects">

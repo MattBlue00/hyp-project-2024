@@ -24,7 +24,7 @@ if (services_error.value?.statusCode){
 
   <section class="list-container">
     <div v-if="are_services_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
     <div class="activity-list" v-else>
       <div v-for="service in services">

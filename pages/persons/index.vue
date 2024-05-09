@@ -21,7 +21,7 @@ if (persons_error.value?.statusCode){
 <template>
   <section class="list-container">
     <div v-if="are_persons_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
     <div class="list" v-else>
       <div v-for="person in persons">

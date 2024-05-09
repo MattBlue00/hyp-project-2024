@@ -30,13 +30,13 @@ if (services_error.value?.statusCode){
 <template>
   <div class="activities-content">
     <div v-if="are_projects_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
     <div v-else v-if="projects">
       <ActivitiesCarousel :activities="projects"/>
     </div>
     <div v-if="are_services_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
     <div v-else v-if="services">
       <ActivitiesCarousel :activities="services"/>
