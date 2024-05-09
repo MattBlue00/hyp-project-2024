@@ -12,49 +12,35 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <div class="card">
+  <div class="activity-card">
     <div class="image-container">
       <nuxt-img class="activity-img" :src="img" :alt="altPicture"/>
     </div>
     <span class="activity-name">{{name}}</span>
-
   </div>
 </template>
 
 <style scoped>
-.image-container
-{
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-  padding: 2px;
-  width: 250px;
-  height: 250px;
-}
-
 .activity-img
 {
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
-
-.card
+.activity-card
 {
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
   padding: 20px;
-  border: 2px solid black;
-  border-radius: 20px;
-  width: fit-content;
-  height: fit-content;
+  width: 200px;
+  height: 300px;
+  background-color: white;
 }
-
 .activity-name
 {
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: bold;
 }
 </style>

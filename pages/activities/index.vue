@@ -28,20 +28,25 @@ if (services_error.value?.statusCode){
 </script>
 
 <template>
-  <div v-if="are_projects_loading">
-    <!--TODO: <Loader/> -->
-  </div>
-  <div v-else v-if="projects">
-    <ActivitiesCarousel :activities="projects"/>
-  </div>
-  <div v-if="are_services_loading">
-    <!--TODO: <Loader/> -->
-  </div>
-  <div v-else v-if="services">
-    <ActivitiesCarousel :activities="services"/>
+  <div class="activities-content">
+    <div v-if="are_projects_loading">
+      <!--TODO: <Loader/> -->
+    </div>
+    <div v-else v-if="projects">
+      <ActivitiesCarousel :activities="projects"/>
+    </div>
+    <div v-if="are_services_loading">
+      <!--TODO: <Loader/> -->
+    </div>
+    <div v-else v-if="services">
+      <ActivitiesCarousel :activities="services"/>
+    </div>
   </div>
 </template>
 
 <style scoped>
-
+.activities-content{
+  display: flex;
+  flex-direction: column;
+}
 </style>
