@@ -29,7 +29,7 @@
 
 <template>
     <div class="floating-button" @click="toggleChat">
-        <i class="icon"></i>
+      <Icon name="icon-park-twotone:robot-one" />
     </div>
     
     <transition name="slide-up">
@@ -70,6 +70,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 1; /* Ensure the floating button is below the chat window */
+  font-size: 2.3rem;
+  color:var(--bg-color);
 }
 
 .floating-button:hover {
