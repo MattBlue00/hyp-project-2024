@@ -20,7 +20,7 @@ html {
 body {
     margin: 0;
     background-color: var(--bg-color);
-    font-family: Comme;
+    font-family: Comme, serif;
     scroll-behavior: smooth;
     min-width: 250px;
     min-height: 600px;
@@ -28,6 +28,19 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.clickable-activity{
+    border: 2px solid var(--nbar-color);
+    border-radius: 20px;
+}
+
+.activity-list {
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
 }
 
 @media (width >=1000px) {

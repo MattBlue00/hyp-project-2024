@@ -24,11 +24,11 @@ if (services_error.value?.statusCode){
 
   <section class="list-container">
     <div v-if="are_services_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
-    <div class="list" v-else>
+    <div class="activity-list" v-else v-if="services">
       <div v-for="service in services">
-        <ActivityCard :img="service?.picture" :name="service?.name" />
+        <ActivityCard class="clickable-activity" :img="service?.picture" :name="service?.name" />
       </div>
     </div>
   </section>
@@ -38,15 +38,6 @@ if (services_error.value?.statusCode){
 .list-container {
   margin: 3.5rem auto;
 }
-
-.list {
-  display: grid;
-  grid-column-gap: 2rem;
-  grid-row-gap: 4rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  justify-content: center;
-}
-
 .list div {
   margin: 0 auto;
 }
