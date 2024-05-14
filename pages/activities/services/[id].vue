@@ -5,10 +5,11 @@ import type {Testimonial} from "~/types/Testimonial";
 import {handleFetchError} from "~/composables/errorHandlers";
 import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vue";
 import ServiceInfoContainer from "~/components/containers/ServiceInfoContainer.vue";
+import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Service',
-  description: 'This is the single person page with all relevant details about a team member.',
+  description: 'This is the single service page with all relevant details about a service.',
 });
 
 const { id } = useRoute().params;
@@ -58,6 +59,7 @@ if (testimonials_error.value?.statusCode){
         :duration="service?.duration"
         :contacts="service?.contacts"
     />
+    <DescriptionContainer :description="service?.description"/>
     <div v-if="are_testimonials_loading">
       <!--TODO: <Loader/> -->
     </div>

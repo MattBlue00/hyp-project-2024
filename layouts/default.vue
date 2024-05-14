@@ -5,6 +5,7 @@
   <NavBar/>
   <FloatingButton/>
   <slot/>
+  <Footer/>
 </template>
 
 <style scoped>

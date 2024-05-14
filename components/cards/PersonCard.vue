@@ -13,14 +13,11 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <div class="card">
     <div class="image-container">
       <nuxt-img class="person-img" :src="img" :alt="altPicture"/>
     </div>
     <span class="person-name">{{name}}</span>
     <span class="person-main_role">{{main_role}}</span>
-
-  </div>
 </template>
 
 <style scoped>
@@ -43,24 +40,13 @@ const altPicture = computed(() => {
   width: auto;
 }
 
-.card
-{
-  display: flex;
-  flex-flow: column;
-  padding: 20px;
-  border: 2px solid black;
-  border-radius: 20px;
-  width: fit-content;
-  height: fit-content;
-}
-
 .person-name
 {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .person-main_role{
-  font-family: Futura;
+  font-family: Futura,serif;
 }
 </style>

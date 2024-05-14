@@ -26,9 +26,11 @@ if (services_error.value?.statusCode){
     <div v-if="are_services_loading">
       <Loader/>
     </div>
-    <div class="activity-list" v-else v-if="services">
+    <div class="card-list" v-else v-if="services">
       <div v-for="service in services">
-        <ActivityCard class="clickable-activity" :img="service?.picture" :name="service?.name" />
+        <NuxtLink class="clickable-card" :to="`/activities/services/${service?.id}`">
+          <ActivityCard :img="service?.picture" :name="service?.name"/>
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -38,6 +40,7 @@ if (services_error.value?.statusCode){
 .list-container {
   margin: 3.5rem auto;
 }
+
 .list div {
   margin: 0 auto;
 }
