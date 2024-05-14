@@ -1,12 +1,10 @@
 <script setup lang="ts">
 interface Props {
-  id?: number;
   img?: string;
   name?: string;
-  type?: string;
 }
 
-const { id, img, name, type} = defineProps<Props>();
+const { img, name } = defineProps<Props>();
 
 const altPicture = computed(() => {
   return "Picture of the '" + name +"' activity";
@@ -14,12 +12,10 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <NuxtLink class= "activity-card" :to="`/activities/${type}/${id}`">
     <div class="image-container">
       <nuxt-img class="activity-img" :src="img" :alt="altPicture"/>
     </div>
     <span class="activity-name">{{name}}</span>
-  </NuxtLink>
 </template>
 
 <style scoped>
@@ -27,11 +23,12 @@ const altPicture = computed(() => {
 .image-container
 {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  align-content: center;
   border-radius: 10px;
   padding: 2px;
-  width: 250px;
-  height: 250px;
+  width: auto;
+  height: auto;
 }
 
 .activity-img
@@ -39,29 +36,12 @@ const altPicture = computed(() => {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-}
-.activity-card
-{
-  box-shadow: 0.1rem 0.2rem 0.5rem #888888;
-  border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding: 20px;
-  border: 2px solid black;
-  width: fit-content;
-  height: fit-content;
-  text-decoration: none;
+  width: 100%;
 }
 
-.activity-card:hover {
-  box-shadow: 0.1rem 0.5rem 1.2rem #888888;
-  transition: 0.3s ease-in all;
-}
 .activity-name
 {
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-weight: bold;
 }
 </style>

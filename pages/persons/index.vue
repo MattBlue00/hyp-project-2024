@@ -34,9 +34,11 @@ if (persons_error.value?.statusCode){
       <div v-if="are_persons_loading">
         <Loader/>
       </div>
-      <div class="list" v-else>
+      <div class="card-list" v-else>
         <div v-for="person in persons">
-          <PersonCard :id="person?.id" :img="person?.picture" :name="person?.full_name" :main_role="person?.main_role" />
+          <NuxtLink class="clickable-card" :to="`/persons/${person?.id}`">
+            <PersonCard :img="person?.picture" :name="person?.full_name" :main_role="person?.main_role" />
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -67,17 +69,5 @@ if (persons_error.value?.statusCode){
 
 .list-container {
   margin: 3.5rem auto;
-}
-
-.list {
-  display: grid;
-  grid-column-gap: 2rem;
-  grid-row-gap: 4rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  justify-content: center;
-}
-
-.list div {
-  margin: 0 auto;
 }
 </style>

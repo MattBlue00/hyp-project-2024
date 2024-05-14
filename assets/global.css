@@ -37,17 +37,35 @@ body {
     margin: 0.75rem auto;
 }
 
-.clickable-activity{
-    border: 2px solid var(--nbar-color);
-    border-radius: 20px;
-}
-
-.activity-list {
+.card-list {
     display: grid;
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     justify-content: center;
+}
+
+.card-list div {
+    margin: 0 auto;
+}
+
+.clickable-card
+{
+    box-shadow: 0.1rem 0.2rem 0.5rem #888888;
+    border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+    width: 275px;
+    text-decoration: none;
+    color: black;
+}
+
+.clickable-card:hover {
+    box-shadow: 0.1rem 0.5rem 1.3rem #888888;
+    transition: 0.3s ease-in all;
 }
 
 @media (width >=1000px) {
