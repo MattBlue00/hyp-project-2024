@@ -3,6 +3,7 @@
 import type {Person} from '~/types/Person';
 import {handleFetchError} from "~/composables/errorHandlers";
 import CVInfoContainer from "~/components/containers/CVInfoContainer.vue";
+import PersonInfoContainer from "~/components/containers/PersonInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Person',
@@ -28,7 +29,6 @@ if (person_error.value?.statusCode) {
   }
 }
 
-
 // TODO: compute alt person picture
 
 </script>
@@ -47,6 +47,13 @@ if (person_error.value?.statusCode) {
     />
   </div>
   -->
+  <div>
+    <PersonInfoContainer
+      :name="person?.full_name"
+      :main_role="person?.main_role"
+      :motto="person?.motto"
+    />
+  </div>
   <div>
     <CVInfoContainer
         :bio="person?.bio"

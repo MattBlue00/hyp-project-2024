@@ -19,6 +19,7 @@ if (projects_error.value?.statusCode){
 </script>
 
 <template>
+  <NuxtLink :to="`/activities/projects/1`">TEST</NuxtLink>
   <section class="list-container">
     <div v-if="are_projects_loading">
       <!--TODO: <Loader/> -->
