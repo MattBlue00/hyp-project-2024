@@ -19,14 +19,13 @@ if (projects_error.value?.statusCode){
 </script>
 
 <template>
-  <NuxtLink :to="`/activities/projects/1`">TEST</NuxtLink>
   <section class="list-container">
     <div v-if="are_projects_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
-    <div class="list" v-else>
+    <div class="activity-list" v-else v-if="projects">
       <div v-for="project in projects">
-        <ActivityCard :id="project?.id" :img="project?.picture" :name="project?.name" :type="'projects'" />
+        <ActivityCard class="clickable-activity" :id="project?.id" :img="project?.picture" :name="project?.name" :type="'projects'" />
       </div>
     </div>
   </section>
@@ -37,7 +36,7 @@ if (projects_error.value?.statusCode){
   margin: 3.5rem auto;
 }
 
-.list {
+.activity-list {
   display: grid;
   grid-column-gap: 2rem;
   grid-row-gap: 4rem;

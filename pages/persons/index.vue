@@ -32,7 +32,7 @@ if (persons_error.value?.statusCode){
 
     <section class="list-container">
       <div v-if="are_persons_loading">
-        <!--TODO: <Loader/> -->
+        <Loader/>
       </div>
       <div class="list" v-else>
         <div v-for="person in persons">
@@ -40,6 +40,8 @@ if (persons_error.value?.statusCode){
         </div>
       </div>
     </section>
+
+    <NuxtLink :to="`/persons/1`">TEST</NuxtLink>
   </div>
 </template>
 
@@ -53,6 +55,7 @@ if (persons_error.value?.statusCode){
 .page-title-container {
   width: min(900px, 100%);
 }
+
 .page-title {
   font-size: 2rem;
   color: var(--dark-color);
@@ -65,6 +68,7 @@ if (persons_error.value?.statusCode){
 .list-container {
   margin: 3.5rem auto;
 }
+
 .list {
   display: grid;
   grid-column-gap: 2rem;

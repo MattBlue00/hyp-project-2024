@@ -14,7 +14,7 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <NuxtLink class= "card" :to="`/activities/${type}/${id}`">
+  <NuxtLink class= "activity-card" :to="`/activities/${type}/${id}`">
     <div class="image-container">
       <nuxt-img class="activity-img" :src="img" :alt="altPicture"/>
     </div>
@@ -36,14 +36,12 @@ const altPicture = computed(() => {
 
 .activity-img
 {
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
-
-.card
+.activity-card
 {
   box-shadow: 0.1rem 0.2rem 0.5rem #888888;
   border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
@@ -57,14 +55,13 @@ const altPicture = computed(() => {
   text-decoration: none;
 }
 
-.card:hover {
+.activity-card:hover {
   box-shadow: 0.1rem 0.5rem 1.2rem #888888;
   transition: 0.3s ease-in all;
 }
-
 .activity-name
 {
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: bold;
 }
 </style>
