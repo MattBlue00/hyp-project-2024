@@ -28,7 +28,7 @@ if (services_error.value?.statusCode){
     </div>
     <div class="list" v-else>
       <div v-for="service in services">
-        <ActivityCard :img="service?.picture" :name="service?.name" />
+        <ActivityCard :id="service?.id" :img="service?.picture" :name="service?.name" :type="'services'"/>
       </div>
     </div>
   </section>

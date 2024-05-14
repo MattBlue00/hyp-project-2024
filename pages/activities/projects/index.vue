@@ -26,7 +26,7 @@ if (projects_error.value?.statusCode){
     </div>
     <div class="list" v-else>
       <div v-for="project in projects">
-        <ActivityCard :img="project?.picture" :name="project?.name" />
+        <ActivityCard :id="project?.id" :img="project?.picture" :name="project?.name" :type="'projects'" />
       </div>
     </div>
   </section>

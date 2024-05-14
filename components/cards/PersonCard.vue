@@ -1,11 +1,12 @@
 <script setup lang="ts">
 interface Props {
+  id?: number;
   img?: string;
   name?: string;
   main_role?: string;
 }
 
-const { img, name, main_role} = defineProps<Props>();
+const { id, img, name, main_role} = defineProps<Props>();
 
 const altPicture = computed(() => {
   return "Picture of the '" + name +"' person";
@@ -13,14 +14,13 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <div class="card">
+  <NuxtLink class="card" :to="`/persons/${id}`">
     <div class="image-container">
       <nuxt-img class="person-img" :src="img" :alt="altPicture"/>
     </div>
     <span class="person-name">{{name}}</span>
     <span class="person-main_role">{{main_role}}</span>
-
-  </div>
+  </NuxtLink>
 </template>
 
 <style scoped>
@@ -45,13 +45,21 @@ const altPicture = computed(() => {
 
 .card
 {
+  box-shadow: 0.1rem 0.2rem 0.5rem #888888;
+  border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
   display: flex;
   flex-flow: column;
+  align-items: center;
   padding: 20px;
   border: 2px solid black;
-  border-radius: 20px;
   width: fit-content;
   height: fit-content;
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: 0.1rem 0.5rem 1.2rem #888888;
+  transition: 0.3s ease-in all;
 }
 
 .person-name

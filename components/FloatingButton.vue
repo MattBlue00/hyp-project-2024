@@ -62,7 +62,7 @@
   right: 3vw;
   width: 4vw;
   height: 4vw;
-  background-color: #DA0E5F;
+  background-color: var(--orientational-info-color);
   border-radius: 50%;
   display: flex;
   align-items: center;

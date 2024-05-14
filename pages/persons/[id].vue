@@ -47,6 +47,7 @@ if (person_error.value?.statusCode) {
     />
   </div>
   -->
+
   <div>
     <PersonInfoContainer
       :name="person?.full_name"

@@ -8,6 +8,7 @@
     --light-color: #FFABC5;
     --lighter-color: #FFE4EB;
     --hover-color: #C30753;
+    --orientational-info-color: #651543;
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
@@ -28,6 +29,12 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.orientational-info {
+    font-size: 1.75rem;
+    color: var(--orientational-info-color);
+    margin: 0.75rem auto;
 }
 
 @media (width >=1000px) {
