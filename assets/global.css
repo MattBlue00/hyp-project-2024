@@ -68,6 +68,28 @@ body {
     transition: 0.3s ease-in all;
 }
 
+.page-content {
+    width: var(--content-width);
+    margin: 2rem auto;
+}
+
+.page-title-container {
+    width: min(900px, 100%);
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+.page-title-container * {
+    margin: 1rem 0;
+}
+
+.list-container {
+    margin: 3.5rem auto;
+}
+
 @media (width >=1000px) {
     body {
         overflow: auto !important;

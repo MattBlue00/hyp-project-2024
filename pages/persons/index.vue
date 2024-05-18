@@ -49,25 +49,4 @@ if (persons_error.value?.statusCode){
 
 <style scoped>
 
-.page-content {
-  width: var(--content-width);
-  margin: 2rem auto;
-}
-
-.page-title-container {
-  width: min(900px, 100%);
-}
-
-.page-title {
-  font-size: 2rem;
-  color: var(--dark-color);
-}
-
-.page-title-container * {
-  margin: 1rem 0;
-}
-
-.list-container {
-  margin: 3.5rem auto;
-}
 </style>
