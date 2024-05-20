@@ -34,7 +34,7 @@ if (project_error.value?.statusCode) {
 
 <template>
   <div v-if="is_project_loading">
-    <!--TODO: <Loader/> -->
+    <Loader/>
   </div>
   <div v-else v-if="project">
     <h1 class="project-title">{{ project.name }}</h1>

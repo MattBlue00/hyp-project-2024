@@ -10,7 +10,7 @@ export default eventHandler(async (event) => {
     // query the Db and then send to the Vue client an object with services and error field
     const { data, error } = await client.then((c) => c
         .from('Service')
-        .select('id, name, description, opening_hours, duration, contacts, supervisor_id, picture')
+        .select('id, name, description, picture')
         .order('id')
     );
     if (error) console.log(error);

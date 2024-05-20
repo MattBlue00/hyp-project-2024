@@ -12,28 +12,33 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getServices');
+} = await useLazyFetch<Service[]>('/api/service/getAllServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
 </script>
 
 <template>
-  Services<br>
-  <NuxtLink :to="`/activities/services/1`">TEST</NuxtLink>
 
-  <section class="list-container">
-    <div v-if="are_services_loading">
-      <Loader/>
-    </div>
-    <div class="card-list" v-else v-if="services">
-      <div v-for="service in services">
-        <NuxtLink class="clickable-card" :to="`/activities/services/${service?.id}`">
-          <ActivityCard :img="service?.picture" :name="service?.name"/>
-        </NuxtLink>
+  <div class="page-content">
+    <section class="page-title-container">
+      <p class="orientational-info">Our services</p>
+      <h1 class="page-title">Learn how SheRise takes care about women in difficulty</h1>
+      <p>SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise.</p>
+    </section>
+    <section class="list-container">
+      <div v-if="are_services_loading">
+        <Loader/>
       </div>
-    </div>
-  </section>
+      <div class="card-list" v-else v-if="services">
+        <div v-for="service in services">
+          <NuxtLink class="clickable-card" :to="`/activities/services/${service?.id}`">
+            <ActivityCard :img="service?.picture" :name="service?.name"/>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>

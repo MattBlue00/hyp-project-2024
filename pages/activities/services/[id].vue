@@ -51,7 +51,7 @@ if (testimonials_error.value?.statusCode){
 
 <template>
   <div v-if="is_service_loading">
-    <!--TODO: <Loader/> -->
+    <Loader/>
   </div>
   <div v-else v-if="service">
     <ServiceInfoContainer

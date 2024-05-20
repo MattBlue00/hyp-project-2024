@@ -19,18 +19,25 @@ if (projects_error.value?.statusCode){
 </script>
 
 <template>
-  <section class="list-container">
-    <div v-if="are_projects_loading">
-      <Loader/>
-    </div>
-    <div class="card-list" v-else v-if="projects">
-      <div v-for="project in projects">
-        <NuxtLink class="clickable-card" :to="`/activities/projects/${project?.id}`">
-          <ActivityCard :img="project?.picture" :name="project?.name" />
-        </NuxtLink>
+  <div class="page-content">
+    <section class="page-title-container">
+      <p class="orientational-info">Our projects</p>
+      <h1 class="page-title">Discover how SheRise takes action to prevent women abuse</h1>
+      <p>Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects.</p>
+    </section>
+    <section class="list-container">
+      <div v-if="are_projects_loading">
+        <Loader/>
       </div>
-    </div>
-  </section>
+      <div class="card-list" v-else v-if="projects">
+        <div v-for="project in projects">
+          <NuxtLink class="clickable-card" :to="`/activities/projects/${project?.id}`">
+            <ActivityCard :img="project?.picture" :name="project?.name" />
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>

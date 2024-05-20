@@ -5,21 +5,15 @@ import ActivityBigCard from "~/components/cards/ActivityBigCard.vue";
 
 interface Props {
   activities?: (Project | Service)[];
+  type?: string;
 }
 
-const { activities } = defineProps<Props>();
+const { activities, type } = defineProps<Props>();
 
 // allows to generate different ids for project and service carousels
-const num = computed(() => {
-  const hasOpeningHours = activities?.some(item => 'opening_hours' in item);
-  return hasOpeningHours ? 2 : 1;
-});
-
 const carouselID = computed(() => {
-  return "activitiesCarousel" + num.value;
+  return "activitiesCarousel-" + type;
 });
-
-console.log(activities)
 </script>
 
 
@@ -42,10 +36,12 @@ console.log(activities)
         <ActivityBigCard
             v-for="(activity, index) in activities"
             :key="activity.id"
+            :id="activity.id"
             :img="activity.picture"
             :name="activity.name"
             :description="activity.description"
             :isActive="index===0"
+            :type="type"
         />
       </div>
       <button class="carousel-control-prev" type="button" :data-bs-target="'#'+carouselID" data-bs-slide="prev">

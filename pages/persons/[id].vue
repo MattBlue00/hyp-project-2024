@@ -35,20 +35,9 @@ if (person_error.value?.statusCode) {
 
 <template>
   <div v-if="is_person_loading">
-    <!--TODO: <Loader/> -->
+    <Loader/>
   </div>
-  <!--
   <div v-else v-if="person">
-    <CVInfoContainer
-        :bio="person?.bio"
-        :education="person?.education"
-        :past_experience="person?.past_experience"
-        :main_expertise="person?.main_expertise"
-    />
-  </div>
-  -->
-
-  <div>
     <PersonInfoContainer
       :name="person?.full_name"
       :main_role="person?.main_role"

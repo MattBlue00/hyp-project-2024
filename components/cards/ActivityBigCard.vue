@@ -2,13 +2,17 @@
 import ActivityCard from "~/components/cards/ActivityCard.vue";
 
 interface Props {
+  id?: number;
   img?: string;
   name?: string;
   description?: string;
   isActive?: boolean;
+  type?: string;
 }
 
-const { img, name, description, isActive} = defineProps<Props>();
+const { id, img, name, description, isActive, type} = defineProps<Props>();
+
+
 </script>
 
 <template>
@@ -25,7 +29,9 @@ const { img, name, description, isActive} = defineProps<Props>();
             <p id="activityDescription">{{ description }}</p>
           </div>
           <div>
-            <button class="more-button">More here</button>
+            <button class="more-button">
+              <NuxtLink :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`">More here</NuxtLink>
+            </button>
           </div>
         </td>
       </tr>
@@ -51,6 +57,8 @@ const { img, name, description, isActive} = defineProps<Props>();
   font-style: italic;
 }
 #activityCardContainer{
+  height: 100%;
+  width: 200px;
   padding-right: 20px;
 }
 </style>

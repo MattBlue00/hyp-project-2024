@@ -12,7 +12,7 @@ const {
   data: projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useLazyFetch<Project[]>('/api/project/getProjects');
+} = await useLazyFetch<Project[]>('/api/project/getAllProjects');
 if (projects_error.value?.statusCode){
   handleFetchError(projects, projects_error.value.statusCode);
 }
@@ -21,26 +21,39 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getServices');
+} = await useLazyFetch<Service[]>('/api/service/getAllServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
 </script>
 
 <template>
-  <div class="activities-content">
-    <div v-if="are_projects_loading">
-      <Loader/>
-    </div>
-    <div v-else v-if="projects">
-      <ActivitiesCarousel :activities="projects"/>
-    </div>
-    <div v-if="are_services_loading">
-      <Loader/>
-    </div>
-    <div v-else v-if="services">
-      <ActivitiesCarousel :activities="services"/>
-    </div>
+  <div class="page-content">
+    <section class="page-title-container">
+      <p class="orientational-info">Our activities</p>
+      <h1 class="page-title">Have a look at what SheRise is all about</h1>
+      <p>SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone.</p>
+    </section>
+    <section class="activities-content">
+      <h2 class="activities-title">
+        Our projects
+      </h2>
+      <div v-if="are_projects_loading">
+        <Loader/>
+      </div>
+      <div v-else v-if="projects">
+        <ActivitiesCarousel class="activity-carousel" :activities="projects" type="projects"/>
+      </div>
+      <h2 class="activities-title">
+        Our services
+      </h2>
+      <div v-if="are_services_loading">
+        <Loader/>
+      </div>
+      <div v-else v-if="services">
+        <ActivitiesCarousel class="activity-carousel" :activities="services" type="services"/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -48,5 +61,15 @@ if (services_error.value?.statusCode){
 .activities-content{
   display: flex;
   flex-direction: column;
+}
+.activities-title{
+  padding-top: 40px;
+  align-self: center;
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+.activity-carousel{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>
