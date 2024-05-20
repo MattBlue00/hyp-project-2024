@@ -62,8 +62,10 @@ const carouselID = computed(() => {
   padding-right: 10%;
   height: 350px;
 }
-.carousel-inner{
-  padding-left: 7%;
-  padding-right: 7%;
+.carousel-control-prev{
+  padding-right: 10%;
+}
+.carousel-control-next{
+  padding-left: 10%;
 }
 </style>

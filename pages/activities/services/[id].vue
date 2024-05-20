@@ -61,14 +61,17 @@ if (testimonials_error.value?.statusCode){
     />
     <DescriptionContainer :description="service?.description"/>
     <div v-if="are_testimonials_loading">
-      <!--TODO: <Loader/> -->
+      <Loader/>
     </div>
-    <div v-else>
-      <TestimonialsCarousel :testimonials="testimonials"/>
+    <div v-else v-if="testimonials">
+      <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.testimonials-carousel{
+  margin-left: 7%;
+  margin-right: 7%;
+}
 </style>
