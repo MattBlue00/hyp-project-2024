@@ -20,12 +20,14 @@
 <style scoped>
   .nav-container {
     box-sizing: border-box;
-    padding: 0.5rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
     background-color: var(--nbar-color);
     color: var(--bg-color);
   }
   .nav-group {
-    margin: 0 auto;
+    margin-left: min(5%,10em);
+    margin-right: min(5%,10em);
     display: flex;
     align-items: center;
     justify-content: space-between;
