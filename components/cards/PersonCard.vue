@@ -21,23 +21,24 @@ const altPicture = computed(() => {
 </template>
 
 <style scoped>
+
 .image-container
 {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  align-content: center;
   border-radius: 10px;
   padding: 2px;
-  width: 250px;
-  height: 250px;
+  width: auto;
+  height: auto;
 }
 
 .person-img
 {
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .person-name

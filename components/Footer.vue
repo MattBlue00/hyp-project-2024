@@ -10,20 +10,21 @@
 <template>
   <div class ="footer-box">
     <div class="footer-text-container">
-      <p class="footer-title">SHERISE S.p.A.</p>
-      <p class="footer-title-2">P.IVA SHERISE SpA – 12375322943</p>
-      <p class="footer-title-3">Via Vipacco 34 - 20126 Milano</p>
-      <p class="footer-title-3">Phone number: +39 06 376 5344</p>
+      <p class="footer-title">SHERISE L.t.d.</p>
+      <p class="footer-title-2">EIN SHERISE – 12375322943</p>
+      <p class="footer-title-3">2116 Arlington Ave # 200, Los Angeles, CA 90018, US
+      </p>
+      <p class="footer-title-3">Phone number: +1 213 376 5344</p>
       <p class="footer-title-3">info@sherise.com</p>
     </div>
     <hr class="divider" />
     <div class="footer-social-container">
       <div>
         <p>
-          © 2023 SHERISE S.p.A All rights reserved.
-          <NuxtLink class="footer-anchor" to="https://www.google.it/">Privacy Policy</NuxtLink>
+          © 2024 SHERISE Ltd All rights reserved.
+          <NuxtLink class="footer-anchor" to="https://www.google.com/">Privacy Policy</NuxtLink>
           ·
-          <NuxtLink class="footer-anchor" to="https://www.polimi.it/">Cookie Policy</NuxtLink>
+          <NuxtLink class="footer-anchor" to="https://www.deib.polimi.it/eng/people/details/1118154">Cookie Policy</NuxtLink>
         </p>
       </div>
       <div class="footer-icon-container">
@@ -34,7 +35,7 @@
           <Icon name="uil:facebook" />
         </NuxtLink>
         <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="Go to twitter">
-          <Icon name="fa6-brands:square-twitter" />
+          <Icon name="simple-icons:x" />
         </NuxtLink>
       </div>
     </div>

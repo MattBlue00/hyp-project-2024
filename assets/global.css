@@ -9,6 +9,7 @@
     --lighter-color: #FFE4EB;
     --hover-color: #C30753;
     --orientational-info-color: #651543;
+    --par-color: #36454F;
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
@@ -69,21 +70,20 @@ body {
 }
 
 .page-content {
-    width: var(--content-width);
-    margin: 2rem auto;
+    /*width: var(--content-width);*/
+    margin-left: min(15%,15em);
+    margin-right: min(15%,15em);
 }
 
 .page-title-container {
     width: min(900px, 100%);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 
 .page-title {
     font-size: 2rem;
     color: var(--dark-color);
-}
-
-.page-title-container * {
-    margin: 1rem 0;
 }
 
 .list-container {
