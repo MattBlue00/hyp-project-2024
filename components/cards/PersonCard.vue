@@ -44,10 +44,14 @@ const altPicture = computed(() => {
 .person-name
 {
   font-size: 1.5em;
-  font-weight: bold;
+  font-family: Futura,serif;
+  color: #C30753;
+  margin-top: 1rem;
 }
 
 .person-main_role{
   font-family: Futura,serif;
+  text-align: center;
+  color: #400E2A;
 }
 </style>

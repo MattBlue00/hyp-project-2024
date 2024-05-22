@@ -2,7 +2,8 @@
     /*
         insert css variables, css rules for body (e.g. font-sizes, zero margin, ...) and other useful classes for components
     */
-    --bg-color: #FFFAF1;
+    /*--bg-color: #FFFAF1;*/
+    --bg-color: #FFFFFF;
     --nbar-color: #DA0E5F;
     --dark-color: #400E2A;
     --light-color: #FFABC5;
@@ -26,6 +27,7 @@ body {
     scroll-behavior: smooth;
     min-width: 250px;
     min-height: 600px;
+    color: #400E2A;
 }
 
 * {
@@ -52,7 +54,8 @@ body {
 
 .clickable-card
 {
-    box-shadow: 0.1rem 0.2rem 0.5rem #888888;
+    /*box-shadow: 0.1rem 0.2rem 0.5rem #888888;*/
+    box-shadow: 0.1rem 0.2rem 0.5rem #CCCCCC;
     border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
     display: flex;
     flex-flow: column;
@@ -62,6 +65,8 @@ body {
     width: 275px;
     text-decoration: none;
     color: black;
+    /*background-color: #FFFAF1;*/
+    background-color: #FFE4EB;
 }
 
 .clickable-card:hover {

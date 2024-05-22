@@ -16,7 +16,6 @@ const {description} = defineProps<Props>();
 <style scoped>
 #DescriptionContainer{
   width: 80%;
-  border: solid 1px;
   border-radius: 8px;
   margin-left: 10%;
   padding: 15px;
@@ -27,10 +26,12 @@ const {description} = defineProps<Props>();
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 6px;
+  color: #400E2A;
 }
 
 .Description-content{
   font-family: Futura;
   margin-bottom: 25px;
+  color: #400E2A;
 }
 </style>

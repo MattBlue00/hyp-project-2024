@@ -25,10 +25,12 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 <style scoped>
 #CVInfoContainer{
   width: 80%;
-  border: solid 1px;
+  /*border: solid 1px;*/
   border-radius: 8px;
   margin-left: 10%;
+  margin-bottom: 5%;
   padding: 15px;
+  /*background-color: #FFABC5;*/
   background-color: #FFFAF1;
 }
 
@@ -36,10 +38,12 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 6px;
+  color: #400E2A;
 }
 
 .CV-info-content{
-  font-family: Futura;
+  font-family: Futura,serif;
   margin-bottom: 25px;
+  color: #400E2A;
 }
 </style>
