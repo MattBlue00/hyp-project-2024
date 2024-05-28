@@ -7,6 +7,7 @@ import PersonInfoContainer from "~/components/containers/PersonInfoContainer.vue
 import type {Project} from "~/types/Project";
 import ActivityCard from "~/components/cards/ActivityCard.vue";
 import type {Service} from "~/types/Service";
+import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Person',
@@ -14,21 +15,6 @@ useSeoMeta({
 });
 
 const { id } = useRoute().params;
-
-// Computed property per convertire id in numero
-const numericId = computed(() => {
-  return Number(id);
-});
-
-// Computed properties per calcolare prevId e nextId
-const prevId = computed(() => {
-  return numericId.value - 1;
-});
-
-const nextId = computed(() => {
-  return numericId.value + 1;
-});
-
 
 // fetch the person information
 const {
@@ -134,15 +120,10 @@ if (services_error.value?.statusCode){
     </div>
   </section>
 
-  <section class="group-links">
-    <NuxtLink class="prev-link" v-if="numericId > 1" :to="`/persons/${prevId}`">
-      <p>PREV</p>
-    </NuxtLink>
-    <NuxtLink class="next-link" v-if="numericId < 20" :to="`/persons/${nextId}`">
-      <p>NEXT</p>
-    </NuxtLink>
+  <section>
+    <GroupLinksContainer :id="useRoute().params.id" :type="'person'"/>
   </section>
-  <!-- TODO: remove hardcoded max bound -->
+
 </template>
 
 <style scoped>
@@ -167,22 +148,6 @@ if (services_error.value?.statusCode){
 .list-container{
   margin-left: 5rem;
   margin-right: 5rem;
-}
-
-.group-links{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.prev-link{
-  display: flex;
-}
-
-.next-link{
-  display: flex;
 }
 
 </style>
