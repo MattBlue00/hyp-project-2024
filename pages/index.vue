@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  Ciao
+Ciao!
 </template>
 
 <style scoped>

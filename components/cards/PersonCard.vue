@@ -27,10 +27,10 @@ const altPicture = computed(() => {
   display: flex;
   align-items: center;
   align-content: center;
-  border-radius: 10px;
-  padding: 2px;
-  width: auto;
-  height: auto;
+  border-radius: 1.25rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .person-img
@@ -39,6 +39,7 @@ const altPicture = computed(() => {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border-radius: 1.25rem;
 }
 
 .person-name

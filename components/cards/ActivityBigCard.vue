@@ -28,10 +28,10 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
             <p id="activityDescriptionHeader">Description</p>
             <p id="activityDescription">{{ description }}</p>
           </div>
-          <div>
-            <button class="more-button">
-              <NuxtLink :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`">More here</NuxtLink>
-            </button>
+          <div class="btn-container">
+            <NuxtLink :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`">
+              <Button value="More here" />
+            </NuxtLink>
           </div>
         </td>
       </tr>
@@ -40,9 +40,6 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 </template>
 
 <style scoped>
-.more-button{
-  margin-top: 20px;
-}
 #activityDescriptionHeader{
   font-size: 22px;
   font-weight: bold;
