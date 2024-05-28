@@ -23,6 +23,7 @@ const { value } = defineProps<Props>();
     font-size: 1rem;
     font-weight: 500;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .scheme {

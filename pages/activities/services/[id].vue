@@ -141,10 +141,10 @@ const altPicture = computed(() => {
 
     <section class="group-links">
       <NuxtLink class="prev-link" v-if="numericId > 1" :to="`/activities/services/${prevId}`">
-        <p>PREV</p>
+        <Button value="Prev"/>
       </NuxtLink>
       <NuxtLink class="next-link" v-if="numericId < 5" :to="`/activities/services/${nextId}`">
-        <p>NEXT</p>
+        <Button value="Next"/>
       </NuxtLink>
       <!-- TODO: remove hardcoded max bound -->
     </section>

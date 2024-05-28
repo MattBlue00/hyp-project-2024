@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <Button value="Submit"/>
+Ciao!
 </template>
 
 <style scoped>
