@@ -7,7 +7,9 @@ import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vu
 import ServiceInfoContainer from "~/components/containers/ServiceInfoContainer.vue";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
 import type {Person} from "~/types/Person";
-import PersonCard from "~/components/cards/PersonCard.vue";
+import ActivityImageAndSupervisorCardContainer
+  from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
+import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Service',
@@ -15,20 +17,6 @@ useSeoMeta({
 });
 
 const { id } = useRoute().params;
-
-// Computed property per convertire id in numero
-const numericId = computed(() => {
-  return Number(id);
-});
-
-// Computed properties per calcolare prevId e nextId
-const prevId = computed(() => {
-  return numericId.value - 1;
-});
-
-const nextId = computed(() => {
-  return numericId.value + 1;
-});
 
 // fetch the service information
 const {
@@ -82,12 +70,6 @@ if (person_error.value?.statusCode) {
   }
 }
 
-const altPicture = computed(() => {
-  return "Picture of the '" + service.value?.name +"' service";
-});
-
-
-//TODO: compute alt supervisor picture
 </script>
 
 <template>
@@ -96,22 +78,11 @@ const altPicture = computed(() => {
   </div>
 
   <div>
-    <section class="service-img-and-person-card-container">
-      <div v-if="is_service_loading">
+    <section>
+      <div v-if="is_service_loading || is_person_loading">
         <Loader/>
       </div>
-      <div v-else v-if="service">
-        <nuxt-img class="service-img" :src="service.picture" :alt="altPicture"/>
-      </div>
-      <div v-if="is_person_loading">
-        <Loader/>
-      </div>
-      <div class="supervisor-container" v-else v-if="person">
-        <p class="supervised-by">Supervised By:</p>
-        <NuxtLink class="clickable-card" :to="`/persons/${person?.id}`">
-          <PersonCard :img="person?.picture" :name="person?.full_name" :main_role="person?.main_role" />
-        </NuxtLink>
-      </div>
+      <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
     </section>
 
     <section class="service-description-and-service-info-container">
@@ -139,15 +110,10 @@ const altPicture = computed(() => {
       </div>
     </section>
 
-    <section class="group-links">
-      <NuxtLink class="prev-link" v-if="numericId > 1" :to="`/activities/services/${prevId}`">
-        <p>PREV</p>
-      </NuxtLink>
-      <NuxtLink class="next-link" v-if="numericId < 5" :to="`/activities/services/${nextId}`">
-        <p>NEXT</p>
-      </NuxtLink>
-      <!-- TODO: remove hardcoded max bound -->
+    <section>
+      <GroupLinksContainer :id="useRoute().params.id" :type="'service'"/>
     </section>
+
   </div>
 </template>
 
@@ -159,32 +125,6 @@ const altPicture = computed(() => {
   margin-bottom: 2rem;
 }
 
-.service-img-and-person-card-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5rem;
-}
-
-.service-img{
-  display: flex;
-  margin-left: 26rem;
-  width: 40%;
-}
-
-.supervisor-container{
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  align-content: center;
-  width: 18rem;
-  height: 18.75rem;
-  margin-right: 26rem;
-  background-color: #FFE4EB;
-  padding: 1rem;
-}
-
 .service-description-and-service-info-container{
   display: flex;
   flex-direction: row;
@@ -193,39 +133,9 @@ const altPicture = computed(() => {
   margin-bottom: 5rem;
 }
 
-.supervised-by{
-  color: #C30753;
-}
-
-.clickable-card{
-  box-shadow: 0rem 0rem 0rem #888888;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  align-content: center;
-  text-decoration: none;
-}
-
 .testimonials-carousel{
   margin-left: 7%;
   margin-right: 7%;
-}
-
-.group-links{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 3rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.prev-link{
-  display: flex;
-}
-
-.next-link{
-  display: flex;
 }
 
 </style>
