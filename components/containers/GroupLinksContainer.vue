@@ -51,10 +51,10 @@ const next_path = computed(() => {
 <template>
   <div class="group-links">
     <NuxtLink class="prev-link" :to="prev_path">
-      <p>PREV</p>
+      <Button value="Prev"/>
     </NuxtLink>
     <NuxtLink class="next-link" :to="next_path">
-      <p>NEXT</p>
+      <Button value="Next"/>
     </NuxtLink>
   </div>
 

@@ -25,10 +25,10 @@ const altPicture = computed(() => {
   display: flex;
   align-items: center;
   align-content: center;
-  border-radius: 10px;
-  padding: 2px;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1.25rem;
 }
 
 .activity-img
@@ -37,11 +37,14 @@ const altPicture = computed(() => {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border-radius: 1.25rem;
 }
 
 .activity-name
 {
+  margin-top: 1rem;
   font-size: 1.1em;
   font-weight: bold;
+  text-align: center;
 }
 </style>

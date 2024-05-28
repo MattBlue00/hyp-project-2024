@@ -4,6 +4,7 @@
     */
     /*--bg-color: #FFFAF1;*/
     --gradient-color: linear-gradient(30deg, #DA0E5F, #a4246d);
+    --gradient-card-color: linear-gradient(30deg, #FFE4EB, #ffd1e0);
     --bg-color: #FFFFFF;
     --nbar-color: #DA0E5F;
     --dark-color: #400E2A;
@@ -62,12 +63,12 @@ body {
     flex-flow: column;
     align-items: center;
     align-content: center;
-    padding: 20px;
+    padding: 0.7rem;
     width: 275px;
     text-decoration: none;
     color: black;
     /*background-color: #FFFAF1;*/
-    background-color: #FFE4EB;
+    background-image: var(--gradient-card-color);
 }
 
 .clickable-card:hover {
