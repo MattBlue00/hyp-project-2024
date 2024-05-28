@@ -57,7 +57,7 @@ p {
 
 .footer-box {
     padding: 4rem 0;
-    background-color: var(--nbar-color);
+    background-image: var(--gradient-color);
     color: var(--bg-color);
     width: 100%;
     display: flex;

@@ -22,7 +22,7 @@
     box-sizing: border-box;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
-    background-color: var(--nbar-color);
+    background-image: var(--gradient-color);
     color: var(--bg-color);
   }
   .nav-group {
