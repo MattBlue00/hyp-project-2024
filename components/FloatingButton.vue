@@ -69,26 +69,25 @@
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  z-index: 1; /* Ensure the floating button is below the chat window */
+  z-index: 1;
   font-size: 2.3rem;
   color:var(--bg-color);
 }
 
 .floating-button:hover {
-  background-color: #C30753;
+  background-color: var(--hover-color);
 }
 
-/* Chat window styles */
 .chat-window {
   position: fixed;
   bottom: 20vh;
   right: 5vw;
   width: 300px;
-  background-color: #fff;
+  background-color: var(--bg-color);
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 2; /* Ensure the chat window is on top of the floating button */
+  z-index: 2;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
@@ -107,8 +106,8 @@
 }
 
 .chat-header {
-  background-color: #DA0E5F;
-  color: #fff;
+  background-color: var(--nbar-color);
+  color: var(--bg-color);
   padding: 10px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -134,13 +133,13 @@
 
 .chat-input {
   padding: 10px;
-  margin-top: auto; /* Push chat input to the bottom */
+  margin-top: auto;
   display: flex;
   align-items: center;
 }
 
 .chat-input input {
-  flex: 1; /* Expand to fill available space */
+  flex: 1;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -150,8 +149,8 @@
 .send-button {
   margin-left: 10px;
   padding: 8px 16px;
-  background-color: #DA0E5F;
-  color: #fff;
+  background-color: var(--nbar-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -159,6 +158,6 @@
 }
 
 .send-button:hover {
-  background-color: #C30753;
+  background-color: var(--hover-color);
 }
 </style>
