@@ -30,7 +30,7 @@ useSeoMeta({
       we strive to create a community where every woman and child can thrive free from violence and fear.
     </p>
     <div class="about-image-div">
-      <img class="about-image" src="assets/img/about_us.jpg" alt="The center" />
+      <img class="about-image" src="assets/img/about-us.jpg" alt="The center" />
     </div>
     <div class="history-content">
       <h2 class="page-title">Our story</h2>

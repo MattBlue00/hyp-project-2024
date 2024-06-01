@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {Person} from "~/types/Person";
+import type { Person } from "~/types/Person";
 import PersonCard from "~/components/cards/PersonCard.vue";
 
 useSeoMeta({

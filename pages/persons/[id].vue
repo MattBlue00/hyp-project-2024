@@ -33,9 +33,6 @@ if (person_error.value?.statusCode) {
   }
 }
 
-// TODO: compute alt person picture
-
-
 const {
   data: related_projects,
   pending: are_projects_loading,

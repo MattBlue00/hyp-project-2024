@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ActivityCard from "~/components/cards/ActivityCard.vue";
+import CustomButton from "~/components/buttons/CustomButton.vue";
 
 interface Props {
   id?: number;
@@ -11,7 +12,6 @@ interface Props {
 }
 
 const { id, img, name, description, isActive, type} = defineProps<Props>();
-
 
 </script>
 
@@ -30,7 +30,7 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
           </div>
           <div class="btn-container">
             <NuxtLink :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`">
-              <Button value="More here" />
+              <CustomButton value="More here" />
             </NuxtLink>
           </div>
         </td>
