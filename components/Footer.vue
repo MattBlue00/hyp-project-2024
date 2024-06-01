@@ -28,14 +28,14 @@
         </p>
       </div>
       <div class="footer-icon-container">
-        <NuxtLink to="https://www.linkedin.com" class="footer-anchor" aria-label="Go to linkedin">
+        <NuxtLink to="https://www.linkedin.com" class="footer-anchor" aria-label="Go to LinkedIn">
           <Icon name="uil:linkedin" />
         </NuxtLink>
-        <NuxtLink to="https://www.facebook.com" class="footer-anchor" aria-label="Go to facebook">
+        <NuxtLink to="https://www.facebook.com" class="footer-anchor" aria-label="Go to Facebook">
           <Icon name="uil:facebook" />
         </NuxtLink>
-        <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="Go to twitter">
-          <Icon name="simple-icons:x" />
+        <NuxtLink to="https://www.twitter.com" class="footer-anchor" aria-label="Go to X">
+          <Icon class="x-icon" name="simple-icons:x" />
         </NuxtLink>
       </div>
     </div>
@@ -109,4 +109,5 @@ hr.divider {
     border-radius: 3px;
     padding: 1px;
 }
+
 </style>

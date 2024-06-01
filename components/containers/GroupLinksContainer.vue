@@ -52,12 +52,8 @@ const next_path = computed(() => {
 
 <template>
   <div class="group-links">
-    <NuxtLink class="prev-link" :to="prev_path">
-      <CustomButton value="Previous" left-icon="ooui:arrow-previous-ltr"/>
-    </NuxtLink>
-    <NuxtLink class="next-link" :to="next_path">
-      <CustomButton value="Next" right-icon="ooui:arrow-previous-rtl"/>
-    </NuxtLink>
+    <CustomButton class="prev-link" value="Previous" left-icon="ooui:arrow-previous-ltr" :to="prev_path!"/>
+    <CustomButton class="next-link" value="Next" right-icon="ooui:arrow-previous-rtl" :to="next_path!"/>
   </div>
 </template>
 

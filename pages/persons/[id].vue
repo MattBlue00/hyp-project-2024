@@ -86,33 +86,37 @@ if (services_error.value?.statusCode){
   </section>
 
   <section class="list-container">
-    <div v-if="related_projects.length > 0">
-      <p class="related-projects-title">Related Projects</p>
+    <div v-if="related_projects!.length > 0">
+      <h2 class="related-title">Related Projects</h2>
     </div>
     <div v-if="are_projects_loading">
       <Loader/>
     </div>
-    <div class="card-list" v-else v-if="related_projects">
-      <div v-for="project in related_projects">
-        <NuxtLink class="clickable-card" :to="`/activities/projects/${project?.id}`">
-          <ActivityCard :img="project?.picture" :name="project?.name" />
-        </NuxtLink>
+    <div class="card-list-wrapper" v-else v-if="related_projects">
+      <div class="card-list">
+        <div v-for="project in related_projects">
+          <NuxtLink class="clickable-card" :to="`/activities/projects/${project?.id}`">
+            <ActivityCard :img="project?.picture" :name="project?.name" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="list-container">
-    <div v-if="related_services.length > 0">
-      <p class="related-services-title">Related Services</p>
+    <div v-if="related_services!.length > 0">
+      <h2 class="related-title">Related Services</h2>
     </div>
     <div v-if="are_services_loading">
       <Loader/>
     </div>
-    <div class="card-list" v-else v-if="related_services">
-      <div v-for="service in related_services">
-        <NuxtLink class="clickable-card" :to="`/activities/services/${service?.id}`">
-          <ActivityCard :img="service?.picture" :name="service?.name" />
-        </NuxtLink>
+    <div class="card-list-wrapper" v-else v-if="related_services">
+      <div class="card-list">
+        <div v-for="service in related_services">
+          <NuxtLink class="clickable-card" :to="`/activities/services/${service?.id}`">
+            <ActivityCard :img="service?.picture" :name="service?.name" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
@@ -124,21 +128,10 @@ if (services_error.value?.statusCode){
 </template>
 
 <style scoped>
-.related-projects-title{
+.related-title{
   display: flex;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #400E2A;
-}
-
-.related-services-title{
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: #400E2A;
 }
 

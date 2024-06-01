@@ -8,7 +8,7 @@ const {description} = defineProps<Props>();
 
 <template>
   <div id="DescriptionContainer">
-    <p class="Description-header">Description:</p>
+    <p class="Description-header">Description</p>
     <p class="Description-content">{{ description }}</p>
   </div>
 </template>
@@ -16,22 +16,22 @@ const {description} = defineProps<Props>();
 <style scoped>
 #DescriptionContainer{
   width: 80%;
-  border-radius: 8px;
+  border-radius: 1rem;
   margin-left: 10%;
-  padding: 15px;
+  padding: 1.5rem;
   background-color: #FFFAF1;
 }
 
 .Description-header{
-  font-size: 22px;
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 0.5rem;
   color: #400E2A;
 }
 
 .Description-content{
-  font-family: Futura;
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
   color: #400E2A;
 }
+
 </style>

@@ -74,7 +74,7 @@ if (person_error.value?.statusCode) {
 
 <template>
   <div>
-    <h1 class="service-title">{{ service.name }}</h1>
+    <h1 class="service-title">{{ service!.name }}</h1>
   </div>
 
   <div>
@@ -106,6 +106,7 @@ if (person_error.value?.statusCode) {
         <Loader/>
       </div>
       <div v-else v-if="testimonials">
+        <h2 class="testimonials-header">Learn what our testimonials think about our service</h2>
         <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
       </div>
     </section>
@@ -121,7 +122,7 @@ if (person_error.value?.statusCode) {
 .service-title{
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
@@ -134,8 +135,13 @@ if (person_error.value?.statusCode) {
 }
 
 .testimonials-carousel{
-  margin-left: 7%;
-  margin-right: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.testimonials-header{
+  padding-bottom: 2rem;
+  text-align: center;
 }
 
 </style>

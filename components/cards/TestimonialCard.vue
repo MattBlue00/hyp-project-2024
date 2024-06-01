@@ -15,14 +15,16 @@ const altPicture = computed(() => {
 
 <template>
   <div :class="['carousel-item', isActive ? 'active' : '']">
-    <table>
+    <table class="testimonial">
       <tr>
         <td class="testimonial-author-picture-container">
           <nuxt-img class="testimonial-image" :src="img" :alt="altPicture"/>
         </td>
         <td id="testimonialInfo">
           <p id="testimonialName">{{ name }}</p>
-          <p id="testimonialStatement">{{ statement }}</p>
+          <div class="overflow-auto">
+            <p id="testimonialStatement">{{ statement }}</p>
+          </div>
         </td>
       </tr>
     </table>
@@ -30,8 +32,9 @@ const altPicture = computed(() => {
 </template>
 
 <style scoped>
-.carousel-item {
-  padding-bottom: 30px;
+
+.testimonial{
+  align-content: center;
 }
 
 .testimonial-author-picture-container
@@ -40,7 +43,7 @@ const altPicture = computed(() => {
   align-items: center;
   align-content: center;
   height: 100%;
-  width: 200px;
+  width: 12.5rem;
 }
 
 .testimonial-image
@@ -48,19 +51,21 @@ const altPicture = computed(() => {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 1rem;
   width: 100%;
 }
 
 #testimonialInfo {
-  padding: 40px 20px 20px 20px;
+  padding-left: 1.25rem;
 }
 
 #testimonialName {
-  font-size: 25px;
+  font-size: 1.5625rem;
 }
 
 #testimonialStatement {
-  font-size: 16px;
+  font-size: 1rem;
   font-style: italic;
 }
+
 </style>

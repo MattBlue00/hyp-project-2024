@@ -23,47 +23,28 @@ const altPicture = computed(() => {
       <p class="Person-info-content-main_role">{{ main_role }}</p>
       <p class="Person-info-content-motto">"{{ motto }}"</p>
     </div>
-
-    <!--
-    <p class="Person-info-header">Name:</p>
-    <p class="Person-info-content">{{ name }}</p>
-    <p class="Person-info-header">Main role:</p>
-    <p class="Person-info-content">{{ main_role }}</p>
-    <p class="Person-info-header">Personal motto:</p>
-    <p class="Person-info-content">{{ motto }}</p>
-    -->
   </div>
 </template>
 
 <style scoped>
 #PersonInfoContainer{
-  display:flex;
+  display: flex;
   justify-content: center;
-  width: 50%;
-  /*border: solid 1px;*/
-  border-radius: 8px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1%;
+  width: 70%;
+  border-radius: 1rem;
+  margin: 5% auto;
+  padding: 1rem;
   background-color: #FFE4EB;
   align-items: center;
 }
 
 .image-container{
-  margin-right: 20px;
+  margin-right: 2rem;
 }
 
 .person-img{
-  height: 10rem;
-
-}
-
-.Person-info-header{
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 6px;
+  height: 20rem;
+  border-radius: 1rem;
 }
 
 .text-container{
@@ -72,24 +53,22 @@ const altPicture = computed(() => {
 }
 
 .Person-info-content-name{
-  font-family: Futura,serif;
-  font-size: 2em;
-  /*color: #DA0E5F;*/
+  font-size: 3rem;
   color: #C30753;
+  margin-top: 2rem;
   margin-bottom: 0;
 }
 
 .Person-info-content-main_role{
-  font-family: Futura,serif;
-  font-size: 1em;
-  margin-bottom: 10%;
+  font-size: 1.5em;
+  margin-bottom: 2rem;
   color: #400E2A;
 }
 
 .Person-info-content-motto{
-  font-family: Futura,serif;
-  font-size: 0.9em;
-  margin-bottom: 5%;
+  font-size: 1.2em;
+  font-style: italic;
+  margin-bottom: 2rem;
   color: #400E2A;
 }
 </style>

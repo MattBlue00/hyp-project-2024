@@ -21,17 +21,17 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
     <table>
       <tr>
         <td id="activityCardContainer">
-          <ActivityCard :img="img" :name="name"/>
+          <ActivityCard :img="img" :name="name" height="16rem"/>
         </td>
         <td>
-          <div id="activityDescriptionContainer" class="overflow-auto">
+          <div id="activityDescriptionContainer">
             <p id="activityDescriptionHeader">Description</p>
-            <p id="activityDescription">{{ description }}</p>
+            <div class="overflow-auto">
+              <p id="activityDescription">{{ description }}</p>
+            </div>
           </div>
           <div class="btn-container">
-            <NuxtLink :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`">
-              <CustomButton value="More here" />
-            </NuxtLink>
+            <CustomButton class="more-link" value="More here" :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`" />
           </div>
         </td>
       </tr>
@@ -40,22 +40,32 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 </template>
 
 <style scoped>
+
 #activityDescriptionHeader{
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
 }
+
 #activityDescriptionContainer{
-  height: 200px;
-  padding-bottom: 50px;
+  height: 12.5rem;
+  padding-bottom: 3.125rem;
 }
+
 #activityDescription{
-  font-size: 14px;
+  height: 8.125rem;
+  font-size: 0.875rem;
   font-style: italic;
 }
+
 #activityCardContainer{
   height: 100%;
-  width: 200px;
-  padding-right: 20px;
+  width: 12.5rem;
+  padding-right: 1.25rem;
 }
+
+.more-link{
+  display: inline-block;
+}
+
 </style>

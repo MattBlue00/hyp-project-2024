@@ -33,7 +33,7 @@ useSeoMeta({
       <img class="about-image" src="assets/img/about-us.jpg" alt="The center" />
     </div>
     <div class="history-content">
-      <h2 class="page-title">Our story</h2>
+      <h2 class="page-title-container page-title">Our story</h2>
       <p class="p-alt">Founded in 1998, our center began as a small volunteer-led initiative in response to the rising need for support services for women and children experiencing domestic violence in Los Angeles. Initially operating out of a modest community space, our dedicated founders sought to create a sanctuary where victims could find immediate refuge and comprehensive assistance.</p>
       <p class="p-alt">Over the years, through persistent advocacy and community support, we expanded our services and facilities, evolving into a multifaceted organization with a professional team of psychologists, lawyers, social workers, and advocates.</p>
       <p class="p-alt">Today, we proudly operate a state-of-the-art facility and a wide range of outreach programs, continually adapting to meet the evolving needs of our community while staying true to our roots of empathy, empowerment, and unwavering support.</p>
@@ -44,7 +44,7 @@ useSeoMeta({
 <style scoped>
 .about-image {
   max-width: min(1000px, 90%);
-  border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+  border-radius: 1rem;
 }
 
 .about-image-div {
@@ -64,6 +64,6 @@ useSeoMeta({
 }
 
 .history-content {
-  margin-bottom: 50px;
+  margin-bottom: 3rem;
 }
 </style>

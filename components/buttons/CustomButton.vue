@@ -2,8 +2,10 @@
 
 interface Props {
     value: string;
+    to: string;
     leftIcon?: string;
     rightIcon?: string;
+    width?: string;
 }
 
 const { value } = defineProps<Props>();
@@ -11,23 +13,23 @@ const { value } = defineProps<Props>();
 </script>
 
 <template>
-  <div>
+  <NuxtLink :to="to">
     <div v-if="leftIcon">
-      <button class="btn scheme">
-        <Icon class="btn-left-icon" :name="leftIcon"/>
+    <button class="btn scheme" :style="{ width: width || '9rem' }">
+      <Icon class="btn-left-icon" :name="leftIcon"/>
         {{ value }}
       </button>
     </div>
     <div v-else-if="rightIcon">
-      <button class="btn scheme">
+      <button class="btn scheme" :style="{ width: width || '9rem' }">
         {{ value }}
         <Icon class="btn-right-icon" :name="rightIcon"/>
       </button>
     </div>
     <div v-else>
-      <button class="btn scheme">{{ value }}</button>
+      <button class="btn scheme" :style="{ width: width || '9rem' }">{{ value }}</button>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <style scoped>
@@ -38,7 +40,7 @@ const { value } = defineProps<Props>();
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-  width: 9rem;
+  align-content: center;
 }
 
 .scheme {

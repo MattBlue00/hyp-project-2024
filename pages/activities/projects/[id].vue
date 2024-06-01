@@ -85,8 +85,8 @@ if (person_error.value?.statusCode) {
 .project-title{
   display:flex;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 </style>
