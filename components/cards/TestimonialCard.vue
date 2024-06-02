@@ -18,7 +18,7 @@ const altPicture = computed(() => {
     <table class="testimonial">
       <tr>
         <td class="testimonial-author-picture-container">
-          <nuxt-img class="testimonial-image" :src="img" :alt="altPicture"/>
+          <img class="testimonial-image" :src="img" :alt="altPicture"/>
         </td>
         <td id="testimonialInfo">
           <p id="testimonialName">{{ name }}</p>

@@ -16,7 +16,7 @@ const altPicture = computed(() => {
 <template>
   <div id="PersonInfoContainer">
     <div class="image-container">
-      <nuxt-img class="person-img" :src="img" :alt="altPicture"/>
+      <img class="person-img" :src="img" :alt="altPicture"/>
     </div>
     <div class="text-container">
       <p class="Person-info-content-name">{{ name }}</p>

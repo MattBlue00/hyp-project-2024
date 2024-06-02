@@ -15,7 +15,7 @@ const altPicture = computed(() => {
 <template>
   <div class="activity-card-container" :style="{ height: height || '20rem' }">
     <div class="image-container">
-      <nuxt-img class="activity-img" :src="img" :alt="altPicture"/>
+      <img class="activity-img" :src="img" :alt="altPicture"/>
     </div>
     <span class="activity-name">{{ name }}</span>
   </div>

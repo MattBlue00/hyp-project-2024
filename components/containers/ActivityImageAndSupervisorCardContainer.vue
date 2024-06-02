@@ -20,7 +20,7 @@ const altPicture = computed(() => {
 <template>
   <div class="activity-image-and-supervisor-card-container">
     <div class="activity-img-container">
-      <nuxt-img class="activity-img" :src="activity!.picture" :alt="altPicture"/>
+      <img class="activity-img" :src="activity!.picture" :alt="altPicture"/>
     </div>
     <div class="supervisor-container">
       <p class="supervised-by">Supervised by</p>

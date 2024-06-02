@@ -2,7 +2,7 @@
 
 import type {Service} from '~/types/Service';
 import type {Testimonial} from "~/types/Testimonial";
-import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
+import {handleFetchError} from "~/composables/errorHandlers";
 import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vue";
 import ServiceInfoContainer from "~/components/containers/ServiceInfoContainer.vue";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
@@ -29,9 +29,8 @@ const {
   },
 });
 
-// if no service with such id is present in the database
-if(service.picture == undefined){
-  handleMissingDataError();
+if (service_error.value?.statusCode){
+  handleFetchError(service, service_error.value.statusCode);
 }
 
 // fetch the testimonials of the service
