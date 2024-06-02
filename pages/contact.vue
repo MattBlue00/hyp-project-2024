@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import CustomButton from '~/components/buttons/CustomButton.vue';
 import Loader from '~/components/Loader.vue';
 
@@ -18,6 +18,12 @@ const onIframeLoad = () => {
 onMounted(() => {
   if (iframeRef.value) {
     iframeRef.value.addEventListener('load', onIframeLoad);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (iframeRef.value) {
+    iframeRef.value.removeEventListener('load', onIframeLoad);
   }
 });
 </script>
@@ -64,7 +70,7 @@ onMounted(() => {
       <div v-if="!iframeLoaded">
         <Loader />
       </div>
-      <iframe v-show="iframeLoaded" ref="iframeRef" class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe v-show="iframeLoaded" ref="iframeRef" class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
   </div>
 </template>
@@ -132,7 +138,7 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .contacts-main {
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
   }
 
