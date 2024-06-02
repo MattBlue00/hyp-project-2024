@@ -2,7 +2,7 @@
 
 import type {Service} from '~/types/Service';
 import type {Testimonial} from "~/types/Testimonial";
-import {handleFetchError} from "~/composables/errorHandlers";
+import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
 import TestimonialsCarousel from "~/components/carousels/TestimonialsCarousel.vue";
 import ServiceInfoContainer from "~/components/containers/ServiceInfoContainer.vue";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
@@ -28,11 +28,10 @@ const {
     id: id,
   },
 });
-if (service_error.value?.statusCode) {
-  // throw error if something went wrong during the fetch
-  if (service_error.value?.statusCode) {
-    handleFetchError(service, service_error.value.statusCode);
-  }
+
+// if no service with such id is present in the database
+if(service.picture == undefined){
+  handleMissingDataError();
 }
 
 // fetch the testimonials of the service
@@ -45,6 +44,7 @@ const {
     service_id: id,
   },
 });
+
 if (testimonials_error.value?.statusCode){
   handleFetchError(testimonials, testimonials_error.value.statusCode);
 }
@@ -63,11 +63,9 @@ const {
     id: supervisorId,
   },
 });
+
 if (person_error.value?.statusCode) {
-  // throw error if something went wrong during the fetch
-  if (person_error.value?.statusCode) {
-    handleFetchError(person, person_error.value.statusCode);
-  }
+  handleFetchError(person, person_error.value.statusCode);
 }
 
 </script>

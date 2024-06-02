@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
+import {handleMissingDataError} from "~/composables/errorHandlers";
 
 /**
  *  Query that returns the project's information, given its ID.
@@ -15,6 +16,10 @@ export default eventHandler(async (event) => {
         .select('id, name, description, opening_hours, duration, contacts, supervisor_id, picture')
         .eq('supervisor_id', id!)
     );
-    if (error) console.log(error);
-    return data;
+    if (error){
+        handleMissingDataError();
+    }
+    else {
+        return data;
+    }
 });

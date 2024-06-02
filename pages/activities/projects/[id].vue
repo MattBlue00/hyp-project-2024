@@ -2,7 +2,7 @@
 
 import type {Project} from '~/types/Project';
 import type {Person} from '~/types/Person';
-import {handleFetchError} from "~/composables/errorHandlers";
+import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
 import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
@@ -25,11 +25,9 @@ const {
     id: id,
   },
 });
+
 if (project_error.value?.statusCode) {
-  // throw error if something went wrong during the fetch
-  if (project_error.value?.statusCode) {
-    handleFetchError(project, project_error.value.statusCode);
-  }
+  handleFetchError(project, project_error.value.statusCode);
 }
 
 const supervisorId = computed(() => {
@@ -46,11 +44,9 @@ const {
     id: supervisorId,
   },
 });
+
 if (person_error.value?.statusCode) {
-  // throw error if something went wrong during the fetch
-  if (person_error.value?.statusCode) {
-    handleFetchError(person, person_error.value.statusCode);
-  }
+  handleFetchError(person, person_error.value.statusCode);
 }
 
 </script>

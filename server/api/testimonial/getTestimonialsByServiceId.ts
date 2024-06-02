@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
+import {handleMissingDataError} from "~/composables/errorHandlers";
 
 /**
  *  Query that returns the service's testimonials, given the service ID.
@@ -16,6 +17,10 @@ export default eventHandler(async (event) => {
         .eq('service_id', service_id!)
         .order('id')
     );
-    if (error) console.log(error);
-    return data;
+    if (error){
+        handleMissingDataError();
+    }
+    else {
+        return data;
+    }
 });

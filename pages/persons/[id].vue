@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import type {Person} from '~/types/Person';
-import {handleFetchError} from "~/composables/errorHandlers";
+import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
 import CVInfoContainer from "~/components/containers/CVInfoContainer.vue";
 import PersonInfoContainer from "~/components/containers/PersonInfoContainer.vue";
 import type {Project} from "~/types/Project";
@@ -26,11 +26,9 @@ const {
     id: id,
   },
 });
+
 if (person_error.value?.statusCode) {
-  // throw error if something went wrong during the fetch
-  if (person_error.value?.statusCode) {
-    handleFetchError(person, person_error.value.statusCode);
-  }
+  handleFetchError(person, person_error.value.statusCode);
 }
 
 const {
@@ -42,6 +40,7 @@ const {
     id: id,
   },
 });
+
 if (projects_error.value?.statusCode){
   handleFetchError(related_projects, projects_error.value.statusCode);
 }
