@@ -29,7 +29,6 @@ const { error } = defineProps<Props>();
 
 <style scoped>
 .error-container{
-  border: 0.1rem solid var(--dark-color);
   border-radius: 1rem;
   margin: 4rem;
   padding: 2rem;
