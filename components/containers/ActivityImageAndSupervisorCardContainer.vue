@@ -12,7 +12,7 @@ interface Props {
 const { activity, supervisor} = defineProps<Props>();
 
 const altPicture = computed(() => {
-  return "Picture of the '" + activity?.value?.name +"' activity"; //TODO: check this
+  return "Picture of the '" + activity?.name +"' activity";
 });
 
 </script>
@@ -20,15 +20,15 @@ const altPicture = computed(() => {
 <template>
   <div class="activity-image-and-supervisor-card-container">
     <div class="activity-img-container">
-      <nuxt-img class="activity-img" :src="activity.picture" :alt="altPicture"/>
+      <img class="activity-img" :src="activity!.picture" :alt="altPicture"/>
     </div>
     <div class="supervisor-container">
-      <p class="supervised-by">Supervised By:</p>
+      <p class="supervised-by">Supervised by</p>
       <NuxtLink class="clickable-card" :to="`/persons/${supervisor?.id}`">
         <PersonCard
-            :img="supervisor.picture"
-            :name="supervisor.full_name"
-            :main_role="supervisor.main_role"
+            :img="supervisor!.picture"
+            :name="supervisor!.full_name"
+            :main_role="supervisor!.main_role"
         />
       </NuxtLink>
     </div>
@@ -43,13 +43,17 @@ const altPicture = computed(() => {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  border: 0.1rem solid var(--dark-color);
+  border-radius: 1rem;
+  margin-left: calc((100vw - 45rem) / 2);
+  margin-right: calc((100vw - 45rem) / 2);
 }
 
 .activity-img{
   display: flex;
-  margin-left: 20rem;
   width: 25rem;
   height: 25rem;
+  border-radius: 1rem 0 0 1rem;
 }
 
 .supervisor-container{
@@ -59,9 +63,9 @@ const altPicture = computed(() => {
   align-content: center;
   width: 20rem;
   height: 25rem;
-  margin-right: 20rem;
   background-color: #FFE4EB;
   padding: 1rem;
+  border-radius: 0 1rem 1rem 0;
 }
 
 .supervised-by{
@@ -69,11 +73,12 @@ const altPicture = computed(() => {
 }
 
 .clickable-card{
-  box-shadow: 0rem 0rem 0rem #888888;
+  box-shadow: 0 0 0 #888888;
   display: flex;
   flex-flow: column;
   align-items: center;
   align-content: center;
   text-decoration: none;
 }
+
 </style>

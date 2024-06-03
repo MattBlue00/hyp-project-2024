@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
+import {handleMissingDataError} from "~/composables/errorHandlers";
 
 /**
  *  Query that returns the service's information, given its ID.
@@ -16,8 +17,10 @@ export default eventHandler(async (event) => {
         .eq('id', id!)
         .single()
     );
-    if (error) {
-        console.log(error);
+    if (error){
+        handleMissingDataError();
     }
-    return data;
+    else {
+        return data;
+    }
 });

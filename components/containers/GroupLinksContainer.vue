@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import CustomButton from "~/components/buttons/CustomButton.vue";
+
 interface Props {
   id?: string;
   type?: string;
@@ -50,16 +52,9 @@ const next_path = computed(() => {
 
 <template>
   <div class="group-links">
-    <NuxtLink class="prev-link" :to="prev_path">
-      <Button value="Prev"/>
-    </NuxtLink>
-    <NuxtLink class="next-link" :to="next_path">
-      <Button value="Next"/>
-    </NuxtLink>
+    <CustomButton class="prev-link" value="Previous" left-icon="ooui:arrow-previous-ltr" :to="prev_path!"/>
+    <CustomButton class="next-link" value="Next" right-icon="ooui:arrow-previous-rtl" :to="next_path!"/>
   </div>
-
-  <!-- TODO: substitute PREV and NEXT with button component -->
-
 </template>
 
 <style scoped>
@@ -67,9 +62,7 @@ const next_path = computed(() => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 3rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 3rem 2rem;
 }
 
 .prev-link{

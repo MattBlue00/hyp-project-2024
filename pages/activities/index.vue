@@ -58,18 +58,23 @@ if (services_error.value?.statusCode){
 </template>
 
 <style scoped>
+
 .activities-content{
   display: flex;
   flex-direction: column;
+  padding-bottom: 5rem;
 }
+
 .activities-title{
-  padding-top: 40px;
+  padding-top: 2.5rem;
   align-self: center;
   font-size: 1.5rem;
   color: var(--dark-color);
 }
+
 .activity-carousel{
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
+
 </style>

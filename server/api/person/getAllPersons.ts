@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
+import {handleMissingDataError} from "~/composables/errorHandlers";
 
 /**
  *  Query that returns all the available persons.
@@ -13,6 +14,10 @@ export default eventHandler(async (event) => {
         .select('id, full_name, main_role, picture')
         .order('id')
     );
-    if (error) console.log(error);
-    return data;
+    if (error){
+        handleMissingDataError();
+    }
+    else {
+        return data;
+    }
 });
