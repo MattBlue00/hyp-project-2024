@@ -58,11 +58,6 @@ useSeoMeta({
   margin-bottom: 1rem;
 }
 
-.p-alt {
-  color: var(--par-color);
-  line-height: 1.65rem;
-}
-
 .history-content {
   margin-bottom: 3rem;
 }

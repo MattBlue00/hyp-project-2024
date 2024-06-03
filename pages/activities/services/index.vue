@@ -24,7 +24,7 @@ if (services_error.value?.statusCode){
     <section class="page-title-container">
       <p class="orientational-info">Our services</p>
       <h1 class="page-title">Learn how SheRise takes care about women in difficulty</h1>
-      <p>SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise.</p>
+      <p class="p-alt">SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise.</p>
     </section>
     <section class="list-container">
       <div v-if="are_services_loading">

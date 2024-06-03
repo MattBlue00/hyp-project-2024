@@ -32,7 +32,7 @@ if (services_error.value?.statusCode){
     <section class="page-title-container">
       <p class="orientational-info">Our activities</p>
       <h1 class="page-title">Have a look at what SheRise is all about</h1>
-      <p>SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone.</p>
+      <p class="p-alt">SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone.</p>
     </section>
     <section class="activities-content">
       <h2 class="activities-title">

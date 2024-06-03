@@ -40,19 +40,17 @@ const altPicture = computed(() => {
   margin-right: auto;
   width: 100%;
   border-radius: 1.25rem;
+  filter: drop-shadow(0.25rem 0 0.5rem #291c1d);
 }
 
 .person-name
 {
-  font-size: 1.5em;
-  font-family: Futura,serif;
-  color: #C30753;
+  font-weight: bold;
+  font-size: 1.3rem;
   margin-top: 1rem;
 }
 
 .person-main_role{
-  font-family: Futura,serif;
   text-align: center;
-  color: #400E2A;
 }
 </style>

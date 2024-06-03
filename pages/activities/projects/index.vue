@@ -23,7 +23,7 @@ if (projects_error.value?.statusCode){
     <section class="page-title-container">
       <p class="orientational-info">Our projects</p>
       <h1 class="page-title">Discover how SheRise takes action to prevent women abuse</h1>
-      <p>Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects.</p>
+      <p class="p-alt">Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects.</p>
     </section>
     <section class="list-container">
       <div v-if="are_projects_loading">

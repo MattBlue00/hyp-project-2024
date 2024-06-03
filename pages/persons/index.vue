@@ -24,7 +24,7 @@ if (persons_error.value?.statusCode){
     <section class="page-title-container">
       <p class="orientational-info">The team</p>
       <h1 class="page-title">Meet our collaborative team of great professionals</h1>
-      <p>To achieve the organization's goals and reach as many women as possible, a united team of specialists is essential. This is the core of SheRise. Get to know them one by one.</p>
+      <p class="p-alt">To achieve the organization's goals and reach as many women as possible, a united team of specialists is essential. This is the core of SheRise. Get to know them one by one.</p>
     </section>
     <section class="list-container">
       <div v-if="are_persons_loading">
@@ -42,5 +42,25 @@ if (persons_error.value?.statusCode){
 </template>
 
 <style scoped>
+
+.list-container{
+  padding-bottom: 5rem;
+  padding-top: 3rem;
+}
+
+.clickable-card{
+  //background-image: linear-gradient(to bottom, #ffa7ca, #feb5da, #fdc3e8, #fcd1f3, #fcdefd);
+  //background-image: linear-gradient(to bottom, #ffc2da, #fecce4, #fcd7ed, #fce1f4, #fcebfa);
+  //background-image: linear-gradient(to bottom, #ffd5e6, #fedbec, #fde0f1, #fce6f6, #fcebfa);
+  //background-image: linear-gradient(to bottom, #ffcee2, #fed5ea, #fdddf0, #fce4f5, #fcebfa);
+  //background-image: linear-gradient(to bottom, #ffcfe9, #fed6ee, #fdddf3, #fce4f7, #fcebfa);
+  //background-image: linear-gradient(to bottom, #ffd1ea, #fed9f0, #fee2f5, #feeaf9, #fff2fd);
+  background-image: linear-gradient(to bottom, #ffbfcd, #ffccdd, #fed9ea, #fee6f5, #fff2fd);
+}
+
+.clickable-card:before {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
 
 </style>

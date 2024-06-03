@@ -4,7 +4,7 @@
     */
     /*--bg-color: #FFFAF1;*/
     --gradient-color: linear-gradient(30deg, #DA0E5F, #a4246d);
-    --gradient-card-color: linear-gradient(30deg, #FFE4EB, #ffd1e0);
+    --gradient-card-color: linear-gradient(60deg, rgba(255, 233, 233, 0.9), rgba(252, 173, 187, 0.8));
     --bg-color: #FFFFFF;
     --nbar-color: #DA0E5F;
     --dark-color: #400E2A;
@@ -70,7 +70,7 @@ body {
     width: 17.1875rem;
     text-decoration: none;
     color: var(--dark-color);
-    background-image: var(--gradient-card-color);
+    background: var(--gradient-card-color);
 }
 
 .clickable-card:hover {
@@ -122,6 +122,11 @@ body {
 
 .x-icon{
     width: 90%;
+}
+
+.p-alt {
+    color: var(--par-color);
+    line-height: 1.65rem;
 }
 
 @media (width >=1000px) {
