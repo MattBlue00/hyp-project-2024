@@ -45,13 +45,13 @@ const { value } = defineProps<Props>();
 
 .scheme {
   background-color: var(--nbar-color);
-  color: var(--lighter-color);
+  color: var(--bg-color);
   transition: 0.3s all ease-in;
 }
 
 .scheme:hover {
   background-color: var(--hover-color);
-  color: var(--lighter-color);
+  color: var(--bg-color);
   transition: 0.3s all ease-in;
 }
 
