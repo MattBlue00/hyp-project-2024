@@ -3,9 +3,10 @@
 interface Props {
   id?: string;
   type?: string;
+  maxBound: number;
 }
 
-const { id, type } = defineProps<Props>();
+const { id, type, maxBound} = defineProps<Props>();
 
 const numericId = computed(() => {
   return Number(id);
@@ -13,21 +14,13 @@ const numericId = computed(() => {
 
 const minBound = 1;
 
-//NB: to fix it we can pass max bound as a property (obtaining it from a query count select * )
-const maxBound = computed(() => {
-  if(type == "person") return 20; //TODO: ABSOLUTELY FIX THIS (no hardcoding ;( )
-  else if(type == "service") return 5; //TODO: ABSOLUTELY FIX THIS (no hardcoding ;( )
-  else if(type == "project") return 5; //TODO: ABSOLUTELY FIX THIS (no hardcoding ;( )
-  else return 1; //TODO: fix this
-});
-
 const prevId = computed(() => {
   if(numericId.value > minBound) return numericId.value - 1;
-  else return maxBound.value;
+  else return maxBound;
 });
 
 const nextId = computed(() => {
-  if(numericId.value < maxBound.value) return numericId.value + 1;
+  if(numericId.value < maxBound) return numericId.value + 1;
   else return minBound;
 });
 
