@@ -28,9 +28,19 @@ const {
     id: id,
   },
 });
-
-if (service_error.value?.statusCode){
+// throw error if something went wrong during the fetch
+if (service_error.value?.statusCode) {
   handleFetchError(service, service_error.value.statusCode);
+}
+
+// fetch the total number of services
+const {
+  data: total_services,
+  error: total_services_error,
+} = await useFetch<number>('/api/service/getTotalNumberOfServices');
+// throw error if something went wrong during the fetch
+if (total_services_error.value?.statusCode) {
+  handleFetchError(total_services, total_services_error.value.statusCode);
 }
 
 // fetch the testimonials of the service
@@ -62,7 +72,7 @@ const {
     id: supervisorId,
   },
 });
-
+// throw error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
@@ -109,7 +119,7 @@ if (person_error.value?.statusCode) {
     </section>
 
     <section>
-      <GroupLinksContainer :id="useRoute().params.id" :type="'service'"/>
+      <GroupLinksContainer :id="id" :type="'service'" :maxBound="total_services"/>
     </section>
 
   </div>

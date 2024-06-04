@@ -26,9 +26,19 @@ const {
     id: id,
   },
 });
-
+// throw error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
+}
+
+// fetch the total number of persons
+const {
+  data: total_persons,
+  error: total_persons_error,
+} = await useLazyFetch<number>('/api/person/getTotalNumberOfPersons');
+// throw error if something went wrong during the fetch
+if (total_persons_error.value?.statusCode) {
+  handleFetchError(total_persons, total_persons_error.value.statusCode);
 }
 
 const {
@@ -121,7 +131,7 @@ if (services_error.value?.statusCode){
   </section>
 
   <section>
-    <GroupLinksContainer :id="useRoute().params.id" :type="'person'"/>
+    <GroupLinksContainer :id="id" :type="'person'" :maxBound="total_persons"/>
   </section>
 
 </template>
