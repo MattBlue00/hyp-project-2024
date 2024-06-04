@@ -25,9 +25,19 @@ const {
     id: id,
   },
 });
-
+// throw error if something went wrong during the fetch
 if (project_error.value?.statusCode) {
   handleFetchError(project, project_error.value.statusCode);
+}
+
+// fetch the total number of projects
+const {
+  data: total_projects,
+  error: total_projects_error,
+} = await useFetch<number>('/api/project/getTotalNumberOfProjects');
+// throw error if something went wrong during the fetch
+if (total_projects_error.value?.statusCode) {
+  handleFetchError(total_projects, total_projects_error.value.statusCode);
 }
 
 const supervisorId = computed(() => {
@@ -44,7 +54,7 @@ const {
     id: supervisorId,
   },
 });
-
+// throw error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
@@ -70,7 +80,7 @@ if (person_error.value?.statusCode) {
     </section>
 
     <section>
-      <GroupLinksContainer :id="useRoute().params.id" :type="'project'"/>
+      <GroupLinksContainer :id="id" :type="'project'" :maxBound="total_projects"/>
     </section>
 
   </div>
