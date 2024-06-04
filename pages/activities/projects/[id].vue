@@ -2,7 +2,7 @@
 
 import type {Project} from '~/types/Project';
 import type {Person} from '~/types/Person';
-import {handleFetchError} from "~/composables/errorHandlers";
+import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
 import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
@@ -91,8 +91,8 @@ if (person_error.value?.statusCode) {
 .project-title{
   display:flex;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 </style>

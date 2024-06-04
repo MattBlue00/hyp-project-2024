@@ -1,6 +1,10 @@
 // Default variable overrides
 $carousel-control-color: #000000;
 $carousel-indicator-active-bg: #000000;
+$carousel-control-opacity: 0.8;
+$carousel-control-width: 3rem;
+$carousel-control-color: #FFE4EB;
+$carousel-indicator-active-bg: #400E2A;
 
 // Required
 @import "../../node_modules/bootstrap/scss/bootstrap";

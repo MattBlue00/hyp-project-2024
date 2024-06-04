@@ -1,10 +1,31 @@
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import CustomButton from '~/components/buttons/CustomButton.vue';
+import Loader from '~/components/Loader.vue';
 
 useSeoMeta({
-  title: 'SheRise | Contact',
+  title: 'SheRise | Contacts',
   description: 'Get in touch with SheRise through email, phone, or visit our center. Our contact information and operating hours are provided here.',
 });
 
+const iframeLoaded = ref(false);
+const iframeRef = ref<HTMLIFrameElement | null>(null);
+
+const onIframeLoad = () => {
+  iframeLoaded.value = true;
+};
+
+onMounted(() => {
+  if (iframeRef.value) {
+    iframeRef.value.addEventListener('load', onIframeLoad);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (iframeRef.value) {
+    iframeRef.value.removeEventListener('load', onIframeLoad);
+  }
+});
 </script>
 
 <template>
@@ -29,22 +50,32 @@ useSeoMeta({
           <strong>Email: </strong>
           <a href="mailto:info@sherise.com">info@sherise.com</a>
         </p>
+        <div class="buttons-grid">
+          <CustomButton value="Follow us on LinkedIn" left-icon="uil:linkedin" width="16rem" to="https://www.linkedin.com"/>
+          <CustomButton value="Follow us on Facebook" left-icon="uil:facebook" width="16rem" to="https://www.facebook.com"/>
+          <CustomButton value="Follow us on X" left-icon="simple-icons:x" width="16rem" to="https://www.twitter.com"/>
+        </div>
         <h2 class="contacts-subtitle">Opening hours</h2>
         <p>
-          <strong>Monday-Friday: </strong> 9:00-18:00
+          <strong>Monday-Friday: </strong> 9:00 AM to 6:00 PM
         </p>
         <p>
-          <strong>Saturday: </strong> 9:00-13:00
+          <strong>Saturday: </strong> 9:00 AM to 6:00 PM
         </p>
       </div>
       <img class="contact-image" src="assets/img/center-contacts.png" alt="Picture of SheRise's center">
     </section>
-    <iframe class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="interactive-map-container">
+      <h2 class="contacts-subtitle">Find our center with the Interactive Map</h2>
+      <div v-if="!iframeLoaded">
+        <Loader />
+      </div>
+      <iframe v-show="iframeLoaded" ref="iframeRef" class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
   </div>
 </template>
 
 <style scoped>
-
 .p-alt {
   color: var(--par-color);
   line-height: 1.65rem;
@@ -52,17 +83,16 @@ useSeoMeta({
 
 .contacts-main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
   gap: 2rem;
   padding: 2rem 0;
 }
 
 .contacts-container {
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
+  flex: 1;
+  text-align: left;
 }
 
 .contacts-subtitle {
@@ -76,7 +106,7 @@ useSeoMeta({
 }
 
 .contacts-container a {
-  color: var(--primary-color);
+  color: var(--dark-color);
   text-decoration: none;
 }
 
@@ -85,27 +115,36 @@ useSeoMeta({
 }
 
 .contact-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1.25rem;
+  flex: 2;
+  border-radius: 1rem;
+}
+
+.interactive-map-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .interactive-map {
   width: 100%;
-  height: 400px;
+  height: 20rem;
   border: none;
-  border-radius: 1.25rem;
-  margin-top: 2rem;
 }
 
-@media (min-width: 768px) {
+.buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
   .contacts-main {
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
   }
 
   .contacts-container {
     text-align: left;
+    padding: 0;
   }
 
   .contact-image {

@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/supabase', "@nuxt/image", '@nuxtjs/google-fonts', 'nuxt-icon'],
+  modules: ['@nuxtjs/supabase', '@nuxtjs/google-fonts', 'nuxt-icon'],
   supabase: {
     redirect: false
   },

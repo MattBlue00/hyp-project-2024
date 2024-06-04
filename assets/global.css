@@ -42,12 +42,16 @@ body {
     margin: 0.75rem auto;
 }
 
+.card-list-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .card-list {
     display: grid;
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    justify-content: center;
 }
 
 .card-list div {
@@ -56,18 +60,16 @@ body {
 
 .clickable-card
 {
-    /*box-shadow: 0.1rem 0.2rem 0.5rem #888888;*/
     box-shadow: 0.1rem 0.2rem 0.5rem #CCCCCC;
-    border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+    border-radius: 1rem 1rem 1rem 1rem;
     display: flex;
     flex-flow: column;
     align-items: center;
     align-content: center;
     padding: 0.7rem;
-    width: 275px;
+    width: 17.1875rem;
     text-decoration: none;
-    color: black;
-    /*background-color: #FFFAF1;*/
+    color: var(--dark-color);
     background-image: var(--gradient-card-color);
 }
 
@@ -77,7 +79,6 @@ body {
 }
 
 .page-content {
-    /*width: var(--content-width);*/
     margin-left: min(15%,15em);
     margin-right: min(15%,15em);
 }
@@ -93,8 +94,34 @@ body {
     color: var(--dark-color);
 }
 
-.list-container {
-    margin: 3.5rem auto;
+.carousel{
+    padding-left: 8%;
+    padding-right: 8%;
+    height: 20rem;
+}
+
+.carousel-inner {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.carousel-colored-container{
+    border-radius: 1rem;
+    background-color: var(--lighter-color);
+}
+
+.carousel-control-prev{
+    border-radius: 1rem 0 0 1rem;
+    background-color: var(--nbar-color);
+}
+
+.carousel-control-next{
+    border-radius: 0 1rem 1rem 0;
+    background-color: var(--nbar-color);
+}
+
+.x-icon{
+    width: 90%;
 }
 
 @media (width >=1000px) {

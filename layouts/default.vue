@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FloatingButton from "~/components/buttons/FloatingButton.vue";
 </script>
 
 <template>
