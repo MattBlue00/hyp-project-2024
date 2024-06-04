@@ -24,7 +24,7 @@ const altPicture = computed(() => {
     </div>
     <div class="supervisor-container">
       <p class="supervised-by">Supervised by</p>
-      <NuxtLink class="clickable-card" :to="`/persons/${supervisor?.id}`">
+      <NuxtLink class="clickable-card person-card" :to="`/persons/${supervisor?.id}`">
         <PersonCard
             :img="supervisor!.picture"
             :name="supervisor!.full_name"
@@ -63,22 +63,23 @@ const altPicture = computed(() => {
   align-content: center;
   width: 20rem;
   height: 25rem;
-  background-color: #FFE4EB;
+  background-color: var(--bg-color);
   padding: 1rem;
   border-radius: 0 1rem 1rem 0;
 }
 
 .supervised-by{
-  color: #C30753;
+  //color: #C30753;
+  color: var(--dark-color);
 }
 
 .clickable-card{
-  box-shadow: 0 0 0 #888888;
   display: flex;
   flex-flow: column;
   align-items: center;
   align-content: center;
   text-decoration: none;
+  width: 15rem;
 }
 
 </style>

@@ -134,6 +134,8 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 @media (max-width: 768px) {
