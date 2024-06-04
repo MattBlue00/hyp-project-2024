@@ -2,7 +2,7 @@
 
 import type {Project} from '~/types/Project';
 import type {Person} from '~/types/Person';
-import {handleFetchError, handleMissingDataError} from "~/composables/errorHandlers";
+import {handleFetchError} from "~/composables/errorHandlers";
 import DescriptionContainer from "~/components/containers/DescriptionContainer.vue";
 import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
@@ -66,7 +66,7 @@ if (person_error.value?.statusCode) {
     <Loader/>
   </div>
   <div v-else v-if="project">
-    <h1 class="project-title">{{ project.name }}</h1>
+    <h1 class="project-title">{{ project?.name }}</h1>
 
     <section>
       <div v-if="is_project_loading || is_person_loading">

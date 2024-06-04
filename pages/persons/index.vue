@@ -32,7 +32,7 @@ if (persons_error.value?.statusCode){
       </div>
       <div class="card-list" v-else>
         <div v-for="person in persons">
-          <NuxtLink class="clickable-card" :to="`/persons/${person?.id}`">
+          <NuxtLink class="clickable-card person-card" :to="`/persons/${person?.id}`">
             <PersonCard :img="person?.picture" :name="person?.full_name" :main_role="person?.main_role" />
           </NuxtLink>
         </div>
@@ -46,21 +46,6 @@ if (persons_error.value?.statusCode){
 .list-container{
   padding-bottom: 5rem;
   padding-top: 3rem;
-}
-
-.clickable-card{
-  //background-image: linear-gradient(to bottom, #ffa7ca, #feb5da, #fdc3e8, #fcd1f3, #fcdefd);
-  //background-image: linear-gradient(to bottom, #ffc2da, #fecce4, #fcd7ed, #fce1f4, #fcebfa);
-  //background-image: linear-gradient(to bottom, #ffd5e6, #fedbec, #fde0f1, #fce6f6, #fcebfa);
-  //background-image: linear-gradient(to bottom, #ffcee2, #fed5ea, #fdddf0, #fce4f5, #fcebfa);
-  //background-image: linear-gradient(to bottom, #ffcfe9, #fed6ee, #fdddf3, #fce4f7, #fcebfa);
-  //background-image: linear-gradient(to bottom, #ffd1ea, #fed9f0, #fee2f5, #feeaf9, #fff2fd);
-  background-image: linear-gradient(to bottom, #ffbfcd, #ffccdd, #fed9ea, #fee6f5, #fff2fd);
-}
-
-.clickable-card:before {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
 </style>
