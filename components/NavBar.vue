@@ -157,7 +157,7 @@ const closeMenuOnLink = () => {
     .nav-btn {
       display: flex;
       flex-direction: column;
-      width: 32px;
+      width: 30px;
       cursor: pointer;
       background-color: transparent;
       border: 0;
@@ -167,25 +167,17 @@ const closeMenuOnLink = () => {
     .nav-btn span {
       background-color: var(--bg-color);
       height: 3px;
-      margin: 2px 0;
+      margin: 3px;
       transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
       border-radius: 2px;
     }
 
-    span:nth-of-type(1) {
-      width: 50%;
-    }
-
-    span:nth-of-type(2) {
+    span {
       width: 100%;
     }
 
-    span:nth-of-type(3) {
-      width: 75%;
-    }
-
     .close-icon span:nth-child(1) {
-      transform: rotatez(45deg) translate(0, 10px);
+      transform: translate(5px, 0) rotatez(45deg) translate(0, 12px);
       width: 100%;
     }
 
@@ -195,7 +187,7 @@ const closeMenuOnLink = () => {
 
     .close-icon span:nth-child(3) {
       width: 100%;
-      transform: rotatez(-45deg) translate(0, -10px);
+      transform: translate(5px, 0) rotatez(-45deg) translate(0, -12px);
     }
   }
 </style>
