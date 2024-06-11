@@ -18,28 +18,40 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 <template>
 
   <div :class="['carousel-item', isActive ? 'active' : '']">
-    <table>
-      <tr>
-        <td id="activityCardContainer">
-          <ActivityCard :img="img" :name="name" height="16rem"/>
-        </td>
-        <td>
-          <div id="activityDescriptionContainer">
-            <p id="activityDescriptionHeader">Description</p>
-            <div class="overflow-auto">
-              <p id="activityDescription">{{ description }}</p>
-            </div>
+    <div id="mainContent">
+      <div id="activityCardContainer">
+        <ActivityCard :img="img" :name="name" height="16rem"/>
+      </div>
+      <div id="activityDescriptionPlusButtonContainer">
+        <div id="activityDescriptionContainer">
+          <p id="activityDescriptionHeader">Description</p>
+          <div class="overflow-auto">
+            <p id="activityDescription">{{ description }}</p>
           </div>
-          <div class="btn-container">
-            <CustomButton class="more-link" value="More here" :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`" />
-          </div>
-        </td>
-      </tr>
-    </table>
+        </div>
+        <div class="btn-container">
+          <CustomButton class="more-link" value="More here" :to="`/activities/${type === 'projects' ? 'projects' : 'services'}/${id}`" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+
+#mainContent{
+  display: flex;
+  flex-direction: row;
+}
+
+#activityDescriptionPlusButtonContainer{
+  flex: 3;
+}
+
+#activityCardContainer{
+  flex: 1;
+  padding-right: 1.25rem;
+}
 
 #activityDescriptionHeader{
   font-size: 1.375rem;
@@ -56,12 +68,6 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
   height: 8.125rem;
   font-size: 0.875rem;
   font-style: italic;
-}
-
-#activityCardContainer{
-  height: 100%;
-  width: 12.5rem;
-  padding-right: 1.25rem;
 }
 
 .more-link{
