@@ -8,11 +8,6 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
-useSeoMeta({
-  title: 'SheRise | Project',
-  description: 'This is the single project page with all relevant details about a project.',
-});
-
 const { id } = useRoute().params;
 
 // fetch the project information
@@ -20,7 +15,7 @@ const {
   data: project,
   pending: is_project_loading,
   error: project_error,
-} = await useLazyFetch<Project>('/api/project/getProjectById', {
+} = await useFetch<Project>('/api/project/getProjectById', {
   query: {
     id: id,
   },
@@ -49,7 +44,7 @@ const {
   data: person,
   pending: is_person_loading,
   error: person_error,
-} = await useLazyFetch<Person>('/api/person/getPersonById', {
+} = await useFetch<Person>('/api/person/getPersonById', {
   query: {
     id: supervisorId,
   },
@@ -58,6 +53,15 @@ const {
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
+
+const projectName = computed(() => {
+  return project.value?.name;
+});
+
+useSeoMeta({
+  title: 'SheRise | ' + projectName.value,
+  description: 'This is the single project page with all relevant details about a project.',
+});
 
 </script>
 
@@ -81,7 +85,7 @@ if (person_error.value?.statusCode) {
       </section>
 
       <section>
-        <GroupLinksContainer :id="id" :type="'project'" :maxBound="total_projects"/>
+        <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
       </section>
 
     </div>

@@ -4,7 +4,7 @@ import ActivityCard from "~/components/cards/ActivityCard.vue";
 import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | Our Projects',
+  title: 'SheRise | Projects',
   description: 'This is the group page with all the projects involving SheRise center.',
 });
 
@@ -13,7 +13,7 @@ const {
   data: projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useLazyFetch<Project[]>('/api/project/getAllProjects');
+} = await useFetch<Project[]>('/api/project/getAllProjects');
 if (projects_error.value?.statusCode){
   handleFetchError(projects, projects_error.value.statusCode);
 }
@@ -22,9 +22,9 @@ if (projects_error.value?.statusCode){
 <template>
   <main>
     <MainPageInfoContainer
-        h2Content="Our projects"
-        h1Content="Discover how SheRise takes action to prevent women abuse"
-        h3Content="Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects."
+        orientationalInfo="Our projects"
+        pageTitle="Discover how SheRise takes action to prevent women abuse"
+        introduction="Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects."
     />
     <section class="list-container">
       <div v-if="are_projects_loading">

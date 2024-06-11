@@ -9,11 +9,6 @@ import ActivityCard from "~/components/cards/ActivityCard.vue";
 import type {Service} from "~/types/Service";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
-useSeoMeta({
-  title: 'SheRise | Person',
-  description: 'This is the single person page with all relevant details about a team member.',
-});
-
 const { id } = useRoute().params;
 
 // fetch the person information
@@ -21,7 +16,7 @@ const {
   data: person,
   pending: is_person_loading,
   error: person_error,
-} = await useLazyFetch<Person>('/api/person/getPersonById', {
+} = await useFetch<Person>('/api/person/getPersonById', {
   query: {
     id: id,
   },
@@ -35,7 +30,7 @@ if (person_error.value?.statusCode) {
 const {
   data: total_persons,
   error: total_persons_error,
-} = await useLazyFetch<number>('/api/person/getTotalNumberOfPersons');
+} = await useFetch<number>('/api/person/getTotalNumberOfPersons');
 // throw error if something went wrong during the fetch
 if (total_persons_error.value?.statusCode) {
   handleFetchError(total_persons, total_persons_error.value.statusCode);
@@ -45,7 +40,7 @@ const {
   data: related_projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useLazyFetch<Project[]>('/api/project/getRelatedProjects', {
+} = await useFetch<Project[]>('/api/project/getRelatedProjects', {
   query: {
     id: id,
   },
@@ -55,12 +50,11 @@ if (projects_error.value?.statusCode){
   handleFetchError(related_projects, projects_error.value.statusCode);
 }
 
-
 const {
   data: related_services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getRelatedServices', {
+} = await useFetch<Service[]>('/api/service/getRelatedServices', {
   query: {
     id: id,
   },
@@ -68,6 +62,15 @@ const {
 if (services_error.value?.statusCode){
   handleFetchError(related_services, services_error.value.statusCode);
 }
+
+const personFullName = computed(() => {
+  return person.value?.full_name;
+});
+
+useSeoMeta({
+  title: 'SheRise | ' + personFullName.value,
+  description: 'This is the single person page with all relevant details about a team member.',
+});
 
 </script>
 
@@ -134,7 +137,7 @@ if (services_error.value?.statusCode){
     </section>
 
     <section>
-      <GroupLinksContainer :id="id" :type="'person'" :maxBound="total_persons"/>
+      <GroupLinksContainer :id="id.at(0)" :type="'person'" :maxBound="total_persons!"/>
     </section>
 
   </main>

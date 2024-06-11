@@ -1,20 +1,20 @@
 <script setup lang="ts">
 interface Props {
-  h1Content?: string;
-  h2Content?: string;
-  h3Content?: string;
+  pageTitle?: string;
+  orientationalInfo?: string;
+  introduction?: string;
 }
 
-const { h1Content, h2Content, h3Content } = defineProps<Props>();
+const { pageTitle, orientationalInfo, introduction } = defineProps<Props>();
 </script>
 
 <template>
   <section>
     <div class="page-title-container">
-      <h2 v-if="h2Content" class="orientational-info">{{h2Content}}</h2>
-      <h1 v-if="h1Content" class="page-title">{{h1Content}}</h1>
+      <h1 v-if="orientationalInfo" class="orientational-info">{{ orientationalInfo }}</h1>
+      <h2 v-if="pageTitle" class="page-title">{{ pageTitle }}</h2>
     </div>
-    <h3 v-if="h3Content" class="p-alt">{{h3Content}}</h3>
+    <h3 v-if="introduction" class="p-alt">{{ introduction }}</h3>
   </section>
 </template>
 

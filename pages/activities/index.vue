@@ -5,7 +5,7 @@ import ActivitiesCarousel from "~/components/carousels/ActivitiesCarousel.vue";
 import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | All Activities',
+  title: 'SheRise | Activities',
   description: 'This is the group page with all the activities carried out at the SheRise center.',
 });
 
@@ -13,7 +13,7 @@ const {
   data: projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useLazyFetch<Project[]>('/api/project/getAllProjects');
+} = await useFetch<Project[]>('/api/project/getAllProjects');
 if (projects_error.value?.statusCode){
   handleFetchError(projects, projects_error.value.statusCode);
 }
@@ -22,7 +22,7 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getAllServices');
+} = await useFetch<Service[]>('/api/service/getAllServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
@@ -31,9 +31,9 @@ if (services_error.value?.statusCode){
 <template>
   <main>
     <MainPageInfoContainer
-        h2Content="Our activities"
-        h1Content="Have a look at what SheRise is all about"
-        h3Content="SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone."
+        orientationalInfo="Our activities"
+        pageTitle="Have a look at what SheRise is all about"
+        introduction="SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone."
     />
     <section class="activities-content">
       <h2 class="activities-title">

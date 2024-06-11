@@ -4,7 +4,7 @@ import PersonCard from "~/components/cards/PersonCard.vue";
 import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | All Persons',
+  title: 'SheRise | Our Team',
   description: 'This is the group page with all the persons that work in SheRise center.',
 });
 
@@ -13,7 +13,7 @@ const {
   data: persons,
   pending: are_persons_loading,
   error: persons_error
-} = await useLazyFetch<Person[]>('/api/person/getAllPersons');
+} = await useFetch<Person[]>('/api/person/getAllPersons');
 if (persons_error.value?.statusCode){
   handleFetchError(persons, persons_error.value.statusCode);
 }
@@ -22,9 +22,9 @@ if (persons_error.value?.statusCode){
 <template>
   <main>
     <MainPageInfoContainer
-        h2Content="The team"
-        h1Content="Meet our collaborative team of great professionals"
-        h3Content="To achieve the organization's goals and reach as many women as possible, a united team of specialists is essential. This is the core of SheRise. Get to know them one by one."
+        orientationalInfo="Our team"
+        pageTitle="Meet our collaborative team of great professionals"
+        introduction="To achieve the organization's goals and reach as many women as possible, a united team of specialists is essential. This is the core of SheRise. Get to know them one by one."
     />
     <section class="list-container">
       <div v-if="are_persons_loading">

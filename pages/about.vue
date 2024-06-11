@@ -7,7 +7,7 @@ This page presents a short presentation of SheRise
 import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | About',
+  title: 'SheRise | About Us',
   description: 'This is the about page with a brief history of the organization and its mission.',
 });
 
@@ -16,8 +16,8 @@ useSeoMeta({
 <template>
   <main>
     <MainPageInfoContainer
-      h2Content="About us"
-      h1Content="Our mission"
+      orientationalInfo="About us"
+      pageTitle="Our mission"
     />
     <p class="p-alt">At our organization, our mission is to provide unwavering support and compassionate care to women and children affected by violence.
       We are committed to fostering a safe, nurturing environment where individuals can heal and rebuild their lives.

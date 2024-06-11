@@ -32,9 +32,9 @@ onBeforeUnmount(() => {
 <template>
   <main>
     <MainPageInfoContainer
-        h2Content="Contacts"
-        h1Content="You are the focus of SheRise. Get in touch with us."
-        h3Content="Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you."
+        orientationalInfo="Contacts"
+        pageTitle="You are the focus of SheRise. Get in touch with us."
+        introduction="Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you."
     />
     <section class="contacts-main">
       <div class="contacts-container">
@@ -77,11 +77,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.p-alt {
-  color: var(--par-color);
-  line-height: 1.65rem;
-}
-
 .contacts-main {
   display: flex;
   flex-direction: row;

@@ -11,11 +11,6 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
-useSeoMeta({
-  title: 'SheRise | Service',
-  description: 'This is the single service page with all relevant details about a service.',
-});
-
 const { id } = useRoute().params;
 
 // fetch the service information
@@ -23,7 +18,7 @@ const {
   data: service,
   pending: is_service_loading,
   error: service_error,
-} = await useLazyFetch<Service>('/api/service/getServiceById', {
+} = await useFetch<Service>('/api/service/getServiceById', {
   query: {
     id: id,
   },
@@ -48,7 +43,7 @@ const {
   data: testimonials,
   pending: are_testimonials_loading,
   error: testimonials_error,
-} = await useLazyFetch<Testimonial[]>('/api/testimonial/getTestimonialsByServiceId', {
+} = await useFetch<Testimonial[]>('/api/testimonial/getTestimonialsByServiceId', {
   query: {
     service_id: id,
   },
@@ -67,7 +62,7 @@ const {
   data: person,
   pending: is_person_loading,
   error: person_error,
-} = await useLazyFetch<Person>('/api/person/getPersonById', {
+} = await useFetch<Person>('/api/person/getPersonById', {
   query: {
     id: supervisorId,
   },
@@ -76,6 +71,15 @@ const {
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
+
+const serviceName = computed(() => {
+  return service.value?.name;
+});
+
+useSeoMeta({
+  title: 'SheRise | ' + serviceName.value,
+  description: 'This is the single service page with all relevant details about a service.',
+});
 
 </script>
 
@@ -120,7 +124,7 @@ if (person_error.value?.statusCode) {
       </section>
 
       <section>
-        <GroupLinksContainer :id="id" :type="'service'" :maxBound="total_services"/>
+        <GroupLinksContainer :id="id.at(0)" :type="'service'" :maxBound="total_services!"/>
       </section>
 
     </div>

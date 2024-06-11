@@ -4,8 +4,8 @@ import ActivityCard from "~/components/cards/ActivityCard.vue";
 import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | All Services',
-  description: 'This is the group page with all the services delivered by SheRise center.',
+  title: 'SheRise | Services',
+  description: 'This is the group page with all the services offered by the SheRise center.',
 });
 
 
@@ -13,7 +13,7 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useLazyFetch<Service[]>('/api/service/getAllServices');
+} = await useFetch<Service[]>('/api/service/getAllServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
@@ -22,9 +22,9 @@ if (services_error.value?.statusCode){
 <template>
   <main>
     <MainPageInfoContainer
-        h2Content="Our services"
-        h1Content="Learn how SheRise takes care about women in difficulty"
-        h3Content="SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise."
+        orientationalInfo="Our services"
+        pageTitle="Learn how SheRise takes care about women in difficulty"
+        introduction="SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise."
     />
     <section class="list-container">
       <div v-if="are_services_loading">

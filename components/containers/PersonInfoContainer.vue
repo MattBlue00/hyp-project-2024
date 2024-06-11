@@ -30,7 +30,7 @@ const altPicture = computed(() => {
 #PersonInfoContainer{
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 90%;
   border-radius: 1rem;
   margin: 5% auto;
   padding: 1rem;
