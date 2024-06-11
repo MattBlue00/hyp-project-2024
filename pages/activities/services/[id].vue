@@ -80,49 +80,51 @@ if (person_error.value?.statusCode) {
 </script>
 
 <template>
-  <div>
-    <h1 class="service-title">{{ service!.name }}</h1>
-  </div>
+  <main>
+    <div>
+      <h1 class="service-title">{{ service!.name }}</h1>
+    </div>
 
-  <div>
-    <section>
-      <div v-if="is_service_loading || is_person_loading">
-        <Loader/>
-      </div>
-      <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
-    </section>
+    <div>
+      <section>
+        <div v-if="is_service_loading || is_person_loading">
+          <Loader/>
+        </div>
+        <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
+      </section>
 
-    <section class="service-description-and-service-info-container">
-      <div v-if="is_service_loading">
-        <Loader/>
-      </div>
-      <div v-else v-if="service">
-        <DescriptionContainer :description="service?.description"/>
-      </div>
-      <div>
-        <ServiceInfoContainer
-            :opening_hours="service?.opening_hours"
-            :duration="service?.duration"
-            :contacts="service?.contacts"
-        />
-      </div>
-    </section>
+      <section class="service-description-and-service-info-container">
+        <div v-if="is_service_loading">
+          <Loader/>
+        </div>
+        <div v-else v-if="service">
+          <DescriptionContainer :description="service?.description"/>
+        </div>
+        <div>
+          <ServiceInfoContainer
+              :opening_hours="service?.opening_hours"
+              :duration="service?.duration"
+              :contacts="service?.contacts"
+          />
+        </div>
+      </section>
 
-    <section>
-      <div v-if="are_testimonials_loading">
-        <Loader/>
-      </div>
-      <div v-else v-if="testimonials">
-        <h2 class="testimonials-header">Learn what our testimonials think about our service</h2>
-        <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
-      </div>
-    </section>
+      <section>
+        <div v-if="are_testimonials_loading">
+          <Loader/>
+        </div>
+        <div v-else v-if="testimonials">
+          <h2 class="testimonials-header">Learn what our testimonials think about our service</h2>
+          <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
+        </div>
+      </section>
 
-    <section>
-      <GroupLinksContainer :id="id" :type="'service'" :maxBound="total_services"/>
-    </section>
+      <section>
+        <GroupLinksContainer :id="id" :type="'service'" :maxBound="total_services"/>
+      </section>
 
-  </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
@@ -139,11 +141,6 @@ if (person_error.value?.statusCode) {
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
-}
-
-.testimonials-carousel{
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 .testimonials-header{

@@ -29,7 +29,7 @@ if (services_error.value?.statusCode){
 </script>
 
 <template>
-  <div class="page-content">
+  <main>
     <MainPageInfoContainer
         h2Content="Our activities"
         h1Content="Have a look at what SheRise is all about"
@@ -55,7 +55,7 @@ if (services_error.value?.statusCode){
         <ActivitiesCarousel class="activity-carousel" :activities="services" type="services"/>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>

@@ -40,20 +40,19 @@ const altPicture = computed(() => {
 .activity-image-and-supervisor-card-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2rem;
   border: 0.1rem solid var(--dark-color);
   border-radius: 1rem;
-  margin-left: calc((100vw - 45rem) / 2);
-  margin-right: calc((100vw - 45rem) / 2);
 }
 
 .activity-img{
   display: flex;
   width: 25rem;
   height: 25rem;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1rem;
+  margin: 1.25rem;
 }
 
 .supervisor-container{

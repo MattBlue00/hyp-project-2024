@@ -20,8 +20,7 @@ if (persons_error.value?.statusCode){
 </script>
 
 <template>
-
-  <div class="page-content">
+  <main>
     <MainPageInfoContainer
         h2Content="The team"
         h1Content="Meet our collaborative team of great professionals"
@@ -39,7 +38,7 @@ if (persons_error.value?.statusCode){
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>

@@ -20,8 +20,7 @@ if (services_error.value?.statusCode){
 </script>
 
 <template>
-
-  <div class="page-content">
+  <main>
     <MainPageInfoContainer
         h2Content="Our services"
         h1Content="Learn how SheRise takes care about women in difficulty"
@@ -39,7 +38,7 @@ if (services_error.value?.statusCode){
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>

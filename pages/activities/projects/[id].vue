@@ -62,28 +62,30 @@ if (person_error.value?.statusCode) {
 </script>
 
 <template>
-  <div v-if="is_project_loading">
-    <Loader/>
-  </div>
-  <div v-else v-if="project">
-    <h1 class="project-title">{{ project?.name }}</h1>
+  <main>
+    <div v-if="is_project_loading">
+      <Loader/>
+    </div>
+    <div v-else v-if="project">
+      <h1 class="project-title">{{ project?.name }}</h1>
 
-    <section>
-      <div v-if="is_project_loading || is_person_loading">
-        <Loader/>
-      </div>
-      <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
-    </section>
+      <section>
+        <div v-if="is_project_loading || is_person_loading">
+          <Loader/>
+        </div>
+        <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
+      </section>
 
-    <section>
-      <DescriptionContainer :description="project?.description"/>
-    </section>
+      <section>
+        <DescriptionContainer :description="project?.description"/>
+      </section>
 
-    <section>
-      <GroupLinksContainer :id="id" :type="'project'" :maxBound="total_projects"/>
-    </section>
+      <section>
+        <GroupLinksContainer :id="id" :type="'project'" :maxBound="total_projects"/>
+      </section>
 
-  </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>

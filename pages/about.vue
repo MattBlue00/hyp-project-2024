@@ -14,7 +14,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="page-content">
+  <main>
     <MainPageInfoContainer
       h2Content="About us"
       h1Content="Our mission"
@@ -40,7 +40,7 @@ useSeoMeta({
       <p class="p-alt">Over the years, through persistent advocacy and community support, we expanded our services and facilities, evolving into a multifaceted organization with a professional team of psychologists, lawyers, social workers, and advocates.</p>
       <p class="p-alt">Today, we proudly operate a state-of-the-art facility and a wide range of outreach programs, continually adapting to meet the evolving needs of our community while staying true to our roots of empathy, empowerment, and unwavering support.</p>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped>
