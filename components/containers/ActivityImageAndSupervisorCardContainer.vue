@@ -40,6 +40,7 @@ const altPicture = computed(() => {
 .activity-image-and-supervisor-card-container{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2rem;
@@ -68,7 +69,6 @@ const altPicture = computed(() => {
 }
 
 .supervised-by{
-  //color: #C30753;
   color: var(--dark-color);
 }
 

@@ -143,6 +143,7 @@ useSeoMeta({
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 1rem;
   align-items: center;
   margin-bottom: 5rem;
 }
