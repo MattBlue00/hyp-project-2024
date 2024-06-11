@@ -36,12 +36,6 @@ body {
     box-sizing: border-box;
 }
 
-.orientational-info {
-    font-size: 1.75rem;
-    color: var(--orientational-info-color);
-    margin: 0.75rem auto;
-}
-
 .card-list-wrapper {
     display: flex;
     justify-content: center;
@@ -81,17 +75,6 @@ body {
 .page-content {
     margin-left: min(15%,15em);
     margin-right: min(15%,15em);
-}
-
-.page-title-container {
-    width: min(900px, 100%);
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-.page-title {
-    font-size: 2rem;
-    color: var(--dark-color);
 }
 
 .carousel{

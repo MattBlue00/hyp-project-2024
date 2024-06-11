@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type {Project} from "~/types/Project";
 import ActivityCard from "~/components/cards/ActivityCard.vue";
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Our Projects',
@@ -20,11 +21,11 @@ if (projects_error.value?.statusCode){
 
 <template>
   <div class="page-content">
-    <section class="page-title-container">
-      <p class="orientational-info">Our projects</p>
-      <h1 class="page-title">Discover how SheRise takes action to prevent women abuse</h1>
-      <p class="p-alt">Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects.</p>
-    </section>
+    <MainPageInfoContainer
+        h2Content="Our projects"
+        h1Content="Discover how SheRise takes action to prevent women abuse"
+        h3Content="Helping all women in need is essential to SheRise, but preventing abuse from happening again is equally important. That's why the organization is deeply involved in numerous prevention projects."
+    />
     <section class="list-container">
       <div v-if="are_projects_loading">
         <Loader/>

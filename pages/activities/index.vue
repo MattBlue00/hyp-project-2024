@@ -2,6 +2,7 @@
 import type {Project} from "~/types/Project";
 import type {Service} from "~/types/Service";
 import ActivitiesCarousel from "~/components/carousels/ActivitiesCarousel.vue";
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | All Activities',
@@ -29,11 +30,11 @@ if (services_error.value?.statusCode){
 
 <template>
   <div class="page-content">
-    <section class="page-title-container">
-      <p class="orientational-info">Our activities</p>
-      <h1 class="page-title">Have a look at what SheRise is all about</h1>
-      <p class="p-alt">SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone.</p>
-    </section>
+    <MainPageInfoContainer
+        h2Content="Our activities"
+        h1Content="Have a look at what SheRise is all about"
+        h3Content="SheRise's mission is implemented through numerous projects and services. Here, you can learn more about everything we do to make society a better place for everyone."
+    />
     <section class="activities-content">
       <h2 class="activities-title">
         Our projects

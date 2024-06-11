@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import CustomButton from '~/components/buttons/CustomButton.vue';
 import Loader from '~/components/Loader.vue';
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Contacts',
@@ -30,11 +31,11 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="page-content">
-    <div class="page-title-container">
-      <p class="orientational-info">Contacts</p>
-      <h1 class="page-title">You are the focus of SheRise. Get in touch with us.</h1>
-    </div>
-    <p class="p-alt">Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you.</p>
+    <MainPageInfoContainer
+        h2Content="Contacts"
+        h1Content="You are the focus of SheRise. Get in touch with us."
+        h3Content="Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you."
+    />
     <section class="contacts-main">
       <div class="contacts-container">
         <h2 class="contacts-subtitle">Connect with SheRise</h2>
