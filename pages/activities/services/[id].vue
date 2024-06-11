@@ -96,7 +96,7 @@ if (person_error.value?.statusCode) {
       <div v-if="is_service_loading">
         <Loader/>
       </div>
-      <div v-else v-if="service">
+      <div class="description-container" v-else v-if="service">
         <DescriptionContainer :description="service?.description"/>
       </div>
       <div>
@@ -135,10 +135,17 @@ if (person_error.value?.statusCode) {
 
 .service-description-and-service-info-container{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.description-container{
+  max-width: 60%;
+  min-width: 20rem;
 }
 
 .testimonials-carousel{
