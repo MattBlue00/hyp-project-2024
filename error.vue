@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
+useSeoMeta({
+  title: 'SheRise | Error',
+  description: 'This is the error page that explains what went wrong during the navigation.',
+});
+
 interface Props {
   error: {
     statusCode: number;
