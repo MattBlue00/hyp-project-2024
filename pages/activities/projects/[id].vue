@@ -84,9 +84,9 @@ useSeoMeta({
       <DescriptionContainer :description="project?.description"/>
     </section>
 
-      <section>
-        <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
-      </section>
+    <section>
+      <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
+    </section>
 
     </div>
   </main>
@@ -95,7 +95,8 @@ useSeoMeta({
 <style scoped>
 
 .project-title{
-  display:flex;
+  display: flex;
+  text-align: center;
   justify-content: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -103,8 +104,8 @@ useSeoMeta({
 
 .description-container{
   display: flex;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 </style>

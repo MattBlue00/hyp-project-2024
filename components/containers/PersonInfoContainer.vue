@@ -31,7 +31,7 @@ const altPicture = computed(() => {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 90%;
+  width: 100%;
   border-radius: 1rem;
   margin: 5% auto;
   padding: 1rem;
@@ -71,4 +71,17 @@ const altPicture = computed(() => {
   margin-bottom: 2rem;
   color: #400E2A;
 }
+
+@media (width < 540px) {
+  .person-img{
+    height: 15rem;
+  }
+}
+
+@media (width < 400px) {
+  .person-img{
+    height: 10rem;
+  }
+}
+
 </style>

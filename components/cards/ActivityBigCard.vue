@@ -20,7 +20,7 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
   <div :class="['carousel-item', isActive ? 'active' : '']">
     <div id="mainContent">
       <div id="activityCardContainer">
-        <ActivityCard :img="img" :name="name" height="16rem"/>
+        <ActivityCard :img="img" :name="name" height="auto"/>
       </div>
       <div id="activityDescriptionPlusButtonContainer">
         <div id="activityDescriptionContainer">
@@ -72,6 +72,16 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 
 .more-link{
   display: inline-block;
+  margin-bottom: 1rem;
+}
+
+@media(width < 760px){
+  #activityDescriptionContainer{
+    display: none;
+  }
+  #mainContent{
+    flex-direction: column;
+  }
 }
 
 </style>

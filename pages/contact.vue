@@ -84,11 +84,13 @@ onBeforeUnmount(() => {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 2rem 0;
 }
 
 .contacts-container {
-  flex: 1;
+  width: 30%;
   text-align: left;
 }
 
@@ -112,13 +114,13 @@ onBeforeUnmount(() => {
 }
 
 .contact-image {
-  flex: 2;
   border-radius: 1rem;
+  width: 60%;
 }
 
 .interactive-map-container {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
 .interactive-map {

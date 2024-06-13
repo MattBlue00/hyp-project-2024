@@ -135,6 +135,7 @@ useSeoMeta({
 .service-title{
   display: flex;
   justify-content: center;
+  text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
@@ -143,11 +144,10 @@ useSeoMeta({
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
+  margin-top: 2rem;
   margin-bottom: 5rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
 }
 
 .description-container{

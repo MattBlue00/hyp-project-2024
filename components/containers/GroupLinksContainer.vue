@@ -55,7 +55,7 @@ const next_path = computed(() => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3rem 2rem;
+  margin: 3rem 0;
 }
 
 .prev-link{
