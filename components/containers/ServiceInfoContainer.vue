@@ -31,7 +31,6 @@ const { opening_hours, duration, contacts} = defineProps<Props>();
   border-radius: 8px;
   width: 20rem;
   padding: 1rem;
-  margin-right: 6rem;
   color: white;
 }
 </style>

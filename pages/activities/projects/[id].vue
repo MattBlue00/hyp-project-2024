@@ -75,7 +75,7 @@ if (person_error.value?.statusCode) {
       <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
     </section>
 
-    <section>
+    <section class="description-container">
       <DescriptionContainer :description="project?.description"/>
     </section>
 
@@ -93,6 +93,12 @@ if (person_error.value?.statusCode) {
   justify-content: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
+}
+
+.description-container{
+  display: flex;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 </style>

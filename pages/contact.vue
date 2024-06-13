@@ -138,7 +138,7 @@ onBeforeUnmount(() => {
   padding-bottom: 0.75rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .contacts-main {
     flex-direction: column;
     align-items: flex-start;
@@ -150,7 +150,7 @@ onBeforeUnmount(() => {
   }
 
   .contact-image {
-    margin-left: 2rem;
+    max-width: 100%;
   }
 }
 </style>

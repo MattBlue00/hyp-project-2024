@@ -18,42 +18,53 @@ const altPicture = computed(() => {
 </script>
 
 <template>
-  <div class="activity-image-and-supervisor-card-container">
-    <div class="activity-img-container">
-      <img class="activity-img" :src="activity!.picture" :alt="altPicture"/>
+  <section class="activity-image-and-supervisor-card-section">
+    <div class="activity-image-and-supervisor-card-container">
+      <div class="activity-img-container">
+        <img class="activity-img" :src="activity!.picture" :alt="altPicture"/>
+      </div>
+      <div class="supervisor-container">
+        <p class="supervised-by">Supervised by</p>
+        <NuxtLink class="clickable-card person-card" :to="`/persons/${supervisor?.id}`">
+          <PersonCard
+              :img="supervisor!.picture"
+              :name="supervisor!.full_name"
+              :main_role="supervisor!.main_role"
+          />
+        </NuxtLink>
+      </div>
     </div>
-    <div class="supervisor-container">
-      <p class="supervised-by">Supervised by</p>
-      <NuxtLink class="clickable-card person-card" :to="`/persons/${supervisor?.id}`">
-        <PersonCard
-            :img="supervisor!.picture"
-            :name="supervisor!.full_name"
-            :main_role="supervisor!.main_role"
-        />
-      </NuxtLink>
-    </div>
-  </div>
-
+  </section>
 </template>
 
 <style scoped>
+
+.activity-image-and-supervisor-card-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .activity-image-and-supervisor-card-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  width: fit-content;
   align-items: center;
+  align-content: center;
   margin-bottom: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   border: 0.1rem solid var(--dark-color);
   border-radius: 1rem;
-  margin-left: calc((100vw - 45rem) / 2);
-  margin-right: calc((100vw - 45rem) / 2);
 }
 
 .activity-img{
   display: flex;
   width: 25rem;
   height: 25rem;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 .supervisor-container{
