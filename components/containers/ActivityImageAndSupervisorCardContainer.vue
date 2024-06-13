@@ -50,7 +50,6 @@ const altPicture = computed(() => {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  width: fit-content;
   align-items: center;
   align-content: center;
   margin-bottom: 2rem;
@@ -64,7 +63,8 @@ const altPicture = computed(() => {
   display: flex;
   width: 25rem;
   height: 25rem;
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem;
+  margin: 1.25rem;
 }
 
 .supervisor-container{
@@ -74,13 +74,11 @@ const altPicture = computed(() => {
   align-content: center;
   width: 20rem;
   height: 25rem;
-  background-color: var(--bg-color);
   padding: 1rem;
   border-radius: 0 1rem 1rem 0;
 }
 
 .supervised-by{
-  //color: #C30753;
   color: var(--dark-color);
 }
 
@@ -91,6 +89,13 @@ const altPicture = computed(() => {
   align-content: center;
   text-decoration: none;
   width: 15rem;
+}
+
+@media (width < 650px){
+  .activity-img{
+    width: 15rem;
+    height: 15rem;
+  }
 }
 
 </style>

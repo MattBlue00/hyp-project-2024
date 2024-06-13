@@ -8,11 +8,6 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
-useSeoMeta({
-  title: 'SheRise | Project',
-  description: 'This is the single project page with all relevant details about a project.',
-});
-
 const { id } = useRoute().params;
 
 // fetch the project information
@@ -20,7 +15,7 @@ const {
   data: project,
   pending: is_project_loading,
   error: project_error,
-} = await useLazyFetch<Project>('/api/project/getProjectById', {
+} = await useFetch<Project>('/api/project/getProjectById', {
   query: {
     id: id,
   },
@@ -59,37 +54,49 @@ if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
 
+const projectName = computed(() => {
+  return project.value?.name;
+});
+
+useSeoMeta({
+  title: 'SheRise | ' + projectName.value,
+  description: 'This is the single project page with all relevant details about a project.',
+});
+
 </script>
 
 <template>
-  <div v-if="is_project_loading">
-    <Loader/>
-  </div>
-  <div v-else v-if="project">
-    <h1 class="project-title">{{ project?.name }}</h1>
+  <main>
+    <div v-if="is_project_loading">
+      <Loader/>
+    </div>
+    <div v-else v-if="project">
+      <h1 class="project-title">{{ project?.name }}</h1>
 
-    <section>
-      <div v-if="is_project_loading || is_person_loading">
-        <Loader/>
-      </div>
-      <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
-    </section>
+      <section>
+        <div v-if="is_project_loading || is_person_loading">
+          <Loader/>
+        </div>
+        <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
+      </section>
 
     <section class="description-container">
       <DescriptionContainer :description="project?.description"/>
     </section>
 
     <section>
-      <GroupLinksContainer :id="id" :type="'project'" :maxBound="total_projects"/>
+      <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
     </section>
 
-  </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
 
 .project-title{
-  display:flex;
+  display: flex;
+  text-align: center;
   justify-content: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -97,8 +104,8 @@ if (person_error.value?.statusCode) {
 
 .description-container{
   display: flex;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 </style>

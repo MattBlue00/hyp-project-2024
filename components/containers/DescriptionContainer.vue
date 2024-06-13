@@ -17,8 +17,8 @@ const {description} = defineProps<Props>();
 #DescriptionContainer{
   width: 100%;
   border-radius: 1rem;
-  background-color: #FFFAF1;
   padding: 1.5rem;
+  background-color: #FFFAF1;
 }
 
 .Description-header{

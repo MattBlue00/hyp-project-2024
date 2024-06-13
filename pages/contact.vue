@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import CustomButton from '~/components/buttons/CustomButton.vue';
 import Loader from '~/components/Loader.vue';
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
   title: 'SheRise | Contacts',
@@ -29,12 +30,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="page-content">
-    <div class="page-title-container">
-      <p class="orientational-info">Contacts</p>
-      <h1 class="page-title">You are the focus of SheRise. Get in touch with us.</h1>
-    </div>
-    <p class="p-alt">Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you.</p>
+  <main>
+    <MainPageInfoContainer
+        orientationalInfo="Contacts"
+        pageTitle="You are the focus of SheRise. Get in touch with us."
+        introduction="Whether it's by email, phone call, or in person at our center, choose the method of contacting us that best suits you."
+    />
     <section class="contacts-main">
       <div class="contacts-container">
         <h2 class="contacts-subtitle">Connect with SheRise</h2>
@@ -70,28 +71,26 @@ onBeforeUnmount(() => {
       <div v-if="!iframeLoaded">
         <Loader />
       </div>
-      <iframe v-show="iframeLoaded" ref="iframeRef" class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe v-show="iframeLoaded" ref="iframeRef" title="Google Interactive Map" class="interactive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.2540201669135!2d-118.32002582477494!3d34.0373545185171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b868d1deaaab%3A0x8a0c33f5a5de44e1!2s2116%20Arlington%20Ave%20%23%20200%2C%20Los%20Angeles%2C%20CA%2090018%2C%20Stati%20Uniti!5e0!3m2!1sit!2sit!4v1716307607129!5m2!1sit!2sit" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>
-.p-alt {
-  color: var(--par-color);
-  line-height: 1.65rem;
-}
-
 .contacts-main {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 2rem 0;
 }
 
 .contacts-container {
-  flex: 1;
+  width: 30%;
   text-align: left;
 }
 
@@ -115,13 +114,13 @@ onBeforeUnmount(() => {
 }
 
 .contact-image {
-  flex: 2;
   border-radius: 1rem;
+  width: 60%;
 }
 
 .interactive-map-container {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
 .interactive-map {
