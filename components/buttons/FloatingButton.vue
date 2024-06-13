@@ -60,8 +60,8 @@
   position: fixed;
   bottom: 5vh;
   right: 3vw;
-  width: 4vw;
-  height: 4vw;
+  width: 3rem;
+  height: 3rem;
   background-color: var(--orientational-info-color);
   border-radius: 50%;
   display: flex;

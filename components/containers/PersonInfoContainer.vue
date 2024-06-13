@@ -29,7 +29,8 @@ const altPicture = computed(() => {
 <style scoped>
 #PersonInfoContainer{
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   width: 90%;
   border-radius: 1rem;
   margin: 5% auto;
@@ -39,7 +40,7 @@ const altPicture = computed(() => {
 }
 
 .image-container{
-  margin-right: 2rem;
+  align-content: center;
 }
 
 .person-img{
@@ -48,8 +49,7 @@ const altPicture = computed(() => {
 }
 
 .text-container{
-  margin-bottom: auto;
-  margin-right: auto;
+  text-align: center;
 }
 
 .Person-info-content-name{

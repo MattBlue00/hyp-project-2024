@@ -97,21 +97,21 @@ useSeoMeta({
         <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
       </section>
 
-      <section class="service-description-and-service-info-container">
-        <div v-if="is_service_loading">
-          <Loader/>
-        </div>
-        <div v-else v-if="service">
-          <DescriptionContainer :description="service?.description"/>
-        </div>
-        <div>
-          <ServiceInfoContainer
-              :opening_hours="service?.opening_hours"
-              :duration="service?.duration"
-              :contacts="service?.contacts"
-          />
-        </div>
-      </section>
+    <section class="service-description-and-service-info-container">
+      <div v-if="is_service_loading">
+        <Loader/>
+      </div>
+      <div class="description-container" v-else v-if="service">
+        <DescriptionContainer :description="service?.description"/>
+      </div>
+      <div>
+        <ServiceInfoContainer
+            :opening_hours="service?.opening_hours"
+            :duration="service?.duration"
+            :contacts="service?.contacts"
+        />
+      </div>
+    </section>
 
       <section>
         <div v-if="are_testimonials_loading">
@@ -141,11 +141,18 @@ useSeoMeta({
 
 .service-description-and-service-info-container{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   gap: 1rem;
   align-items: center;
   margin-bottom: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.description-container{
+  max-width: 60%;
+  min-width: 20rem;
 }
 
 .testimonials-header{

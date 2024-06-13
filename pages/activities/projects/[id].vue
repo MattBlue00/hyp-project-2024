@@ -80,9 +80,9 @@ useSeoMeta({
         <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
       </section>
 
-      <section>
-        <DescriptionContainer :description="project?.description"/>
-      </section>
+    <section class="description-container">
+      <DescriptionContainer :description="project?.description"/>
+    </section>
 
       <section>
         <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
@@ -99,6 +99,12 @@ useSeoMeta({
   justify-content: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
+}
+
+.description-container{
+  display: flex;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 </style>
