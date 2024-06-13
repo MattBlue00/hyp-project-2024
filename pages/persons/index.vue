@@ -13,7 +13,7 @@ const {
   data: persons,
   pending: are_persons_loading,
   error: persons_error
-} = await useFetch<Person[]>('/api/person/getAllPersons');
+} = await useLazyFetch<Person[]>('/api/person/getAllPersons');
 if (persons_error.value?.statusCode){
   handleFetchError(persons, persons_error.value.statusCode);
 }

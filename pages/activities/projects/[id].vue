@@ -44,7 +44,7 @@ const {
   data: person,
   pending: is_person_loading,
   error: person_error,
-} = await useFetch<Person>('/api/person/getPersonById', {
+} = await useLazyFetch<Person>('/api/person/getPersonById', {
   query: {
     id: supervisorId,
   },

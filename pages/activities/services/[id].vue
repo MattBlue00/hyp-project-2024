@@ -43,7 +43,7 @@ const {
   data: testimonials,
   pending: are_testimonials_loading,
   error: testimonials_error,
-} = await useFetch<Testimonial[]>('/api/testimonial/getTestimonialsByServiceId', {
+} = await useLazyFetch<Testimonial[]>('/api/testimonial/getTestimonialsByServiceId', {
   query: {
     service_id: id,
   },
@@ -62,7 +62,7 @@ const {
   data: person,
   pending: is_person_loading,
   error: person_error,
-} = await useFetch<Person>('/api/person/getPersonById', {
+} = await useLazyFetch<Person>('/api/person/getPersonById', {
   query: {
     id: supervisorId,
   },

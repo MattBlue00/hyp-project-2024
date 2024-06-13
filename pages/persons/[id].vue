@@ -40,7 +40,7 @@ const {
   data: related_projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useFetch<Project[]>('/api/project/getRelatedProjects', {
+} = await useLazyFetch<Project[]>('/api/project/getRelatedProjects', {
   query: {
     id: id,
   },
@@ -54,7 +54,7 @@ const {
   data: related_services,
   pending: are_services_loading,
   error: services_error
-} = await useFetch<Service[]>('/api/service/getRelatedServices', {
+} = await useLazyFetch<Service[]>('/api/service/getRelatedServices', {
   query: {
     id: id,
   },

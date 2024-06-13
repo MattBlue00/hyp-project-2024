@@ -13,7 +13,7 @@ const {
   data: projects,
   pending: are_projects_loading,
   error: projects_error
-} = await useFetch<Project[]>('/api/project/getAllProjects');
+} = await useLazyFetch<Project[]>('/api/project/getAllProjects');
 if (projects_error.value?.statusCode){
   handleFetchError(projects, projects_error.value.statusCode);
 }
@@ -22,7 +22,7 @@ const {
   data: services,
   pending: are_services_loading,
   error: services_error
-} = await useFetch<Service[]>('/api/service/getAllServices');
+} = await useLazyFetch<Service[]>('/api/service/getAllServices');
 if (services_error.value?.statusCode){
   handleFetchError(services, services_error.value.statusCode);
 }
