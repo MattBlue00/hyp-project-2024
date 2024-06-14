@@ -1,56 +1,61 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'SheRise | Home',
+  description: 'This is the home page of SheRise with aggregated information about the company\'s activities.',
+});
 </script>
 
 <template>
-  <!-- SheRise logo -->
-  <section>
-    <div class="logo-container">
-      <img class="logo-img" src="assets/img/logo.jpg" alt="SheRise logo"/>
-      <div class="logo-text-container">
-        <div class="logo-text"> SheRise </div>
+  <main>
+    <!-- SheRise logo -->
+    <section>
+      <div class="logo-container">
+        <img class="logo-img" src="assets/img/logo.jpg" alt="SheRise logo"/>
+        <div class="logo-text-container">
+          <div class="logo-text"> SheRise </div>
+        </div>
       </div>
-    </div>
-    <div class="logo-caption"> Always by your side </div>
-  </section>
+      <div class="logo-caption"> Always by your side </div>
+    </section>
 
-  <!-- home body -->
-  <section>
-    <div>
-      <div class="home-container">
-        <img class="home-img" src="assets/img/home-img-1.jpg" alt="">
-        <p class="home-text">
-          In a quiet village nestled between rolling hills and a sparkling river, life moved at a gentle pace. The villagers were known for their warmth and hospitality, always ready to lend a hand or share a meal. Each season brought its own charm: spring adorned the fields with wildflowers, summer filled the air with the scent of ripe fruit, autumn painted the trees in hues of gold and crimson, and winter blanketed the landscape in a serene layer of snow.
-        </p>
+    <!-- home body -->
+    <section>
+      <div>
+        <div class="home-container">
+          <img class="home-img" src="assets/img/home-img-1.jpg" alt="">
+          <p class="home-text">
+            In a quiet village nestled between rolling hills and a sparkling river, life moved at a gentle pace. The villagers were known for their warmth and hospitality, always ready to lend a hand or share a meal. Each season brought its own charm: spring adorned the fields with wildflowers, summer filled the air with the scent of ripe fruit, autumn painted the trees in hues of gold and crimson, and winter blanketed the landscape in a serene layer of snow.
+          </p>
+        </div>
+        <div class="home-container">
+          <p class="home-text">
+            Amelia, a young woman with a passion for storytelling, often wandered through the village, capturing its essence in her notebook. She believed that every corner of the village held a story waiting to be told. One day, while exploring the outskirts, she stumbled upon an old, abandoned cottage. Curiosity piqued, she ventured inside, finding remnants of a life once lived—dusty photographs, yellowed letters, and forgotten trinkets.
+          </p>
+          <img class="home-img" src="assets/img/home-img-2.jpg" alt="">
+        </div>
       </div>
-      <div class="home-container">
-        <p class="home-text">
-          Amelia, a young woman with a passion for storytelling, often wandered through the village, capturing its essence in her notebook. She believed that every corner of the village held a story waiting to be told. One day, while exploring the outskirts, she stumbled upon an old, abandoned cottage. Curiosity piqued, she ventured inside, finding remnants of a life once lived—dusty photographs, yellowed letters, and forgotten trinkets.
-        </p>
-        <img class="home-img" src="assets/img/home-img-2.jpg" alt="">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- witnesses -->
-  <section>
-    <div class="witnesses-container">
-      <p class="witnesses-text"> Witnesses</p>
-      <!-- PROTOTYPE -->
-      <div class="wit-container-prototype">
-        <div class="wit-img-prototype"></div>
-        <div class="wit-content-prototype"></div>
+    <!-- witnesses -->
+    <section>
+      <div class="witnesses-container">
+        <p class="witnesses-text"> Witnesses</p>
+        <!-- PROTOTYPE -->
+        <div class="wit-container-prototype">
+          <div class="wit-img-prototype"></div>
+          <div class="wit-content-prototype"></div>
+        </div>
+        <div class="wit-container-prototype">
+          <div class="wit-img-prototype"></div>
+          <div class="wit-content-prototype"></div>
+        </div>
+        <div class="wit-container-prototype">
+          <div class="wit-img-prototype"></div>
+          <div class="wit-content-prototype"></div>
+        </div>
       </div>
-      <div class="wit-container-prototype">
-        <div class="wit-img-prototype"></div>
-        <div class="wit-content-prototype"></div>
-      </div>
-      <div class="wit-container-prototype">
-        <div class="wit-img-prototype"></div>
-        <div class="wit-content-prototype"></div>
-      </div>
-    </div>
-  </section>
-
+    </section>
+  </main>
 </template>
 
 <style scoped>
