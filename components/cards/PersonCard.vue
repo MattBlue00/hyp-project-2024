@@ -1,14 +1,14 @@
 <script setup lang="ts">
 interface Props {
-  img?: string;
-  name?: string;
-  main_role?: string;
+  img: string;
+  name: string;
+  main_role: string;
 }
 
 const { img, name, main_role} = defineProps<Props>();
 
 const altPicture = computed(() => {
-  return "Picture of the '" + name +"' person";
+  return "Picture of " + name;
 });
 </script>
 

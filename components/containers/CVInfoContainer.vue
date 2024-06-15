@@ -1,9 +1,9 @@
 <script setup lang="ts">
 interface Props {
-  bio?: string;
-  education?: string;
-  past_experience?: string;
-  main_expertise?: string;
+  bio: string;
+  education: string;
+  past_experience: string;
+  main_expertise: string;
 }
 
 const { bio, education, past_experience, main_expertise} = defineProps<Props>();

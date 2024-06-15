@@ -3,8 +3,8 @@
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
 interface Props {
-  id?: string;
-  type?: string;
+  id: string;
+  type: string;
   maxBound: number;
 }
 

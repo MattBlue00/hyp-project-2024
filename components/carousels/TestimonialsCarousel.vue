@@ -3,7 +3,7 @@ import TestimonialCard from "~/components/cards/TestimonialCard.vue";
 import type {Testimonial} from "~/types/Testimonial";
 
 interface Props {
-  testimonials?: Testimonial[] | null;
+  testimonials: Testimonial[];
 }
 
 const { testimonials } = defineProps<Props>();

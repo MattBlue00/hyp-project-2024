@@ -1,9 +1,9 @@
 <script setup lang="ts">
 interface Props {
-  img?: string;
-  name?: string;
-  statement?: string;
-  isActive?: boolean;
+  img: string;
+  name: string;
+  statement: string;
+  isActive: boolean;
 }
 
 const { img, name, statement, isActive} = defineProps<Props>();
