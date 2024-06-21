@@ -108,7 +108,7 @@ const closeMenuOnLink = () => {
   text-underline-offset: 2px;
 }*/
 
-@media (width < 1000px) {
+@media (max-width: 1000px) {
   /* These three following classes disable desktop menu on smaller devices */
   .nav-links {
     display: none;

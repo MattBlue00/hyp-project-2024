@@ -96,10 +96,6 @@ main {
     background-color: var(--nbar-color);
 }
 
-.x-icon{
-    width: 90%;
-}
-
 .p-alt {
     color: var(--par-color);
     line-height: 1.65rem;

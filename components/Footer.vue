@@ -110,4 +110,8 @@ hr.divider {
     padding: 1px;
 }
 
+.x-icon{
+  height: 60%;
+}
+
 </style>
