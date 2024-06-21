@@ -14,7 +14,6 @@ function getRandomNumbers(count: number, min: number, max: number): number[] {
 }
 
 const randomNumbers = getRandomNumbers(3, 1, 10);
-console.log(randomNumbers);
 
 /**
  *  Query that returns the service's testimonials, given the service ID.
