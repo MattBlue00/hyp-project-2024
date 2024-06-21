@@ -1,8 +1,23 @@
 <script setup lang="ts">
+import type {Testimonial} from "~/types/Testimonial";
+import TestimonialCard from "~/components/cards/TestimonialCard.vue";
+import {handleFetchError} from "~/composables/errorHandlers";
+
 useSeoMeta({
   title: 'SheRise | Home',
   description: 'This is the home page of SheRise with aggregated information about the company\'s activities.',
 });
+
+// fetch the testimonials of the service
+const {
+  data: testimonials,
+  pending: are_testimonials_loading,
+  error: testimonials_error,
+} = await useLazyFetch<Testimonial[]>('/api/testimonial/getRandomTestimonials');
+if (testimonials_error.value?.statusCode){
+  handleFetchError(testimonials, testimonials_error.value.statusCode);
+}
+
 </script>
 
 <template>
@@ -18,19 +33,18 @@ useSeoMeta({
       <div class="logo-caption"> Always by your side </div>
     </section>
 
-    <!-- home body -->
+    <!-- home main content -->
     <section>
       <div>
         <div class="home-container">
           <img class="home-img" src="assets/img/home-img-1.jpg" alt="">
           <p class="home-text">
-            In a quiet village nestled between rolling hills and a sparkling river, life moved at a gentle pace. The villagers were known for their warmth and hospitality, always ready to lend a hand or share a meal. Each season brought its own charm: spring adorned the fields with wildflowers, summer filled the air with the scent of ripe fruit, autumn painted the trees in hues of gold and crimson, and winter blanketed the landscape in a serene layer of snow.
+            Every day, countless women around the world face myriad forms of violence. These experiences leave profound, often hidden scars. Despite the overwhelming weight of these challenges, it's vital to understand that you are never isolated in this struggle. Support and resources are readily available to empower and uplift you. Remember, reaching out for assistance is not just a step towards safety and healing, but a courageous act of reclaiming your dignity and strength. You deserve to live free from fear and to flourish in your own journey of recovery and resilience.
           </p>
         </div>
         <div class="home-container">
           <p class="home-text">
-            Amelia, a young woman with a passion for storytelling, often wandered through the village, capturing its essence in her notebook. She believed that every corner of the village held a story waiting to be told. One day, while exploring the outskirts, she stumbled upon an old, abandoned cottage. Curiosity piqued, she ventured inside, finding remnants of a life once lived—dusty photographs, yellowed letters, and forgotten trinkets.
-          </p>
+            The SheRise Center provides support for women who have faced violence, offering a variety of essential projects and services. These include personalized counseling sessions, legal advocacy, educational workshops, and safe housing options, all aimed at empowering recovery and fostering resilience. Our commitment lies in creating a safe, supportive environment where every woman can regain control of her life, heal from trauma, and rebuild a future with dignity and hope.          </p>
           <img class="home-img" src="assets/img/home-img-2.jpg" alt="">
         </div>
       </div>
@@ -40,25 +54,28 @@ useSeoMeta({
     <section>
       <div class="witnesses-container">
         <p class="witnesses-text"> Witnesses</p>
-        <!-- PROTOTYPE -->
-        <div class="wit-container-prototype">
-          <div class="wit-img-prototype"></div>
-          <div class="wit-content-prototype"></div>
-        </div>
-        <div class="wit-container-prototype">
-          <div class="wit-img-prototype"></div>
-          <div class="wit-content-prototype"></div>
-        </div>
-        <div class="wit-container-prototype">
-          <div class="wit-img-prototype"></div>
-          <div class="wit-content-prototype"></div>
+        <div v-for="testimonial in testimonials">
+            <div v-if="are_testimonials_loading">
+              <Loader />
+            </div>
+            <div v-else v-if="testimonials">
+              <TestimonialCard
+                  :key="testimonial.id"
+                  :img="testimonial.author_picture"
+                  :name="testimonial.author_full_name"
+                  :statement="testimonial.statement"
+                  :isActive="true"
+              />
+            </div>
         </div>
       </div>
     </section>
+
   </main>
 </template>
 
 <style scoped>
+
 .logo-container{
   display: flex;
   justify-content: center;
@@ -119,31 +136,14 @@ useSeoMeta({
 
 .witnesses-container{
   margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
 }
+
 .witnesses-text{
   text-align: center;
   font-size: 1.5rem;
   color: #400E2A;
-}
-
-.wit-container-prototype{
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.wit-img-prototype{
-  display: flex;
-  background-color: #DA0E5F;
-  width: 6rem;
-  height: 6rem;
-}
-
-.wit-content-prototype{
-  display: flex;
-  background-color: #FFE4EB;
-  width: 20rem;
-  height: 6rem;
 }
 
 
