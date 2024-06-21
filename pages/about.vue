@@ -4,19 +4,21 @@
 This page presents a short presentation of SheRise
 */
 
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
+
 useSeoMeta({
-  title: 'SheRise | About',
-  description: 'This is the about page with a brief history of the organization and its history.',
+  title: 'SheRise | About Us',
+  description: 'This is the about page with a brief history of the organization and its mission.',
 });
 
 </script>
 
 <template>
-  <div class="page-content">
-    <div class="page-title-container">
-      <p class="orientational-info">About us</p>
-      <h1 class="page-title">Our mission</h1>
-    </div>
+  <main>
+    <MainPageInfoContainer
+      orientationalInfo="About us"
+      pageTitle="Our mission"
+    />
     <p class="p-alt">At our organization, our mission is to provide unwavering support and compassionate care to women and children affected by violence.
       We are committed to fostering a safe, nurturing environment where individuals can heal and rebuild their lives.
     </p>
@@ -38,7 +40,7 @@ useSeoMeta({
       <p class="p-alt">Over the years, through persistent advocacy and community support, we expanded our services and facilities, evolving into a multifaceted organization with a professional team of psychologists, lawyers, social workers, and advocates.</p>
       <p class="p-alt">Today, we proudly operate a state-of-the-art facility and a wide range of outreach programs, continually adapting to meet the evolving needs of our community while staying true to our roots of empathy, empowerment, and unwavering support.</p>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped>
@@ -60,5 +62,9 @@ useSeoMeta({
 
 .history-content {
   margin-bottom: 3rem;
+}
+
+h2{
+  margin-bottom: 1rem;
 }
 </style>

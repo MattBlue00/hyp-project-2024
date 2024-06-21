@@ -15,30 +15,31 @@ const altPicture = computed(() => {
 
 <template>
   <div :class="['carousel-item', isActive ? 'active' : '']">
-    <table class="testimonial">
-      <tr>
-        <td class="testimonial-author-picture-container">
-          <img class="testimonial-image" :src="img" :alt="altPicture"/>
-        </td>
-        <td id="testimonialInfo">
-          <p id="testimonialName">{{ name }}</p>
-          <div class="overflow-auto">
-            <p id="testimonialStatement">{{ statement }}</p>
-          </div>
-        </td>
-      </tr>
-    </table>
+    <div class="testimonial">
+      <div class="testimonial-author-picture-container">
+        <img class="testimonial-image" :src="img" :alt="altPicture"/>
+      </div>
+      <div id="testimonialInfo">
+        <p id="testimonialName">{{ name }}</p>
+        <div class="overflow-auto">
+          <p id="testimonialStatement">{{ statement }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 
 .testimonial{
+  display: flex;
+  flex-direction: row;
   align-content: center;
 }
 
 .testimonial-author-picture-container
 {
+  flex: 1;
   display: flex;
   align-items: center;
   align-content: center;
@@ -57,6 +58,7 @@ const altPicture = computed(() => {
 
 #testimonialInfo {
   padding-left: 1.25rem;
+  flex: 3;
 }
 
 #testimonialName {

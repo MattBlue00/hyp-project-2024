@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type {Service} from "~/types/Service";
 import ActivityCard from "~/components/cards/ActivityCard.vue";
+import MainPageInfoContainer from "~/components/containers/MainPageInfoContainer.vue";
 
 useSeoMeta({
-  title: 'SheRise | All Services',
-  description: 'This is the group page with all the services delivered by SheRise center.',
+  title: 'SheRise | Services',
+  description: 'This is the group page with all the services offered by the SheRise center.',
 });
 
 
@@ -19,13 +20,12 @@ if (services_error.value?.statusCode){
 </script>
 
 <template>
-
-  <div class="page-content">
-    <section class="page-title-container">
-      <p class="orientational-info">Our services</p>
-      <h1 class="page-title">Learn how SheRise takes care about women in difficulty</h1>
-      <p class="p-alt">SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise.</p>
-    </section>
+  <main>
+    <MainPageInfoContainer
+        orientationalInfo="Our services"
+        pageTitle="Learn how SheRise takes care about women in difficulty"
+        introduction="SheRises offers many services to help abused women. Every woman will learn how to rise again with SheRise."
+    />
     <section class="list-container">
       <div v-if="are_services_loading">
         <Loader/>
@@ -38,7 +38,7 @@ if (services_error.value?.statusCode){
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>

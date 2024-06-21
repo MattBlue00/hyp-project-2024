@@ -24,9 +24,8 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 
 <style scoped>
 #CVInfoContainer{
-  width: 80%;
+  width: 100%;
   border-radius: 1rem;
-  margin-left: 10%;
   margin-bottom: 3rem;
   padding: 1.5rem;
   background-color: #FFFAF1;

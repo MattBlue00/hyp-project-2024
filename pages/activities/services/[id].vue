@@ -11,11 +11,6 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
-useSeoMeta({
-  title: 'SheRise | Service',
-  description: 'This is the single service page with all relevant details about a service.',
-});
-
 const { id } = useRoute().params;
 
 // fetch the service information
@@ -23,7 +18,7 @@ const {
   data: service,
   pending: is_service_loading,
   error: service_error,
-} = await useLazyFetch<Service>('/api/service/getServiceById', {
+} = await useFetch<Service>('/api/service/getServiceById', {
   query: {
     id: id,
   },
@@ -77,26 +72,36 @@ if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
 
+const serviceName = computed(() => {
+  return service.value?.name;
+});
+
+useSeoMeta({
+  title: 'SheRise | ' + serviceName.value,
+  description: 'This is the single service page with all relevant details about a service.',
+});
+
 </script>
 
 <template>
-  <div>
-    <h1 class="service-title">{{ service!.name }}</h1>
-  </div>
+  <main>
+    <div>
+      <h1 class="service-title">{{ service!.name }}</h1>
+    </div>
 
-  <div>
-    <section>
-      <div v-if="is_service_loading || is_person_loading">
-        <Loader/>
-      </div>
-      <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
-    </section>
+    <div>
+      <section>
+        <div v-if="is_service_loading || is_person_loading">
+          <Loader/>
+        </div>
+        <ActivityImageAndSupervisorCardContainer v-else v-if="service && person" :activity="service" :supervisor="person" />
+      </section>
 
     <section class="service-description-and-service-info-container">
       <div v-if="is_service_loading">
         <Loader/>
       </div>
-      <div v-else v-if="service">
+      <div class="description-container" v-else v-if="service">
         <DescriptionContainer :description="service?.description"/>
       </div>
       <div>
@@ -108,42 +113,46 @@ if (person_error.value?.statusCode) {
       </div>
     </section>
 
-    <section>
-      <div v-if="are_testimonials_loading">
-        <Loader/>
-      </div>
-      <div v-else v-if="testimonials">
-        <h2 class="testimonials-header">Learn what our testimonials think about our service</h2>
-        <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
-      </div>
-    </section>
+      <section>
+        <div v-if="are_testimonials_loading">
+          <Loader/>
+        </div>
+        <div v-else v-if="testimonials">
+          <h2 class="testimonials-header">Learn what our testimonials think about our service</h2>
+          <TestimonialsCarousel class="testimonials-carousel" :testimonials="testimonials"/>
+        </div>
+      </section>
 
-    <section>
-      <GroupLinksContainer :id="id" :type="'service'" :maxBound="total_services"/>
-    </section>
+      <section>
+        <GroupLinksContainer :id="id.at(0)" :type="'service'" :maxBound="total_services!"/>
+      </section>
 
-  </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
 .service-title{
   display: flex;
   justify-content: center;
+  text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
 .service-description-and-service-info-container{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
   align-items: center;
+  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
-.testimonials-carousel{
-  margin-left: 10%;
-  margin-right: 10%;
+.description-container{
+  max-width: 60%;
+  min-width: 20rem;
 }
 
 .testimonials-header{

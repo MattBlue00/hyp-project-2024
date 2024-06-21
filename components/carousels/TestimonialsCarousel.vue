@@ -49,7 +49,4 @@ const { testimonials } = defineProps<Props>();
   padding-left: 6.5%;
   padding-right: 6.5%;
 }
-
-.carousel-inner{
-}
 </style>
