@@ -42,6 +42,7 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 #mainContent{
   display: flex;
   flex-direction: row;
+  gap: 1.25rem;
 }
 
 #activityDescriptionPlusButtonContainer{
@@ -50,7 +51,6 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 
 #activityCardContainer{
   flex: 1;
-  padding-right: 1.25rem;
 }
 
 #activityDescriptionHeader{
