@@ -187,7 +187,8 @@ onMounted(() => {
   border: none;
   border-radius: 0.75rem;
   padding: 0.3125rem 0.625rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -208,6 +209,7 @@ onMounted(() => {
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
+  color: black;
 }
 
 .message {
@@ -253,6 +255,7 @@ onMounted(() => {
   border: none;
   border-radius: 0.3125rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .chat-input .send-button:hover {
