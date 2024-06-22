@@ -66,7 +66,7 @@ if (testimonials_error.value?.statusCode){
 
     <!-- witnesses -->
     <section>
-      <h2 class="testimonial-text">Our testimonials</h2>
+      <h2 class="testimonial-text">Learn what some of our testimonials say about our services</h2>
       <div class="testimonial-container">
         <div v-for="testimonial in testimonials">
             <div v-if="are_testimonials_loading">
@@ -204,12 +204,13 @@ h1{
 .testimonial-card {
   background-color: #FFE4EB;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .testimonial-button{
+  padding-top: 1rem;
   align-self: end;
 }
 
@@ -263,10 +264,14 @@ h1{
   }
 }
 
+.testimonial-button{
+  padding-right: 1rem;
+}
+
 @media(max-width: 1000px){
 
   .testimonial-card{
-    padding: 1.2rem;
+    padding: 1rem 0;
   }
 
   .home-subtitle{
@@ -275,6 +280,10 @@ h1{
 
   .home-text{
     padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .testimonial-button{
     padding-right: 1rem;
   }
 
