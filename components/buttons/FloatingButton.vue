@@ -9,16 +9,24 @@ const shownMessages = ref<Message[]>([
 const newMessage = ref<string>('');
 const isChatOpen = ref<boolean>(false);
 
+const messagesContainerRef = ref<HTMLElement | null>(null);
+
 const sendMessage = async () => {
   if (newMessage.value.trim() !== '') {
     shownMessages.value.push(new Message('user', newMessage.value));
-    await getResponse(newMessage.value);
+    scrollToBottom();
+
+    const messageToSend: string = newMessage.value;
     newMessage.value = '';
+
+    await getResponse(messageToSend);
   }
 };
 
 const getResponse = async (sentMessage: string) => {
   try {
+    const newArrayLength = shownMessages.value.push(new Message('assistant', ''));
+
     const {
       data: receivedMessage
     } = await useFetch('/api/chatbot/apiProxy', {
@@ -28,7 +36,7 @@ const getResponse = async (sentMessage: string) => {
     });
 
     if (receivedMessage != null) {
-      shownMessages.value.push(new Message('assistant', receivedMessage.value));
+      shownMessages.value[newArrayLength - 1].content = receivedMessage.value;
     }
   } catch (error) {
     shownMessages.value.push(new Message(
@@ -36,11 +44,23 @@ const getResponse = async (sentMessage: string) => {
         "Sorry, at the moment I can't answer. Please, try again later.",
     ))
   }
+  finally {
+    scrollToBottom();
+  }
 };
 
 // Function to toggle the chat open/close state
 const toggleChat = async () => {
   isChatOpen.value = !isChatOpen.value;
+};
+
+const scrollToBottom = () => {
+  nextTick(() => {
+    const messagesContainer = messagesContainerRef.value;
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  });
 };
 
 </script>
@@ -52,8 +72,15 @@ const toggleChat = async () => {
         <button class="close-btn" @click="toggleChat">Close</button>
         <h3 class="chat-title">SheRiseBot</h3>
       </div>
-      <div class="messages">
+      <div class="messages" ref="messagesContainerRef">
         <div v-for="(message, index) in shownMessages" :key="index" :class="['message', message.role]">
+          <div v-if="message.role==='assistant' && message.content===''" class="ticontainer">
+            <div class="tiblock">
+              <div class="tidot"></div>
+              <div class="tidot"></div>
+              <div class="tidot"></div>
+            </div>
+          </div>
           {{ message.content }}
         </div>
       </div>
@@ -201,6 +228,69 @@ const toggleChat = async () => {
 
 .floating-button:hover {
   background-color: var(--hover-color);
+}
+
+/* =======================
+   Responsive typing indicator
+   ======================= */
+
+.tiblock {
+  align-items: center;
+  display: flex;
+  height: 1rem;
+}
+
+.ticontainer .tidot {
+  background-color: #90949c;
+}
+
+.tidot {
+  animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+  -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.5rem;
+  margin-right: 0.125rem;
+  width: 0.5rem;
+}
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  28% {
+    transform: translateY(-5px);
+  }
+  44% {
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes mercuryTypingAnimation {
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  28% {
+    -webkit-transform: translateY(-5px);
+  }
+  44% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.tidot:nth-child(1) {
+  animation-delay: 200ms;
+  -webkit-animation-delay: 200ms;
+}
+
+.tidot:nth-child(2) {
+  animation-delay: 300ms;
+  -webkit-animation-delay: 300ms;
+}
+
+.tidot:nth-child(3) {
+  animation-delay: 400ms;
+  -webkit-animation-delay: 400ms;
 }
 
 </style>
