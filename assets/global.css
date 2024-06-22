@@ -119,5 +119,6 @@ main {
     main {
         margin-left: min(10%,10em);
         margin-right: min(10%,10em);
+        text-align: center;
     }
 }

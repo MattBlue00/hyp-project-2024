@@ -80,11 +80,12 @@ const toggleChat = async () => {
   position: fixed;
   bottom: 1.25rem; /* 20px */
   right: 1.25rem; /* 20px */
+  z-index: 5;
 }
 
 .chat-window {
-  width: 30vw;
-  height: 80vh;
+  width: min(max(30vw,20rem), 95vw);
+  height: min(max(80vh, 20rem), 95vh);
   border-radius: 1rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -194,7 +195,6 @@ const toggleChat = async () => {
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  z-index: 1;
   font-size: 2.3rem;
   color: var(--bg-color);
 }

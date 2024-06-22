@@ -137,19 +137,20 @@ onBeforeUnmount(() => {
   padding-bottom: 0.75rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 860px) {
   .contacts-main {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .contacts-container {
     text-align: left;
     padding: 0;
+    width: 100%;
   }
 
   .contact-image {
-    max-width: 100%;
+    width: 100%;
   }
 }
 </style>
