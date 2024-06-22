@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
 .buttons-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
