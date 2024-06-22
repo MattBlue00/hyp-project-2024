@@ -13,8 +13,6 @@ function getRandomNumbers(count: number, min: number, max: number): number[] {
     return numbers;
 }
 
-const randomNumbers = getRandomNumbers(3, 1, 10);
-
 /**
  *  Query that returns the service's testimonials, given the service ID.
  */

@@ -29,9 +29,9 @@ if (testimonials_error.value?.statusCode){
         <img class="logo-img" src="assets/img/logo.jpg" alt="SheRise logo"/>
         <div class="logo-text-container">
           <h1 class="logo-text"> SheRise </h1>
+          <h2 class="logo-caption"> Always by your side </h2>
         </div>
       </div>
-      <h2 class="logo-caption"> Always by your side </h2>
     </section>
 
     <!-- home main content -->
@@ -66,21 +66,21 @@ if (testimonials_error.value?.statusCode){
 
     <!-- witnesses -->
     <section>
-      <h2 class="witnesses-text"> Witnesses</h2>
-      <div class="witnesses-container">
+      <h2 class="testimonial-text">Our testimonials</h2>
+      <div class="testimonial-container">
         <div v-for="testimonial in testimonials">
             <div v-if="are_testimonials_loading">
               <Loader />
             </div>
-            <div v-else v-if="testimonials">
+            <div class="testimonial-card" v-else v-if="testimonials">
               <TestimonialCard
-                  class="witnesses-card"
                   :key="testimonial.id"
                   :img="testimonial.author_picture"
                   :name="testimonial.author_full_name"
                   :statement="testimonial.statement"
                   :isActive="true"
               />
+              <CustomButton class="testimonial-button" :to="`/activities/services/${testimonial!.service_id}`" value="Learn about this service" width="auto"/>
             </div>
         </div>
       </div>
@@ -91,11 +91,15 @@ if (testimonials_error.value?.statusCode){
 
 <style scoped>
 
+h1{
+  margin-bottom: 0;
+}
+
 .logo-container{
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .logo-img{
@@ -108,7 +112,6 @@ if (testimonials_error.value?.statusCode){
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 1rem;
 }
 
 .logo-text{
@@ -118,6 +121,7 @@ if (testimonials_error.value?.statusCode){
 }
 
 .logo-caption{
+  font-size: 1.7rem;
   text-align: center;
   color: #DA0E5F;
   margin-bottom: 4rem;
@@ -184,29 +188,47 @@ if (testimonials_error.value?.statusCode){
   align-self: end;
 }
 
-.witnesses-container{
+.testimonial-container{
   margin-bottom: 4rem;
   display: flex;
   gap: 4rem;
   flex-direction: column;
 }
 
-.witnesses-text{
+.testimonial-text{
   text-align: center;
   color: #400E2A;
   margin-bottom: 3rem;
 }
 
-.witnesses-card{
+.testimonial-card {
   background-color: #FFE4EB;
   border-radius: 1rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-button{
+  align-self: end;
 }
 
 @media(max-width: 1200px){
+
+  .logo-container{
+    padding-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .home-container{
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .home-img-container{
+    min-width: auto;
   }
 
   .home-subtitle-text-button{
@@ -237,8 +259,25 @@ if (testimonials_error.value?.statusCode){
   }
 
   #hstb2{
-    padding: 1rem;
+    padding: 2rem 1rem 1rem;
   }
+}
+
+@media(max-width: 1000px){
+
+  .testimonial-card{
+    padding: 1.2rem;
+  }
+
+  .home-subtitle{
+    margin-bottom: 0;
+  }
+
+  .home-text{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
 }
 
 </style>
