@@ -3,12 +3,12 @@ import ActivityCard from "~/components/cards/ActivityCard.vue";
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
 interface Props {
-  id?: number;
-  img?: string;
-  name?: string;
-  description?: string;
-  isActive?: boolean;
-  type?: string;
+  id: number;
+  img: string;
+  name: string;
+  description: string;
+  isActive: boolean;
+  type: string;
 }
 
 const { id, img, name, description, isActive, type} = defineProps<Props>();

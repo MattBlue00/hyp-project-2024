@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
-  img?: string;
-  name?: string;
+  img: string;
+  name: string;
   height?: string;
 }
 

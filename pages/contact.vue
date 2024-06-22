@@ -61,7 +61,7 @@ onBeforeUnmount(() => {
           <strong>Monday-Friday: </strong> 9:00 AM to 6:00 PM
         </p>
         <p>
-          <strong>Saturday: </strong> 9:00 AM to 6:00 PM
+          <strong>Saturday: </strong> 9:00 AM to 1:00 PM
         </p>
       </div>
       <img class="contact-image" src="assets/img/center-contacts.png" alt="Picture of SheRise's center">
