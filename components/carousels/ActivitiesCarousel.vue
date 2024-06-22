@@ -64,8 +64,12 @@ const carouselID = computed(() => {
   height: 24rem;
 }
 
-.carousel-inner{
-  max-height: 24rem;
+@media(max-width: 760px) {
+
+  .carousel {
+    height: auto;
+  }
+
 }
 
 </style>

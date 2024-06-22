@@ -46,7 +46,6 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
-  max-height: 20rem;
 }
 
 .activity-big-card-container{
@@ -84,6 +83,15 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 
   .main-content{
     flex-direction: column;
+  }
+
+  .activity-big-card-container{
+    width: 10rem;
+    align-self: center;
+  }
+
+  .activity-description-plus-button-container{
+    flex: 1;
   }
 
   .activity-description{

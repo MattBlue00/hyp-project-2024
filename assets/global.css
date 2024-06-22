@@ -107,10 +107,6 @@ main {
 
 @media(max-width: 760px) {
 
-    .carousel{
-        height: auto;
-    }
-
     .carousel-control-prev, .carousel-control-next {
         width: 2rem;
     }
