@@ -11,13 +11,13 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 
 <template>
   <div id="CVInfoContainer">
-    <p class="CV-info-header">Bio</p>
+    <h2 class="CV-info-header">Bio</h2>
     <p class="CV-info-content">{{ bio }}</p>
-    <p class="CV-info-header">Education</p>
+    <h2 class="CV-info-header">Education</h2>
     <p class="CV-info-content">{{ education }}</p>
-    <p class="CV-info-header">Past job experience</p>
+    <h2 class="CV-info-header">Past job experience</h2>
     <p class="CV-info-content">{{ past_experience }}</p>
-    <p class="CV-info-header">Main expertise</p>
+    <h2 class="CV-info-header">Main expertise</h2>
     <p class="CV-info-content">{{ main_expertise }}</p>
   </div>
 </template>

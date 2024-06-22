@@ -24,7 +24,7 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
       </div>
       <div class="activity-description-plus-button-container">
         <div class="activity-description-container">
-          <p class="activity-description-header">Description</p>
+          <h3 class="activity-description-header">Description</h3>
           <div class="overflow-auto">
             <p class="activity-description">{{ description }}</p>
           </div>

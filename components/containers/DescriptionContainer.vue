@@ -8,7 +8,7 @@ const {description} = defineProps<Props>();
 
 <template>
   <div id="DescriptionContainer">
-    <p class="Description-header">Description</p>
+    <h2 class="Description-header">Description</h2>
     <p class="Description-content">{{ description }}</p>
   </div>
 </template>

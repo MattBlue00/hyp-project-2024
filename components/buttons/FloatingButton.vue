@@ -106,6 +106,7 @@ onMounted(() => {
             @keyup.enter="sendMessage"
             type="text"
             placeholder="Type a message..."
+            aria-label="Type a message to chat with the bot"
         />
         <button @click="sendMessage" class="send-button">Send</button>
       </div>

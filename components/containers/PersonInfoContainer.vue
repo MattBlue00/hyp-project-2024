@@ -19,9 +19,9 @@ const altPicture = computed(() => {
       <img class="person-img" :src="img" :alt="altPicture"/>
     </div>
     <div class="text-container">
-      <p class="Person-info-content-name">{{ name }}</p>
-      <p class="Person-info-content-main_role">{{ main_role }}</p>
-      <p class="Person-info-content-motto">"{{ motto }}"</p>
+      <h1 class="Person-info-content-name">{{ name }}</h1>
+      <h2 class="Person-info-content-main_role">{{ main_role }}</h2>
+      <h3 class="Person-info-content-motto">"{{ motto }}"</h3>
     </div>
   </div>
 </template>

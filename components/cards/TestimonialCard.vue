@@ -20,7 +20,7 @@ const altPicture = computed(() => {
         <img class="testimonial-image" :src="img" :alt="altPicture"/>
       </div>
       <div class="testimonial-info">
-        <p class="testimonial-name">{{ name }}</p>
+        <h3 class="testimonial-name">{{ name }}</h3>
         <div class="overflow-auto">
           <p class="testimonial-statement">{{ statement }}</p>
         </div>
