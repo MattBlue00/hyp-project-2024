@@ -5,8 +5,8 @@ import type {Person} from "~/types/Person";
 import PersonCard from "~/components/cards/PersonCard.vue";
 
 interface Props {
-  activity?: (Project | Service);
-  supervisor?: Person;
+  activity: (Project | Service);
+  supervisor: Person;
 }
 
 const { activity, supervisor} = defineProps<Props>();

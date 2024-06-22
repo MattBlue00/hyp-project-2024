@@ -66,13 +66,13 @@ if (testimonials_error.value?.statusCode){
 
     <!-- witnesses -->
     <section>
-      <h2 class="witnesses-text"> Witnesses</h2>
-      <div class="witnesses-container">
+      <h2 class="testimonial-text">Our testimonials</h2>
+      <div class="testimonial-container">
         <div v-for="testimonial in testimonials">
             <div v-if="are_testimonials_loading">
               <Loader />
             </div>
-            <div class="witnesses-card" v-else v-if="testimonials">
+            <div class="testimonial-card" v-else v-if="testimonials">
               <TestimonialCard
                   :key="testimonial.id"
                   :img="testimonial.author_picture"
@@ -80,7 +80,7 @@ if (testimonials_error.value?.statusCode){
                   :statement="testimonial.statement"
                   :isActive="true"
               />
-              <CustomButton class="witness-button" :to="`/activities/services/${testimonial!.service_id}`" value="Learn about this service" width="auto"/>
+              <CustomButton class="testimonial-button" :to="`/activities/services/${testimonial!.service_id}`" value="Learn about this service" width="auto"/>
             </div>
         </div>
       </div>
@@ -188,20 +188,20 @@ h1{
   align-self: end;
 }
 
-.witnesses-container{
+.testimonial-container{
   margin-bottom: 4rem;
   display: flex;
   gap: 4rem;
   flex-direction: column;
 }
 
-.witnesses-text{
+.testimonial-text{
   text-align: center;
   color: #400E2A;
   margin-bottom: 3rem;
 }
 
-.witnesses-card {
+.testimonial-card {
   background-color: #FFE4EB;
   border-radius: 1rem;
   padding: 2rem;
@@ -209,7 +209,7 @@ h1{
   flex-direction: column;
 }
 
-.witness-button{
+.testimonial-button{
   align-self: end;
 }
 
@@ -259,14 +259,25 @@ h1{
   }
 
   #hstb2{
-    padding: 1rem;
+    padding: 2rem 1rem 1rem;
   }
 }
 
 @media(max-width: 1000px){
-  .witnesses-card{
+
+  .testimonial-card{
     padding: 1.2rem;
   }
+
+  .home-subtitle{
+    margin-bottom: 0;
+  }
+
+  .home-text{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
 }
 
 </style>

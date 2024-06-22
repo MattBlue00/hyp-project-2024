@@ -1,9 +1,9 @@
 <script setup lang="ts">
 interface Props {
-  img?: string;
-  name?: string;
-  main_role?: string;
-  motto?: string;
+  img: string;
+  name: string;
+  main_role: string;
+  motto: string;
 }
 
 const {img, name, main_role, motto} = defineProps<Props>();

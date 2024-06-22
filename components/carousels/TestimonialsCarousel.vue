@@ -3,7 +3,7 @@ import TestimonialCard from "~/components/cards/TestimonialCard.vue";
 import type {Testimonial} from "~/types/Testimonial";
 
 interface Props {
-  testimonials?: Testimonial[] | null;
+  testimonials: Testimonial[];
 }
 
 const { testimonials } = defineProps<Props>();
@@ -45,8 +45,19 @@ const { testimonials } = defineProps<Props>();
 </template>
 
 <style scoped>
+
 .carousel{
-  padding-left: 6.5%;
-  padding-right: 6.5%;
+  height: 20rem;
+}
+
+@media(max-width: 760px) {
+
+  .carousel{
+    height: auto;
+  }
+
+  .carousel-inner{
+    padding: 2rem 2.25rem 3rem;
+  }
 }
 </style>

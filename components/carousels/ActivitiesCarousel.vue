@@ -4,8 +4,8 @@ import type { Service } from "~/types/Service";
 import ActivityBigCard from "~/components/cards/ActivityBigCard.vue";
 
 interface Props {
-  activities?: (Project | Service)[];
-  type?: string;
+  activities: (Project | Service)[];
+  type: string;
 }
 
 const { activities, type } = defineProps<Props>();
@@ -18,7 +18,7 @@ const carouselID = computed(() => {
 
 
 <template>
-  <div id="carousel-container" class="carousel">
+  <div class="carousel">
     <div class="carousel-colored-container">
       <div :id="carouselID" class="carousel slide">
         <div class="carousel-indicators">
@@ -42,7 +42,7 @@ const carouselID = computed(() => {
               :name="activity.name"
               :description="activity.description"
               :isActive="index===0"
-              :type="type"
+              :type="type!"
           />
         </div>
         <button class="carousel-control-prev" type="button" :data-bs-target="'#'+carouselID" data-bs-slide="prev">
@@ -59,4 +59,17 @@ const carouselID = computed(() => {
 </template>
 
 <style scoped>
+
+.carousel{
+  height: 24rem;
+}
+
+@media(max-width: 760px) {
+
+  .carousel {
+    height: auto;
+  }
+
+}
+
 </style>

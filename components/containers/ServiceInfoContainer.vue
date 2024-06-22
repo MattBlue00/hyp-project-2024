@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
-  opening_hours?: string;
-  duration?: string | null;
-  contacts?: string;
+  opening_hours: string;
+  duration?: string;
+  contacts: string;
 }
 
 const { opening_hours, duration, contacts} = defineProps<Props>();
