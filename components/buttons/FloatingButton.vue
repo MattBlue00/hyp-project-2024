@@ -74,7 +74,7 @@ onMounted(() => {
     showChatPrompt.value = true;
     localStorage.setItem('visitedBefore', 'true');
     setTimeout(() => {
-      showChatPrompt.value = true;
+      showChatPrompt.value = false;
     }, 7000); // Adjust timeout as needed (1000ms = 1 second)
   }
 });
