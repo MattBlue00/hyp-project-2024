@@ -46,7 +46,6 @@ const { testimonials } = defineProps<Props>();
 
 <style scoped>
 .carousel{
-  padding-left: 6.5%;
-  padding-right: 6.5%;
+  height: 20rem;
 }
 </style>

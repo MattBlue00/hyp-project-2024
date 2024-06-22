@@ -18,7 +18,7 @@ const carouselID = computed(() => {
 
 
 <template>
-  <div id="carousel-container" class="carousel">
+  <div class="carousel">
     <div class="carousel-colored-container">
       <div :id="carouselID" class="carousel slide">
         <div class="carousel-indicators">
@@ -59,4 +59,13 @@ const carouselID = computed(() => {
 </template>
 
 <style scoped>
+
+.carousel{
+  height: 24rem;
+}
+
+.carousel-inner{
+  max-height: 24rem;
+}
+
 </style>

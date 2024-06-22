@@ -19,10 +19,10 @@ const altPicture = computed(() => {
       <div class="testimonial-author-picture-container">
         <img class="testimonial-image" :src="img" :alt="altPicture"/>
       </div>
-      <div id="testimonialInfo">
-        <p id="testimonialName">{{ name }}</p>
+      <div class="testimonial-info">
+        <p class="testimonial-name">{{ name }}</p>
         <div class="overflow-auto">
-          <p id="testimonialStatement">{{ statement }}</p>
+          <p class="testimonial-statement">{{ statement }}</p>
         </div>
       </div>
     </div>
@@ -35,6 +35,8 @@ const altPicture = computed(() => {
   display: flex;
   flex-direction: row;
   align-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .testimonial-author-picture-container
@@ -56,18 +58,19 @@ const altPicture = computed(() => {
   width: 100%;
 }
 
-#testimonialInfo {
+.testimonial-info {
   padding-left: 1.25rem;
   flex: 3;
 }
 
-#testimonialName {
+.testimonial-name {
   font-size: 1.5625rem;
 }
 
-#testimonialStatement {
+.testimonial-statement {
   font-size: 1rem;
   font-style: italic;
+  max-height: 10rem;
 }
 
 </style>

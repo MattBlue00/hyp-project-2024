@@ -18,15 +18,15 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 <template>
 
   <div :class="['carousel-item', isActive ? 'active' : '']">
-    <div id="mainContent">
-      <div id="activityCardContainer">
-        <ActivityCard :img="img" :name="name" height="auto"/>
+    <div class="main-content">
+      <div class="activity-big-card-container">
+        <ActivityCard :img="img" :name="name" height="18rem"/>
       </div>
-      <div id="activityDescriptionPlusButtonContainer">
-        <div id="activityDescriptionContainer">
-          <p id="activityDescriptionHeader">Description</p>
+      <div class="activity-description-plus-button-container">
+        <div class="activity-description-container">
+          <p class="activity-description-header">Description</p>
           <div class="overflow-auto">
-            <p id="activityDescription">{{ description }}</p>
+            <p class="activity-description">{{ description }}</p>
           </div>
         </div>
         <div class="btn-container">
@@ -39,49 +39,61 @@ const { id, img, name, description, isActive, type} = defineProps<Props>();
 
 <style scoped>
 
-#mainContent{
+.main-content{
   display: flex;
   flex-direction: row;
   gap: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  max-height: 20rem;
 }
 
-#activityDescriptionPlusButtonContainer{
-  flex: 3;
-}
-
-#activityCardContainer{
+.activity-big-card-container{
   flex: 1;
 }
 
-#activityDescriptionHeader{
+.activity-description-plus-button-container{
+  flex: 3;
+}
+
+.activity-description-header{
   font-size: 1.375rem;
   font-weight: bold;
   margin-bottom: 0.375rem;
 }
 
-#activityDescriptionContainer{
-  height: 12.5rem;
-  padding-bottom: 3.125rem;
-}
-
-#activityDescription{
-  height: 8.125rem;
+.activity-description{
+  max-height: 10rem;
   font-size: 0.875rem;
   font-style: italic;
 }
 
-.more-link{
-  display: inline-block;
-  margin-bottom: 1rem;
+.activity-description-plus-button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-@media(width < 760px){
-  #activityDescriptionContainer{
-    display: none;
-  }
-  #mainContent{
+.btn-container{
+  padding-top: 1rem;
+  text-align: left;
+}
+
+@media(max-width: 760px){
+
+  .main-content{
     flex-direction: column;
   }
+
+  .activity-description{
+    max-height: 5rem;
+  }
+
+  .btn-container{
+    text-align: center;
+  }
+
 }
 
 </style>
