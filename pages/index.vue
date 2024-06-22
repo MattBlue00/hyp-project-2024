@@ -55,7 +55,7 @@ if (testimonials_error.value?.statusCode){
             <p class="home-text">
               provides support for women who have faced violence, offering a variety of essential projects and services. Our commitment lies in creating a safe, supportive environment where every woman can regain control of her life, heal from trauma, and rebuild a future with dignity and hope.
             </p>
-            <CustomButton class="home-button" to="/activities" value="What we do" />
+            <CustomButton class="home-button" to="/activities" value="What we do" width="auto" />
           </div>
           <div class="home-img-container">
             <img class="home-img" id="img2" src="assets/img/home-img-2.jpg" alt="">
@@ -210,7 +210,7 @@ h1{
 }
 
 .testimonial-button{
-  padding-top: 1rem;
+  margin-top: 1rem;
   align-self: end;
 }
 
@@ -240,7 +240,7 @@ h1{
 
   .home-button{
     align-self: center;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .home-img{
@@ -265,7 +265,7 @@ h1{
 }
 
 .testimonial-button{
-  padding-right: 1rem;
+  margin-right: 1rem;
 }
 
 @media(max-width: 1000px){
@@ -284,7 +284,7 @@ h1{
   }
 
   .testimonial-button{
-    padding-right: 1rem;
+    margin-right: 1rem;
   }
 
 }
