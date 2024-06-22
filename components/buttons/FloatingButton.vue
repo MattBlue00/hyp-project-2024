@@ -8,6 +8,7 @@ const shownMessages = ref<Message[]>([
 
 const newMessage = ref<string>('');
 const isChatOpen = ref<boolean>(false);
+const showChatPrompt = ref<boolean>(false);
 
 const messagesContainerRef = ref<HTMLElement | null>(null);
 
@@ -35,7 +36,10 @@ const getResponse = async (sentMessage: string) => {
       }
     });
 
-    if (receivedMessage != null) {
+    if(receivedMessage.value == '' || receivedMessage.value == null){
+      shownMessages.value.push(new Message('system', "Sorry, at the moment I can't answer. Please, try again later."));
+    }
+    else {
       shownMessages.value[newArrayLength - 1].content = receivedMessage.value;
     }
   } catch (error) {
@@ -52,6 +56,7 @@ const getResponse = async (sentMessage: string) => {
 // Function to toggle the chat open/close state
 const toggleChat = async () => {
   isChatOpen.value = !isChatOpen.value;
+  showChatPrompt.value = false;
 };
 
 const scrollToBottom = () => {
@@ -63,11 +68,22 @@ const scrollToBottom = () => {
   });
 };
 
+onMounted(() => {
+  const visitedBefore = localStorage.getItem('visitedBefore');
+  if (!visitedBefore) {
+    showChatPrompt.value = true;
+    localStorage.setItem('visitedBefore', 'true');
+    setTimeout(() => {
+      showChatPrompt.value = true;
+    }, 7000); // Adjust timeout as needed (1000ms = 1 second)
+  }
+});
+
 </script>
 
 <template>
   <div class="chatbot">
-    <div v-if="isChatOpen" class="chat-window">
+    <div v-bind:class="['chat-window', {'open': isChatOpen, 'closed': !isChatOpen}]">
       <div class="chat-header">
         <button class="close-btn" @click="toggleChat">Close</button>
         <h3 class="chat-title">SheRiseBot</h3>
@@ -95,7 +111,13 @@ const scrollToBottom = () => {
       </div>
     </div>
 
-    <div v-else class="floating-button" @click="toggleChat">
+    <div v-if="showChatPrompt" class="chat-prompt">
+      <div class="cloud">
+        <p>If you need a safe space, </p>
+        <p>I'm here for you!</p>
+      </div>
+    </div>
+    <div v-bind:class="['floating-button', {'hidden': isChatOpen}]" @click="toggleChat">
       <Icon name="icon-park-twotone:robot-one" />
     </div>
   </div>
@@ -105,39 +127,67 @@ const scrollToBottom = () => {
 
 .chatbot {
   position: fixed;
-  bottom: 1.25rem; /* 20px */
-  right: 1.25rem; /* 20px */
-  z-index: 5;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 15;
 }
 
 .chat-window {
-  width: min(max(30vw,20rem), 95vw);
-  height: min(max(80vh, 20rem), 95vh);
-  border-radius: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.chat-window.open {
+  width: min(max(30vw, 20rem), 95vw);
+  height: min(max(80vh, 20rem), 95vh);
+  border-radius: 1rem;
+}
+
+.chat-window.closed {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
 }
 
 .chat-header {
   background-image: var(--gradient-color);
   color: #fff;
-  padding: 0.625rem; /* 10px */
+  padding: 0.625rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.0625rem solid #ddd; /* 1px */
+  border-bottom: 0.0625rem solid #ddd;
 }
+
+.chat-header, .messages, .chat-input {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.chat-window.open .chat-header,
+.chat-window.open .messages,
+.chat-window.open .chat-input {
+  opacity: 1;
+}
+
 
 .close-btn {
   background-color: #fff;
   color: var(--nbar-color);
   border: none;
-  border-radius: 0.75rem; /* 12px */
-  padding: 0.3125rem 0.625rem; /* 5px 10px */
-  font-size: 0.75rem; /* 12px */
+  border-radius: 0.75rem;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.75rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -148,12 +198,12 @@ const scrollToBottom = () => {
 
 .chat-title {
   margin: 0;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
 }
 
 .messages {
   flex: 1;
-  padding: 0.625rem; /* 10px */
+  padding: 0.625rem;
   overflow-y: auto;
   background-color: #f5f5f5;
   display: flex;
@@ -161,10 +211,10 @@ const scrollToBottom = () => {
 }
 
 .message {
-  margin: 0 0 0.625rem; /* 0 0 10px */
-  padding: 0.625rem; /* 10px */
+  margin: 0 0 0.625rem;
+  padding: 0.625rem;
   background-color: #e0e0e0;
-  border-radius: 0.3125rem; /* 5px */
+  border-radius: 0.3125rem;
   max-width: 80%;
   display: inline-block;
 }
@@ -183,25 +233,25 @@ const scrollToBottom = () => {
 
 .chat-input {
   display: flex;
-  padding: 0.625rem; /* 10px */
-  border-top: 0.0625rem solid #ddd; /* 1px */
+  padding: 0.625rem;
+  border-top: 0.0625rem solid #ddd;
   background-color: #fff;
 }
 
 .chat-input input {
   flex: 1;
-  padding: 0.625rem; /* 10px */
-  border: 0.0625rem solid #ddd; /* 1px */
-  border-radius: 0.3125rem; /* 5px */
-  margin-right: 0.625rem; /* 10px */
+  padding: 0.625rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.3125rem;
+  margin-right: 0.625rem;
 }
 
 .chat-input .send-button {
-  padding: 0.625rem 0.9375rem; /* 10px 15px */
+  padding: 0.625rem 0.9375rem;
   background-image: var(--gradient-color);
   color: #fff;
   border: none;
-  border-radius: 0.3125rem; /* 5px */
+  border-radius: 0.3125rem;
   cursor: pointer;
 }
 
@@ -211,8 +261,8 @@ const scrollToBottom = () => {
 
 .floating-button {
   position: fixed;
-  bottom: 5vh;
-  right: 3vw;
+  bottom: 1.25rem;
+  right: 1.25rem;
   width: 3rem;
   height: 3rem;
   background-color: var(--orientational-info-color);
@@ -221,9 +271,16 @@ const scrollToBottom = () => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   font-size: 2.3rem;
   color: var(--bg-color);
+  transition: opacity 1s ease-in;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
 }
 
 .floating-button:hover {
@@ -291,6 +348,51 @@ const scrollToBottom = () => {
 .tidot:nth-child(3) {
   animation-delay: 400ms;
   -webkit-animation-delay: 400ms;
+}
+
+@keyframes cloudFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cloud {
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  width: max-content;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  animation: cloudFadeIn 1s ease-out forwards;
+}
+
+.cloud::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 11px solid var(--bg-color) ;
+}
+
+.cloud p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.chat-prompt {
+  position: relative;
 }
 
 </style>
