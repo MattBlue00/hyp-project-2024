@@ -20,7 +20,12 @@ const closeMenuOnLink = () => {
 <template>
   <header class="nav-container">
     <nav class="nav-group">
-        <div class="logo"><NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLink">SheRise</NuxtLink></div>
+      <NuxtLink class="nuxt-link" to="/" @click="closeMenuOnLink">
+        <div class="logo">
+          <img class="logo-image" src="assets/img/logo-white.png" alt="SheRise's logo">
+          SheRise
+        </div>
+      </NuxtLink>
         <ul class="nav-links">
             <li><NuxtLink class="nuxt-link" active-class="active-link" to="/about">ABOUT US</NuxtLink></li>
             <li><NuxtLink class="nuxt-link" active-class="active-link" to="/persons">OUR TEAM</NuxtLink></li>
@@ -50,6 +55,10 @@ const closeMenuOnLink = () => {
 </template>
 
 <style scoped>
+.logo{
+  display: flex;
+  flex-direction: row;
+}
 .nav-container {
   box-sizing: border-box;
   padding-top: 0.4rem;
@@ -72,6 +81,10 @@ const closeMenuOnLink = () => {
   font-family: Nunito, serif;
   font-weight: bold;
   color: var(--bg-color);
+}
+.logo-image{
+  height: 3rem;
+  margin-right: 0.5rem;
 }
 .nav-links {
   font-family: Nunito, serif;
@@ -108,7 +121,7 @@ const closeMenuOnLink = () => {
   text-underline-offset: 2px;
 }*/
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   /* These three following classes disable desktop menu on smaller devices */
   .nav-links {
     display: none;
