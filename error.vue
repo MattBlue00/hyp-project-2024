@@ -39,7 +39,7 @@ const { error } = defineProps<Props>();
   border-radius: 1rem;
   margin: 4rem;
   padding: 2rem;
-  background-color: var(--lighter-color);
+  background-color: var(--box-light-pink-color);
 }
 
 .error-links{

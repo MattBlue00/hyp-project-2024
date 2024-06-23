@@ -24,13 +24,13 @@ const { opening_hours, duration, contacts} = defineProps<Props>();
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 6px;
-  color: white;
+  color: var(--bg-color);
 }
 #serviceInfoContainer{
-  background-color: #DA0E5F;
+  background-color: var(--magenta-color);
   border-radius: 8px;
   width: 20rem;
   padding: 1rem;
-  color: white;
+  color: var(--bg-color);
 }
 </style>

@@ -2,17 +2,19 @@
     /*
         insert css variables, css rules for body (e.g. font-sizes, zero margin, ...) and other useful classes for components
     */
-    /*--bg-color: #FFFAF1;*/
     --gradient-color: linear-gradient(30deg, #DA0E5F, #a4246d);
     --gradient-card-color: linear-gradient(60deg, rgba(255, 233, 233, 0.9), rgba(252, 173, 187, 0.8));
     --bg-color: #FFFFFF;
-    --nbar-color: #DA0E5F;
-    --dark-color: #400E2A;
-    --light-color: #FFABC5;
-    --lighter-color: #FFE4EB;
+    --magenta-color: #DA0E5F;
+    --dark-violet-color: #400E2A;
+    --box-pink-color: #FFABC5;
+    --box-light-pink-color: #FFE4EB;
+    --box-light-yellow-color: #FFFAF1;
     --hover-color: #C30753;
     --orientational-info-color: #651543;
     --par-color: #36454F;
+    --border-color: #DDDDDD;
+
 
     --font-size: 16px;
     --content-width: min(90%, 1200px);
@@ -34,6 +36,14 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.activity-title{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 
 .card-list-wrapper {
@@ -63,7 +73,7 @@ body {
     padding: 0.7rem;
     width: 17rem;
     text-decoration: none;
-    color: var(--dark-color);
+    color: var(--dark-violet-color);
     background: var(--gradient-card-color);
 }
 
@@ -83,17 +93,17 @@ main {
 
 .carousel-colored-container{
     border-radius: 1rem;
-    background-color: var(--lighter-color);
+    background-color: var(--box-light-pink-color);
 }
 
 .carousel-control-prev{
     border-radius: 1rem 0 0 1rem;
-    background-color: var(--nbar-color);
+    background-color: var(--magenta-color);
 }
 
 .carousel-control-next{
     border-radius: 0 1rem 1rem 0;
-    background-color: var(--nbar-color);
+    background-color: var(--magenta-color);
 }
 
 .p-alt {

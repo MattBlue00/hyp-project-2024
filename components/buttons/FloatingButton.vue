@@ -141,7 +141,7 @@ onMounted(() => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--bg-color);
   position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
@@ -162,12 +162,12 @@ onMounted(() => {
 
 .chat-header {
   background-image: var(--gradient-color);
-  color: #fff;
+  color: var(--bg-color);
   padding: 0.625rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.0625rem solid #ddd;
+  border-bottom: 0.0625rem solid var(--border-color);
 }
 
 .chat-header, .messages, .chat-input {
@@ -183,8 +183,8 @@ onMounted(() => {
 
 
 .close-btn {
-  background-color: #fff;
-  color: var(--nbar-color);
+  background-color: var(--bg-color);
+  color: var(--magenta-color);
   border: none;
   border-radius: 0.75rem;
   padding: 0.3125rem 0.625rem;
@@ -207,7 +207,7 @@ onMounted(() => {
   flex: 1;
   padding: 0.625rem;
   overflow-y: auto;
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
   color: black;
@@ -216,20 +216,19 @@ onMounted(() => {
 .message {
   margin: 0 0 0.625rem;
   padding: 0.625rem;
-  background-color: #e0e0e0;
+  background-color: #D1C4E9;
   border-radius: 0.3125rem;
   max-width: 80%;
   display: inline-block;
 }
 
 .message.bot {
-  background-color: #d1c4e9;
   align-self: flex-start;
   margin-right: auto;
 }
 
 .message.user {
-  background-color: #bbdefb;
+  background-color: #BBDEFB;
   align-self: flex-end;
   margin-left: auto;
 }
@@ -237,14 +236,14 @@ onMounted(() => {
 .chat-input {
   display: flex;
   padding: 0.625rem;
-  border-top: 0.0625rem solid #ddd;
-  background-color: #fff;
+  border-top: 0.0625rem solid var(--border-color);
+  background-color: var(--bg-color);
 }
 
 .chat-input input {
   flex: 1;
   padding: 0.625rem;
-  border: 0.0625rem solid #ddd;
+  border: 0.0625rem solid var(--border-color);
   border-radius: 0.3125rem;
   margin-right: 0.625rem;
 }
@@ -252,7 +251,7 @@ onMounted(() => {
 .chat-input .send-button {
   padding: 0.625rem 0.9375rem;
   background-image: var(--gradient-color);
-  color: #fff;
+  color: var(--bg-color);
   border: none;
   border-radius: 0.3125rem;
   cursor: pointer;
@@ -302,7 +301,7 @@ onMounted(() => {
 }
 
 .ticontainer .tidot {
-  background-color: #90949c;
+  background-color: #90949C;
 }
 
 .tidot {
@@ -370,7 +369,7 @@ onMounted(() => {
   bottom: 4rem;
   right: 0;
   width: max-content;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);

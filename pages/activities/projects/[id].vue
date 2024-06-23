@@ -71,7 +71,7 @@ useSeoMeta({
       <Loader/>
     </div>
     <div v-else v-if="project">
-      <h1 class="project-title">{{ project?.name }}</h1>
+      <h1 class="activity-title">{{ project?.name }}</h1>
 
       <section>
         <div v-if="is_project_loading || is_person_loading">
@@ -93,14 +93,6 @@ useSeoMeta({
 </template>
 
 <style scoped>
-
-.project-title{
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-}
 
 .description-container{
   display: flex;

@@ -55,7 +55,7 @@ const altPicture = computed(() => {
   margin-bottom: 2rem;
   margin-left: 3rem;
   margin-right: 3rem;
-  border: 0.1rem solid var(--dark-color);
+  border: 0.1rem solid var(--dark-violet-color);
   border-radius: 1rem;
 }
 
@@ -79,7 +79,7 @@ const altPicture = computed(() => {
 }
 
 .supervised-by{
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
 }
 
 .clickable-card{

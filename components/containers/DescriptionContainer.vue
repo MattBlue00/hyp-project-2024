@@ -18,19 +18,19 @@ const {description} = defineProps<Props>();
   width: 100%;
   border-radius: 1rem;
   padding: 1.5rem;
-  background-color: #FFFAF1;
+  background-color: var(--box-light-yellow-color);
 }
 
 .Description-header{
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 .Description-content{
   margin-bottom: 1rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 </style>

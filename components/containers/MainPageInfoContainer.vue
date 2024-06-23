@@ -27,7 +27,7 @@ const { pageTitle, orientationalInfo, introduction } = defineProps<Props>();
 
 .page-title {
   font-size: 2rem;
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
 }
 
 .orientational-info {
