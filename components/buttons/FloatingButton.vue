@@ -25,9 +25,10 @@ const sendMessage = async () => {
 };
 
 const getResponse = async (sentMessage: string) => {
-  try {
-    const newArrayLength = shownMessages.value.push(new Message('assistant', ''));
 
+  const newArrayLength = shownMessages.value.push(new Message('assistant', ''));
+
+  try {
     const {
       data: receivedMessage
     } = await useFetch('/api/chatbot/apiProxy', {
@@ -37,16 +38,15 @@ const getResponse = async (sentMessage: string) => {
     });
 
     if(receivedMessage.value == '' || receivedMessage.value == null){
-      shownMessages.value.push(new Message('system', "Sorry, at the moment I can't answer. Please, try again later."));
+      shownMessages.value[newArrayLength - 1].role = "system";
+      shownMessages.value[newArrayLength - 1].content = "Sorry, at the moment I can't answer. Please, try again later.";
     }
     else {
       shownMessages.value[newArrayLength - 1].content = receivedMessage.value;
     }
   } catch (error) {
-    shownMessages.value.push(new Message(
-        'system',
-        "Sorry, at the moment I can't answer. Please, try again later.",
-    ))
+    shownMessages.value[newArrayLength - 1].role = "system";
+    shownMessages.value[newArrayLength - 1].content = "Sorry, at the moment I can't answer. Please, try again later.";
   }
   finally {
     scrollToBottom();
