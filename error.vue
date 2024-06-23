@@ -24,7 +24,7 @@ const { error } = defineProps<Props>();
         <h2 class="error-explanation">The page you are requesting may not exist or may have been removed.</h2>
         <p>Please consider going back to the home page to resume navigation.</p>
         <div class="error-links">
-          <CustomButton value="Back to Home Page" width="15rem" to="/"/>
+          <CustomButton value="Back to Home Page" width="min(15rem, 100%)" to="/"/>
         </div>
         <h2>Error details</h2>
         <p v-if="error.statusCode === 404">{{ error.message ? error.message : 'Page not found' }}</p>
@@ -37,7 +37,8 @@ const { error } = defineProps<Props>();
 <style scoped>
 .error-container{
   border-radius: 1rem;
-  margin: 4rem;
+  margin-top : 4rem;
+  margin-bottom : 4rem;
   padding: 2rem;
   background-color: var(--box-light-pink-color);
 }
