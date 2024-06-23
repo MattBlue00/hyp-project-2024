@@ -35,7 +35,7 @@ const altPicture = computed(() => {
   border-radius: 1rem;
   margin: 5% auto;
   padding: 1rem;
-  background-color: #FFE4EB;
+  background-color: var(--box-light-pink-color);
   align-items: center;
 }
 
@@ -54,7 +54,7 @@ const altPicture = computed(() => {
 
 .Person-info-content-name{
   font-size: 3rem;
-  color: #C30753;
+  color: var(--hover-color);
   margin-top: 2rem;
   margin-bottom: 0;
 }
@@ -62,14 +62,14 @@ const altPicture = computed(() => {
 .Person-info-content-main_role{
   font-size: 1.5em;
   margin-bottom: 2rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 .Person-info-content-motto{
   font-size: 1.2em;
   font-style: italic;
   margin-bottom: 2rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 @media (width < 540px) {

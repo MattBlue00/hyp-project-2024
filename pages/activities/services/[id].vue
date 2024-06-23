@@ -86,7 +86,7 @@ useSeoMeta({
 <template>
   <main>
     <div>
-      <h1 class="service-title">{{ service!.name }}</h1>
+      <h1 class="activity-title">{{ service!.name }}</h1>
     </div>
 
     <div>
@@ -132,14 +132,6 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.service-title{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-}
-
 .service-description-and-service-info-container{
   display: flex;
   flex-wrap: wrap;

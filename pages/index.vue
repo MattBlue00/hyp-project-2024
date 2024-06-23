@@ -117,13 +117,13 @@ h1{
 .logo-text{
   display: flex;
   font-size: 5rem;
-  color: #DA0E5F;
+  color: var(--magenta-color);
 }
 
 .logo-caption{
   font-size: 1.7rem;
   text-align: center;
-  color: #DA0E5F;
+  color: var(--magenta-color);
   margin-bottom: 4rem;
 }
 
@@ -132,7 +132,7 @@ h1{
   flex-direction: row;
   justify-content: center;
   margin-bottom: 4rem;
-  background-color: #FFE4EB;
+  background-color: var(--box-light-pink-color);
   border-radius: 1rem;
   gap: 2rem;
 }
@@ -180,7 +180,7 @@ h1{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #400E2A;
+  color: var(--dark-violet-color);
   font-size: 1.25rem;
 }
 
@@ -197,12 +197,12 @@ h1{
 
 .testimonial-text{
   text-align: center;
-  color: #400E2A;
+  color: var(--dark-violet-color);
   margin-bottom: 3rem;
 }
 
 .testimonial-card {
-  background-color: #FFE4EB;
+  background-color: var(--box-light-pink-color);
   border-radius: 1rem;
   padding: 2rem 1rem;
   display: flex;

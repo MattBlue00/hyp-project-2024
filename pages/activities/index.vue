@@ -70,7 +70,7 @@ if (services_error.value?.statusCode){
   padding-top: 2.5rem;
   align-self: center;
   font-size: 1.5rem;
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
 }
 
 .activity-carousel{

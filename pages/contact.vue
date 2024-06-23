@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
 
 .contacts-subtitle {
   font-size: 1.5rem;
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
   margin: 1rem 0;
 }
 
@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
 }
 
 .contacts-container a {
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
   text-decoration: none;
 }
 

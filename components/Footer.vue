@@ -103,7 +103,7 @@ p {
 
 hr.divider {
     border: 0;
-    background-color: white;
+    background-color: var(--bg-color);
     opacity: 1;
     width: var(--content-width);
     border-radius: 3px;

@@ -28,17 +28,17 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
   border-radius: 1rem;
   margin-bottom: 3rem;
   padding: 1.5rem;
-  background-color: #FFFAF1;
+  background-color: var(--box-light-yellow-color);
 }
 
 .CV-info-header{
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 0.25rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 .CV-info-content{
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 </style>
