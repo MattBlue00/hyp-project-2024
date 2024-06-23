@@ -150,7 +150,7 @@ useSeoMeta({
   justify-content: center;
   text-align: center;
   margin-bottom: 2rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 .list-container{

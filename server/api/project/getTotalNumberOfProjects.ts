@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
 import { Database } from '~/types/schema';
+import {handleMissingDataError} from "~/composables/errorHandlers";
 
 /**
  *  Query that returns the total number of available projects.
@@ -14,10 +15,10 @@ export default eventHandler(async (event) => {
         .select('*', { count: 'exact', head: true })
     );
 
-    if (error) {
-        console.log(error);
-        return { error };
+    if (error){
+        handleMissingDataError();
     }
-
-    return count;
+    else {
+        return count;
+    }
 });

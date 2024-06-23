@@ -26,7 +26,7 @@ const altPicture = computed(() => {
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 0;
-  border: 1px solid var(--dark-color);
+  border: 1px solid var(--dark-violet-color);
   border-radius: 1rem;
 }
 

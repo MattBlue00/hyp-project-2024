@@ -16,7 +16,7 @@
   padding: 5rem;
 }
 .loader-icon {
-  color: var(--nbar-color);
+  color: var(--magenta-color);
   animation: spin 1.5s linear infinite;
 }
 @keyframes spin {

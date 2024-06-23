@@ -55,7 +55,7 @@ if (testimonials_error.value?.statusCode){
             <p class="home-text">
               provides support for women who have faced violence, offering a variety of essential projects and services. Our commitment lies in creating a safe, supportive environment where every woman can regain control of her life, heal from trauma, and rebuild a future with dignity and hope.
             </p>
-            <CustomButton class="home-button" to="/activities" value="What we do" />
+            <CustomButton class="home-button" to="/activities" value="What we do" width="auto" />
           </div>
           <div class="home-img-container">
             <img class="home-img" id="img2" src="assets/img/home-img-2.jpg" alt="">
@@ -66,7 +66,7 @@ if (testimonials_error.value?.statusCode){
 
     <!-- witnesses -->
     <section>
-      <h2 class="testimonial-text">Our testimonials</h2>
+      <h2 class="testimonial-text">Learn what some of our testimonials say about our services</h2>
       <div class="testimonial-container">
         <div v-for="testimonial in testimonials">
             <div v-if="are_testimonials_loading">
@@ -117,13 +117,13 @@ h1{
 .logo-text{
   display: flex;
   font-size: 5rem;
-  color: #DA0E5F;
+  color: var(--magenta-color);
 }
 
 .logo-caption{
   font-size: 1.7rem;
   text-align: center;
-  color: #DA0E5F;
+  color: var(--magenta-color);
   margin-bottom: 4rem;
 }
 
@@ -132,7 +132,7 @@ h1{
   flex-direction: row;
   justify-content: center;
   margin-bottom: 4rem;
-  background-color: #FFE4EB;
+  background-color: var(--box-light-pink-color);
   border-radius: 1rem;
   gap: 2rem;
 }
@@ -180,7 +180,7 @@ h1{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #400E2A;
+  color: var(--dark-violet-color);
   font-size: 1.25rem;
 }
 
@@ -197,19 +197,20 @@ h1{
 
 .testimonial-text{
   text-align: center;
-  color: #400E2A;
+  color: var(--dark-violet-color);
   margin-bottom: 3rem;
 }
 
 .testimonial-card {
-  background-color: #FFE4EB;
+  background-color: var(--box-light-pink-color);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .testimonial-button{
+  margin-top: 1rem;
   align-self: end;
 }
 
@@ -239,7 +240,7 @@ h1{
 
   .home-button{
     align-self: center;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .home-img{
@@ -263,10 +264,14 @@ h1{
   }
 }
 
+.testimonial-button{
+  margin-right: 1rem;
+}
+
 @media(max-width: 1000px){
 
   .testimonial-card{
-    padding: 1.2rem;
+    padding: 1rem 0;
   }
 
   .home-subtitle{
@@ -276,6 +281,10 @@ h1{
   .home-text{
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .testimonial-button{
+    margin-right: 1rem;
   }
 
 }

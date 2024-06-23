@@ -11,13 +11,13 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 
 <template>
   <div id="CVInfoContainer">
-    <p class="CV-info-header">Bio</p>
+    <h2 class="CV-info-header">Bio</h2>
     <p class="CV-info-content">{{ bio }}</p>
-    <p class="CV-info-header">Education</p>
+    <h2 class="CV-info-header">Education</h2>
     <p class="CV-info-content">{{ education }}</p>
-    <p class="CV-info-header">Past job experience</p>
+    <h2 class="CV-info-header">Past job experience</h2>
     <p class="CV-info-content">{{ past_experience }}</p>
-    <p class="CV-info-header">Main expertise</p>
+    <h2 class="CV-info-header">Main expertise</h2>
     <p class="CV-info-content">{{ main_expertise }}</p>
   </div>
 </template>
@@ -28,17 +28,17 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
   border-radius: 1rem;
   margin-bottom: 3rem;
   padding: 1.5rem;
-  background-color: #FFFAF1;
+  background-color: var(--box-light-yellow-color);
 }
 
 .CV-info-header{
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 0.25rem;
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 
 .CV-info-content{
-  color: #400E2A;
+  color: var(--dark-violet-color);
 }
 </style>

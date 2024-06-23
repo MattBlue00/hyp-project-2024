@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
 
 .contacts-subtitle {
   font-size: 1.5rem;
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
   margin: 1rem 0;
 }
 
@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
 }
 
 .contacts-container a {
-  color: var(--dark-color);
+  color: var(--dark-violet-color);
   text-decoration: none;
 }
 
@@ -132,24 +132,25 @@ onBeforeUnmount(() => {
 .buttons-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 860px) {
   .contacts-main {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .contacts-container {
     text-align: left;
     padding: 0;
+    width: 100%;
   }
 
   .contact-image {
-    max-width: 100%;
+    width: 100%;
   }
 }
 </style>

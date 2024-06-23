@@ -44,7 +44,7 @@ const { value } = defineProps<Props>();
 }
 
 .scheme {
-  background-color: var(--nbar-color);
+  background-color: var(--magenta-color);
   color: var(--bg-color);
   transition: 0.3s all ease-in;
 }

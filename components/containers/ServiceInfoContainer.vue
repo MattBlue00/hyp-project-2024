@@ -10,11 +10,11 @@ const { opening_hours, duration, contacts} = defineProps<Props>();
 
 <template>
   <div id="serviceInfoContainer">
-    <p class="service-info-header">Opening hours</p>
+    <h2 class="service-info-header">Opening hours</h2>
     <p>{{ opening_hours }}</p>
-    <p v-if="duration" class="service-info-header">Duration</p>
+    <h2 v-if="duration" class="service-info-header">Duration</h2>
     <p v-if="duration">{{ duration }}</p>
-    <p class="service-info-header">Contacts</p>
+    <h2 class="service-info-header">Contacts</h2>
     <p>{{ contacts }}</p>
   </div>
 </template>
@@ -24,13 +24,13 @@ const { opening_hours, duration, contacts} = defineProps<Props>();
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 6px;
-  color: white;
+  color: var(--bg-color);
 }
 #serviceInfoContainer{
-  background-color: #DA0E5F;
+  background-color: var(--magenta-color);
   border-radius: 8px;
   width: 20rem;
   padding: 1rem;
-  color: white;
+  color: var(--bg-color);
 }
 </style>
