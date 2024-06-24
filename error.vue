@@ -1,11 +1,19 @@
 <script setup lang="ts">
+
+/**
+ * This page is loaded whenever a wrong or unexpected URL is given.
+ */
+
+// imports
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
+// sets some HTML tags useful for SEO
 useSeoMeta({
   title: 'SheRise | Error',
   description: 'This is the error page that explains what went wrong during the navigation.',
 });
 
+// defines the page's props (details about the error)
 interface Props {
   error: {
     statusCode: number;
@@ -13,7 +21,9 @@ interface Props {
   };
 }
 
+// actually defines the props
 const { error } = defineProps<Props>();
+
 </script>
 
 <template>

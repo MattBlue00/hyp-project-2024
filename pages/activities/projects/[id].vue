@@ -1,5 +1,10 @@
 <script setup lang="ts">
 
+/**
+ * This kind-of-topic page contains all the details about a project with a given id.
+ */
+
+// imports
 import type {Project} from '~/types/Project';
 import type {Person} from '~/types/Person';
 import {handleFetchError} from "~/composables/errorHandlers";
@@ -8,9 +13,10 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
+// gets the id of the project from the URL
 const { id } = useRoute().params;
 
-// fetch the project information
+// fetches the project details
 const {
   data: project,
   pending: is_project_loading,
@@ -20,26 +26,29 @@ const {
     id: id,
   },
 });
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (project_error.value?.statusCode) {
   handleFetchError(project, project_error.value.statusCode);
 }
 
-// fetch the total number of projects
+// fetches the total number of projects (for the group links)
 const {
   data: total_projects,
   error: total_projects_error,
 } = await useFetch<number>('/api/project/getTotalNumberOfProjects');
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (total_projects_error.value?.statusCode) {
   handleFetchError(total_projects, total_projects_error.value.statusCode);
 }
 
+// stores the supervisor id
 const supervisorId = computed(() => {
   return project.value?.supervisor_id;
 });
 
-// fetch the supervisor information
+// fetches the supervisor information
 const {
   data: person,
   pending: is_person_loading,
@@ -49,15 +58,18 @@ const {
     id: supervisorId,
   },
 });
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
 
+// stores the project name
 const projectName = computed(() => {
   return project.value?.name;
 });
 
+// sets some HTML tags useful for SEO
 useSeoMeta({
   title: 'SheRise | ' + projectName.value,
   description: 'This is the single project page with all relevant details about a project.',
@@ -71,8 +83,9 @@ useSeoMeta({
       <Loader/>
     </div>
     <div v-else v-if="project">
-      <h1 class="activity-title">{{ project?.name }}</h1>
 
+      <!-- Project title, image, and supervisor -->
+      <h1 class="activity-title">{{ project?.name }}</h1>
       <section>
         <div v-if="is_project_loading || is_person_loading">
           <Loader/>
@@ -80,13 +93,15 @@ useSeoMeta({
         <ActivityImageAndSupervisorCardContainer v-else v-if="project && person" :activity="project" :supervisor="person" />
       </section>
 
-    <section class="description-container">
-      <DescriptionContainer :description="project?.description"/>
-    </section>
+      <!-- Project description -->
+      <section class="description-container">
+        <DescriptionContainer :description="project?.description"/>
+      </section>
 
-    <section>
-      <GroupLinksContainer :id="id.at(0)" :type="'project'" :maxBound="total_projects!"/>
-    </section>
+      <!-- Project group links -->
+      <section>
+        <GroupLinksContainer :id="id.at(0)!" :type="'project'" :maxBound="total_projects!"/>
+      </section>
 
     </div>
   </main>

@@ -1,5 +1,10 @@
 <script setup lang="ts">
 
+/**
+ * This kind-of-topic page contains all the details about a person with a given id.
+ */
+
+// imports
 import type {Person} from '~/types/Person';
 import {handleFetchError} from "~/composables/errorHandlers";
 import CVInfoContainer from "~/components/containers/CVInfoContainer.vue";
@@ -9,9 +14,10 @@ import ActivityCard from "~/components/cards/ActivityCard.vue";
 import type {Service} from "~/types/Service";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
+// gets the id of the person from the URL
 const { id } = useRoute().params;
 
-// fetch the person information
+// fetches the person information
 const {
   data: person,
   pending: is_person_loading,
@@ -21,21 +27,24 @@ const {
     id: id,
   },
 });
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
 
-// fetch the total number of persons
+// fetches the total number of persons (for the group links)
 const {
   data: total_persons,
   error: total_persons_error,
 } = await useFetch<number>('/api/person/getTotalNumberOfPersons');
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (total_persons_error.value?.statusCode) {
   handleFetchError(total_persons, total_persons_error.value.statusCode);
 }
 
+// fetches the projects the person is supervisor of
 const {
   data: related_projects,
   pending: are_projects_loading,
@@ -46,10 +55,12 @@ const {
   },
 });
 
+// throws error if something went wrong during the fetch
 if (projects_error.value?.statusCode){
   handleFetchError(related_projects, projects_error.value.statusCode);
 }
 
+// fetches the services the person is supervisor of
 const {
   data: related_services,
   pending: are_services_loading,
@@ -59,14 +70,18 @@ const {
     id: id,
   },
 });
+
+// throws error if something went wrong during the fetch
 if (services_error.value?.statusCode){
   handleFetchError(related_services, services_error.value.statusCode);
 }
 
+// stores the person's full name
 const personFullName = computed(() => {
   return person.value?.full_name;
 });
 
+// sets some HTML tags useful for SEO
 useSeoMeta({
   title: 'SheRise | ' + personFullName.value,
   description: 'This is the single person page with all relevant details about a team member.',
@@ -78,6 +93,7 @@ useSeoMeta({
 
   <main>
 
+    <!-- Person name, picture, and details -->
     <section>
       <div v-if="is_person_loading">
         <Loader/>
@@ -92,14 +108,15 @@ useSeoMeta({
       </div>
       <div>
         <CVInfoContainer
-            :bio="person?.bio"
-            :education="person?.education"
-            :past_experience="person?.past_experience"
-            :main_expertise="person?.main_expertise"
+            :bio="person!.bio"
+            :education="person!.education"
+            :past_experience="person!.past_experience"
+            :main_expertise="person!.main_expertise"
         />
       </div>
     </section>
 
+    <!-- Projects the person is supervisor of -->
     <section class="list-container">
       <div v-if="related_projects!.length > 0">
         <h2 class="related-title">Related Projects</h2>
@@ -118,6 +135,7 @@ useSeoMeta({
       </div>
     </section>
 
+    <!-- Services the person is supervisor of -->
     <section class="list-container">
       <div v-if="related_services!.length > 0">
         <h2 class="related-title">Related Services</h2>
@@ -136,8 +154,9 @@ useSeoMeta({
       </div>
     </section>
 
+    <!-- Person group links -->
     <section>
-      <GroupLinksContainer :id="id.at(0)" :type="'person'" :maxBound="total_persons!"/>
+      <GroupLinksContainer :id="id.at(0)!" :type="'person'" :maxBound="total_persons!"/>
     </section>
 
   </main>

@@ -4,6 +4,7 @@
  * a 404 error.
  */
 
+// handles generic fetch error
 export function handleFetchError(data: Ref<any>, errorCode: number) {
     let errorMessage;
     if (!data.value) {
@@ -15,6 +16,7 @@ export function handleFetchError(data: Ref<any>, errorCode: number) {
     }
 }
 
+// handles missing data error
 export function handleMissingDataError(){
     throw createError({ statusCode: 404, message: 'The requested page does not exist.' });
 }
