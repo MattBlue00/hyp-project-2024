@@ -1,3 +1,7 @@
+/**
+ * This class is used to store and access chatbot messages more easily.
+ */
+
 export class Message{
 
     public role: string;

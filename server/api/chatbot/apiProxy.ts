@@ -1,15 +1,25 @@
+/**
+ * This API acts as a "proxy" between the client and the OpenAI backend. In particular, it allows us to keep the
+ * OPENAI_API_KEY secret. It handles the chat completion mechanism by remembering all the utterances of both the user
+ * and the system, along with a predefined prompt.
+ */
+
+// imports
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
 
+// inits dotenv and reads the OPENAI_API_KEY
 dotenv.config();
 const API_KEY = process.env.OPENAI_API_KEY;
 
+// builds the OpenAI connector with the provided secret key
 const openai = new OpenAI(
     {
         apiKey: API_KEY
     }
 );
 
+// inits the context with our custom prompt
 let context = [
     {
         role: "system",
@@ -49,11 +59,16 @@ let context = [
     }
 ]
 
+// fires when the user sends a message to the chatbot
 export default eventHandler<{ query: { context: string }; }>(async (event) => {
 
+    // gets the user's latest utterance from the request
     const userMessage = getQuery(event).context;
+
+    // adds the user's latest utterance to the chatbot's context
     context.push({ role: 'user', content: userMessage });
 
+    // asks OpenAI's ChatGPT to generate an utterance as an answer to the user
     const completion = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: context as {role: 'user' | 'system' | 'assistant', content: string}[],
@@ -64,10 +79,13 @@ export default eventHandler<{ query: { context: string }; }>(async (event) => {
         presence_penalty: 0,
     });
 
+    // gets the chatbot's response
     const response = completion.choices[0].message.content;
 
+    // if there's a response, saves it to the chatbot's context and returns it to the user
     if(response) {
         context.push({role: 'system', content: response!})
         return response;
     }
+
 });

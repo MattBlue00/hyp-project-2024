@@ -1,20 +1,45 @@
 <script setup lang="ts">
+
+/**
+ * This is the home page of SheRise: it sums up what SheRise is all about, shows some random testimonials to help
+ * building confidence in its services, and provides many useful links.
+ */
+
+// imports
 import type {Testimonial} from "~/types/Testimonial";
 import TestimonialCard from "~/components/slides/TestimonialSlide.vue";
 import {handleFetchError} from "~/composables/errorHandlers";
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
+// sets some HTML tags useful for SEO
 useSeoMeta({
   title: 'SheRise | Home',
   description: 'This is the home page of SheRise with aggregated information about the company\'s activities.',
 });
 
-// fetch the testimonials of the service
+// fetches the total number of testimonials
+const {
+  data: testimonials_count,
+  error: testimonials_count_error,
+} = await useFetch<Testimonial[]>('/api/testimonial/getTotalNumberOfTestimonials');
+
+// throws error if something went wrong during the fetch
+if (testimonials_count_error.value?.statusCode){
+  handleFetchError(testimonials_count, testimonials_count_error.value.statusCode);
+}
+
+// fetches random service testimonials
 const {
   data: testimonials,
   pending: are_testimonials_loading,
   error: testimonials_error,
-} = await useLazyFetch<Testimonial[]>('/api/testimonial/getRandomTestimonials');
+} = await useLazyFetch<Testimonial[]>('/api/testimonial/getRandomTestimonials', {
+  query: {
+    testimonials_count: testimonials_count,
+  },
+});
+
+// throws error if something went wrong during the fetch
 if (testimonials_error.value?.statusCode){
   handleFetchError(testimonials, testimonials_error.value.statusCode);
 }
@@ -23,7 +48,8 @@ if (testimonials_error.value?.statusCode){
 
 <template>
   <main>
-    <!-- SheRise logo -->
+
+    <!-- SheRise Logo -->
     <section>
       <div class="logo-container">
         <img class="logo-img" src="assets/img/logo-magenta.png" alt="SheRise's logo"/>
@@ -34,7 +60,7 @@ if (testimonials_error.value?.statusCode){
       </div>
     </section>
 
-    <!-- home main content -->
+    <!-- Home Page content -->
     <section>
       <div>
         <div class="home-container">
@@ -64,7 +90,7 @@ if (testimonials_error.value?.statusCode){
       </div>
     </section>
 
-    <!-- witnesses -->
+    <!-- Three random testimonials -->
     <section>
       <h2 class="testimonial-text">Learn what some of our testimonials say about our services</h2>
       <div class="testimonial-container">

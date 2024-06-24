@@ -1,3 +1,7 @@
+/**
+ * Auto-generated schema representation.
+ */
+
 export type Json =
   | string
   | number

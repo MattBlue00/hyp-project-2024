@@ -7,8 +7,8 @@
 interface Props {
     value: string; // The label of the button
     to: string; // The destination onClick of the button
-    leftIcon?: string; // The arrow for left navigation buttons
-    rightIcon?: string; // The arrow for right navigation buttons
+    leftIcon?: string; // An optional left icon
+    rightIcon?: string; // An optional right icon
     width?: string; // The width of the button
 }
 

@@ -1,5 +1,10 @@
 <script setup lang="ts">
 
+/**
+ * This kind-of-topic page contains all the details about a service with a given id.
+ */
+
+// imports
 import type {Service} from '~/types/Service';
 import type {Testimonial} from "~/types/Testimonial";
 import {handleFetchError} from "~/composables/errorHandlers";
@@ -11,9 +16,10 @@ import ActivityImageAndSupervisorCardContainer
   from "~/components/containers/ActivityImageAndSupervisorCardContainer.vue";
 import GroupLinksContainer from "~/components/containers/GroupLinksContainer.vue";
 
+// gets the id of the service from the URL
 const { id } = useRoute().params;
 
-// fetch the service information
+// fetch the service details
 const {
   data: service,
   pending: is_service_loading,
@@ -23,22 +29,24 @@ const {
     id: id,
   },
 });
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (service_error.value?.statusCode) {
   handleFetchError(service, service_error.value.statusCode);
 }
 
-// fetch the total number of services
+// fetches the total number of services (for the group links)
 const {
   data: total_services,
   error: total_services_error,
 } = await useFetch<number>('/api/service/getTotalNumberOfServices');
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (total_services_error.value?.statusCode) {
   handleFetchError(total_services, total_services_error.value.statusCode);
 }
 
-// fetch the testimonials of the service
+// fetches the testimonials of the service
 const {
   data: testimonials,
   pending: are_testimonials_loading,
@@ -49,15 +57,17 @@ const {
   },
 });
 
+// throws error if something went wrong during the fetch
 if (testimonials_error.value?.statusCode){
   handleFetchError(testimonials, testimonials_error.value.statusCode);
 }
 
+// stores the supervisor id
 const supervisorId = computed(() => {
   return service.value?.supervisor_id;
 });
 
-// fetch the supervisor information
+// fetches the supervisor information
 const {
   data: person,
   pending: is_person_loading,
@@ -67,15 +77,18 @@ const {
     id: supervisorId,
   },
 });
-// throw error if something went wrong during the fetch
+
+// throws error if something went wrong during the fetch
 if (person_error.value?.statusCode) {
   handleFetchError(person, person_error.value.statusCode);
 }
 
+// stores the service name
 const serviceName = computed(() => {
   return service.value?.name;
 });
 
+// sets some HTML tags useful for SEO
 useSeoMeta({
   title: 'SheRise | ' + serviceName.value,
   description: 'This is the single service page with all relevant details about a service.',
@@ -106,9 +119,9 @@ useSeoMeta({
       </div>
       <div>
         <ServiceInfoContainer
-            :opening_hours="service?.opening_hours"
-            :duration="service?.duration"
-            :contacts="service?.contacts"
+            :opening_hours="service!.opening_hours"
+            :duration="service!.duration ?? undefined"
+            :contacts="service!.contacts"
         />
       </div>
     </section>
@@ -124,7 +137,7 @@ useSeoMeta({
       </section>
 
       <section>
-        <GroupLinksContainer :id="id.at(0)" :type="'service'" :maxBound="total_services!"/>
+        <GroupLinksContainer :id="id.at(0)!" :type="'service'" :maxBound="total_services!"/>
       </section>
 
     </div>
