@@ -243,6 +243,7 @@ onMounted(() => {
   border-radius: 0.3125rem;
   max-width: 80%;
   display: inline-block;
+  overflow-wrap: break-word;
 }
 
 .message.bot {
