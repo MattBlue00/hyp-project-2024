@@ -1,6 +1,12 @@
 <script setup lang="ts">
+/**
+ * This component is responsible for booting up the web application.
+ */
+
+// imports
 import { onMounted } from 'vue'
 
+// when mounted, adds some Bootstrap dependencies
 onMounted(() => {
   const popperScript = document.createElement('script')
   popperScript.src = 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js'
