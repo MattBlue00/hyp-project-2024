@@ -137,7 +137,7 @@ useSeoMeta({
       </section>
 
       <section>
-        <GroupLinksContainer :id="id.at(0)!" :type="'service'" :maxBound="total_services!"/>
+        <GroupLinksContainer :id="id.toString()!" :type="'service'" :maxBound="total_services!"/>
       </section>
 
     </div>

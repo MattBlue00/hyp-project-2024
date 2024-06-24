@@ -100,7 +100,7 @@ useSeoMeta({
 
       <!-- Project group links -->
       <section>
-        <GroupLinksContainer :id="id.at(0)!" :type="'project'" :maxBound="total_projects!"/>
+        <GroupLinksContainer :id="id.toString()!" :type="'project'" :maxBound="total_projects!"/>
       </section>
 
     </div>

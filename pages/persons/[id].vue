@@ -156,7 +156,7 @@ useSeoMeta({
 
     <!-- Person group links -->
     <section>
-      <GroupLinksContainer :id="id.at(0)!" :type="'person'" :maxBound="total_persons!"/>
+      <GroupLinksContainer :id="id.toString()!" :type="'person'" :maxBound="total_persons!"/>
     </section>
 
   </main>
