@@ -22,7 +22,7 @@
           © 2024 SHERISE Ltd All rights reserved.
           <NuxtLink class="footer-anchor" to="https://www.google.com/">Privacy Policy</NuxtLink>
           ·
-          <NuxtLink class="footer-anchor" to="https://www.deib.polimi.it/eng/people/details/1118154">Cookie Policy</NuxtLink>
+          <NuxtLink class="footer-anchor" to="https://www.deib.polimi.it/eng/">Cookie Policy</NuxtLink>
         </p>
       </div>
       <div class="footer-icon-container">

@@ -26,6 +26,7 @@ const minBound = 1; // Minimum bound
  * Computed function to fetch the id of the previous element of the group
  */
 const prevId = computed(() => {
+  console.log(numericId.value);
   if(numericId.value > minBound) return numericId.value - 1;
   else return maxBound;
 });

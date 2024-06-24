@@ -79,7 +79,7 @@ const closeMenuOnLink = () => {
   color: var(--bg-color);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 5;
 }
 
 .nav-group {
