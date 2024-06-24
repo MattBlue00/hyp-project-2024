@@ -1,11 +1,14 @@
 <script setup lang="ts">
+/**
+ * This component describes the carousels for SheRise activities
+ */
 import type { Project } from "~/types/Project";
 import type { Service } from "~/types/Service";
-import ActivityBigCard from "~/components/cards/ActivityBigCard.vue";
+import ActivityBigCard from "~/components/slides/ActivitySlide.vue";
 
 interface Props {
-  activities: (Project | Service)[];
-  type: string;
+  activities: (Project | Service)[]; // array of testimonials, comprehends its name, statement, and image link, and also the service ID
+  type: string; // service or project
 }
 
 const { activities, type } = defineProps<Props>();
@@ -65,11 +68,9 @@ const carouselID = computed(() => {
 }
 
 @media(max-width: 760px) {
-
   .carousel {
     height: auto;
   }
-
 }
 
 </style>

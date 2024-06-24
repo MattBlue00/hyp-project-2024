@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {Testimonial} from "~/types/Testimonial";
-import TestimonialCard from "~/components/cards/TestimonialCard.vue";
+import TestimonialCard from "~/components/slides/TestimonialSlide.vue";
 import {handleFetchError} from "~/composables/errorHandlers";
 import CustomButton from "~/components/buttons/CustomButton.vue";
 

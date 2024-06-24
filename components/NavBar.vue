@@ -1,13 +1,23 @@
 <script setup lang="ts">
+/**
+ * This component describes the navigation bar of the site, it comprises landmarks for the homepage, about us, our team,
+ * activities, projects, services and contacts pages. It changes its appearance when used on mobile.
+ */
 
 // mobile navbar toggle system
 let showMobileNav = ref(false);
 
+/**
+ * Function for toggling the menu on mobile version
+ */
 const toggleMenu = () => {
   showMobileNav.value = !showMobileNav.value;
   document.querySelector('body')?.classList.toggle('disable-scrolling');
 };
 
+/**
+ *  Function for closing the menu on the mobile version
+ */
 const closeMenuOnLink = () => {
   if (showMobileNav.value === true) {
     showMobileNav.value = false;
@@ -55,10 +65,12 @@ const closeMenuOnLink = () => {
 </template>
 
 <style scoped>
+
 .logo{
   display: flex;
   flex-direction: row;
 }
+
 .nav-container {
   box-sizing: border-box;
   padding-top: 0.4rem;
@@ -69,6 +81,7 @@ const closeMenuOnLink = () => {
   top: 0;
   z-index: 100;
 }
+
 .nav-group {
   margin-left: min(5%,10em);
   margin-right: min(5%,10em);
@@ -76,16 +89,19 @@ const closeMenuOnLink = () => {
   align-items: center;
   justify-content: space-between;
 }
+
 .logo {
   font-size: 2rem;
   font-family: Nunito, serif;
   font-weight: bold;
   color: var(--bg-color);
 }
+
 .logo-image{
   height: 3rem;
   margin-right: 0.5rem;
 }
+
 .nav-links {
   font-family: Nunito, serif;
   font-size: 1rem;
@@ -95,6 +111,7 @@ const closeMenuOnLink = () => {
   gap: 3rem;
   list-style: none;
 }
+
 .nuxt-link {
   color: var(--bg-color);
   cursor: pointer;
@@ -111,17 +128,14 @@ const closeMenuOnLink = () => {
 .nav-btn {
   display: none;
 }
+
 .nav-links-mobile {
   display: none;
   overflow: hidden;
 }
 
-/*  .active-link {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}*/
+@media (max-width: 1000px) {
 
-@media (max-width: 1050px) {
   /* These three following classes disable desktop menu on smaller devices */
   .nav-links {
     display: none;
@@ -132,6 +146,7 @@ const closeMenuOnLink = () => {
   }
 
   /* Styling of the mobile menu */
+
   .close-menu {
     transition: 0.3s ease-in all;
     visibility: hidden;
@@ -168,6 +183,7 @@ const closeMenuOnLink = () => {
   }
 
   /* Styling of the mobile-menu button */
+
   .nav-btn {
     display: flex;
     flex-direction: column;
@@ -204,4 +220,5 @@ const closeMenuOnLink = () => {
     transform: translate(5px, 0) rotatez(-45deg) translate(0, -12px);
   }
 }
+
 </style>

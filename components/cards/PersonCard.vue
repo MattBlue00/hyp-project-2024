@@ -1,12 +1,18 @@
 <script setup lang="ts">
+/**
+ * This component describes the card of the team components, displaying an image, their name and their role
+ */
 interface Props {
-  img: string;
-  name: string;
-  main_role: string;
+  img: string; // The src of the person's image
+  name: string; // The name of the person
+  main_role: string; // The main role of the person
 }
 
 const { img, name, main_role} = defineProps<Props>();
 
+/**
+ * computed function for alt displaying
+ */
 const altPicture = computed(() => {
   return "Picture of " + name;
 });
@@ -53,4 +59,5 @@ const altPicture = computed(() => {
 .person-main_role{
   text-align: center;
 }
+
 </style>

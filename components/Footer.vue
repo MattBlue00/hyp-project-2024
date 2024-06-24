@@ -1,10 +1,8 @@
 <script setup lang="ts">
 /**
- * Component name: Footer
- * Description: this is the default footer
+ * This component describes the footer of the website,
  * present on the bottom of all pages, it is a fixed component,
  * and it is responsive for mobile devices.
- *
  */
 </script>
 <template>
