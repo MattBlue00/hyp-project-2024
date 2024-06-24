@@ -1,11 +1,15 @@
 <script setup lang="ts">
-
+/**
+ * This component describes a customized button, which will be used in the majority of pages of our website.
+ * There are three possibilities: the left and right button are used for navigating across projects, services and team
+ * members, while the standard button is general purpose.
+ */
 interface Props {
-    value: string;
-    to: string;
-    leftIcon?: string;
-    rightIcon?: string;
-    width?: string;
+    value: string; // The label of the button
+    to: string; // The destination onClick of the button
+    leftIcon?: string; // The arrow for left navigation buttons
+    rightIcon?: string; // The arrow for right navigation buttons
+    width?: string; // The width of the button
 }
 
 const { value } = defineProps<Props>();
@@ -33,6 +37,9 @@ const { value } = defineProps<Props>();
 </template>
 
 <style scoped>
+
+/* CSS for general button */
+
 .btn {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
@@ -54,6 +61,8 @@ const { value } = defineProps<Props>();
   color: var(--bg-color);
   transition: 0.3s all ease-in;
 }
+
+/* CSS for left and right button */
 
 .btn-left-icon, .btn-right-icon {
   width: 1.5rem;

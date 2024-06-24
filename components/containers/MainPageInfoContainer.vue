@@ -1,8 +1,12 @@
 <script setup lang="ts">
+/**
+ * This component describes the container for all the pages reachable from landmarks. It contains the orientational info,
+ * the title of the page and the introduction
+ */
 interface Props {
-  pageTitle?: string;
-  orientationalInfo?: string;
-  introduction?: string;
+  pageTitle?: string; // The title of the page
+  orientationalInfo?: string; // The orientational info
+  introduction?: string; // The introduction of the page
 }
 
 const { pageTitle, orientationalInfo, introduction } = defineProps<Props>();

@@ -1,16 +1,23 @@
 <script setup lang="ts">
+/**
+ * This component describes the container for details of the activities, containing the image of the activity and
+ * its supervisor's card.
+ */
 import type {Project} from "~/types/Project";
 import type {Service} from "~/types/Service";
 import type {Person} from "~/types/Person";
 import PersonCard from "~/components/cards/PersonCard.vue";
 
 interface Props {
-  activity: (Project | Service);
-  supervisor: Person;
+  activity: (Project | Service); // The activity can be either a project or a service
+  supervisor: Person; // The supervisor of the activity
 }
 
 const { activity, supervisor} = defineProps<Props>();
 
+/**
+ * Computed function to display the alt picture.
+ */
 const altPicture = computed(() => {
   return "Picture of the '" + activity?.name +"' activity";
 });

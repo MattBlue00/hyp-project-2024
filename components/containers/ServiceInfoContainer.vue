@@ -1,8 +1,12 @@
 <script setup lang="ts">
+/**
+ * This component describes the container for the information about services, including their opening hours, duration,
+ * and the contacts
+ */
 interface Props {
-  opening_hours: string;
-  duration?: string;
-  contacts: string;
+  opening_hours: string; // The service opening hours
+  duration?: string; // The service duration
+  contacts: string; // The contact information for the service
 }
 
 const { opening_hours, duration, contacts} = defineProps<Props>();

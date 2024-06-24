@@ -1,13 +1,19 @@
 <script setup lang="ts">
+/**
+ * This component describes the slides of the carousel for the testimonials
+ */
 interface Props {
-  img: string;
-  name: string;
-  statement: string;
-  isActive: boolean;
+  img: string; // The src of the image of the testimonial
+  name: string; // The name of the testimonial
+  statement: string; // The statement of the testimonial
+  isActive: boolean; // The state of the slide: whether it is displayed or not
 }
 
 const { img, name, statement, isActive} = defineProps<Props>();
 
+/**
+ * Computed function for displaying the alt of the picture
+ */
 const altPicture = computed(() => {
   return "Picture of" + name;
 });

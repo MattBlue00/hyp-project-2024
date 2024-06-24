@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import TestimonialCard from "~/components/cards/TestimonialCard.vue";
+/**
+ * This component describes the carousels for testimonials about SheRise services
+ */
+import TestimonialCard from "~/components/slides/TestimonialSlide.vue";
 import type {Testimonial} from "~/types/Testimonial";
 
 interface Props {
-  testimonials: Testimonial[];
+  testimonials: Testimonial[]; // array of testimonials, comprehends its name, statement, and image link, and also the service ID
 }
 
 const { testimonials } = defineProps<Props>();
+
 </script>
 
 <template>

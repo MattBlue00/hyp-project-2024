@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * This component describes the container for the CV of team members, containing their bio, their education, their past
+ * working experiences and their main expertise domain.
+ */
 interface Props {
   bio: string;
   education: string;
@@ -23,6 +27,7 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 </template>
 
 <style scoped>
+
 #CVInfoContainer{
   width: 100%;
   border-radius: 1rem;
@@ -41,4 +46,5 @@ const { bio, education, past_experience, main_expertise} = defineProps<Props>();
 .CV-info-content{
   color: var(--dark-violet-color);
 }
+
 </style>
