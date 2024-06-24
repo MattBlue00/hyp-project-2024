@@ -26,7 +26,7 @@ if (testimonials_error.value?.statusCode){
     <!-- SheRise logo -->
     <section>
       <div class="logo-container">
-        <img class="logo-img" src="assets/img/logo.jpg" alt="SheRise logo"/>
+        <img class="logo-img" src="assets/img/logo-magenta.png" alt="SheRise's logo"/>
         <div class="logo-text-container">
           <h1 class="logo-text"> SheRise </h1>
           <h2 class="logo-caption"> Always by your side </h2>
@@ -99,6 +99,7 @@ h1{
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  margin-bottom: 3rem;
   gap: 1rem;
 }
 
@@ -124,7 +125,6 @@ h1{
   font-size: 1.7rem;
   text-align: center;
   color: var(--magenta-color);
-  margin-bottom: 4rem;
 }
 
 .home-container{
