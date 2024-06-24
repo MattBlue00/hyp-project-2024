@@ -1,16 +1,24 @@
 <script setup lang="ts">
+/**
+ * This component describes the container of the main information of a team member, including their name, main role,
+ * their motto and an image.
+ */
 interface Props {
-  img: string;
-  name: string;
-  main_role: string;
-  motto: string;
+  img: string; // The image src of the person
+  name: string; // The name of the person
+  main_role: string; // The main role of the person
+  motto: string; // The motto of the person
 }
 
 const {img, name, main_role, motto} = defineProps<Props>();
 
+/**
+ * Computed function to display the alt
+ */
 const altPicture = computed(() => {
   return "Picture of the '" + name +"' person";
 });
+
 </script>
 
 <template>

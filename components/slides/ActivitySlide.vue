@@ -1,14 +1,17 @@
 <script setup lang="ts">
+/**
+ * This component describes the slides of the carousel for activities
+ */
 import ActivityCard from "~/components/cards/ActivityCard.vue";
 import CustomButton from "~/components/buttons/CustomButton.vue";
 
 interface Props {
-  id: number;
-  img: string;
-  name: string;
-  description: string;
-  isActive: boolean;
-  type: string;
+  id: number; // The ID of the activity, bounded to its type
+  img: string; // The src of the image of the activity
+  name: string; // The name of the activity
+  description: string; // The description of the activity
+  isActive: boolean; // The state of the slide: whether it is displayed or not
+  type: string; // The type of the activity: project or service
 }
 
 const { id, img, name, description, isActive, type} = defineProps<Props>();

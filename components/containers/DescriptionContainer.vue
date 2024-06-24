@@ -1,9 +1,13 @@
 <script setup lang="ts">
+/**
+ * This component describes the container for descriptions of the activities.
+ */
 interface Props {
-  description: string;
+  description: string; // content of the descriptions
 }
 
 const {description} = defineProps<Props>();
+
 </script>
 
 <template>

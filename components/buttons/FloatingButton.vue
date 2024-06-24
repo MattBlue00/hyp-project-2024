@@ -1,20 +1,30 @@
 <script setup lang="ts">
+/**
+ * This component describes the chatbot layout: it consists of a floating button which, on click, will expand
+ * into a window where it will be possible to chat with the assistant.
+ */
 import { ref } from 'vue';
 import {Message} from "~/types/Message";
 
+// The first message that will be displayed by the system is contained in an array of messages to be shown
 const shownMessages = ref<Message[]>([
   new Message('system', 'Hello! How can I help you today?')
 ]);
 
-const newMessage = ref<string>('');
-const isChatOpen = ref<boolean>(false);
-const showChatPrompt = ref<boolean>(false);
+const newMessage = ref<string>(''); // string containing the new message to be sent to the assistant
+const isChatOpen = ref<boolean>(false); // boolean which tells us whether the chat is open or not
+const showChatHint = ref<boolean>(false); // boolean which tells us whether the hint cloud for the floating button
+                                                // is displayed
 
 const messagesContainerRef = ref<HTMLElement | null>(null);
 
+/**
+ * This async function will be triggered when the user wants to send a message to the assistant, either by pressing
+ * the 'send' key or by clicking the 'Send' button.
+ */
 const sendMessage = async () => {
   if (newMessage.value.trim() !== '') {
-    shownMessages.value.push(new Message('user', newMessage.value));
+    shownMessages.value.push(new Message('user', newMessage.value)); // push the new message in shownMessages
     scrollToBottom();
 
     const messageToSend: string = newMessage.value;
@@ -24,6 +34,10 @@ const sendMessage = async () => {
   }
 };
 
+/**
+ * This async function fetches the answer from the chatbot and displays it in the chat.
+ * @param sentMessage The last message the user sent.
+ */
 const getResponse = async (sentMessage: string) => {
 
   const newArrayLength = shownMessages.value.push(new Message('assistant', ''));
@@ -31,7 +45,7 @@ const getResponse = async (sentMessage: string) => {
   try {
     const {
       data: receivedMessage
-    } = await useFetch('/api/chatbot/apiProxy', {
+    } = await useFetch('/api/chatbot/apiProxy', { // Call to the api of OpenAI is done server-side.
       query: {
         context: sentMessage
       }
@@ -53,12 +67,17 @@ const getResponse = async (sentMessage: string) => {
   }
 };
 
-// Function to toggle the chat open/close state
+/**
+ * Function to toggle the chat open/close state
+ */
 const toggleChat = async () => {
   isChatOpen.value = !isChatOpen.value;
-  showChatPrompt.value = false;
+  showChatHint.value = false;
 };
 
+/**
+ * Function to scroll to the bottom of the chat with the assistant. Called whenever a message is sent or received.
+ */
 const scrollToBottom = () => {
   nextTick(() => {
     const messagesContainer = messagesContainerRef.value;
@@ -68,13 +87,16 @@ const scrollToBottom = () => {
   });
 };
 
+/**
+ * We want the cloud hint for the floating button to be shown on mounted, only for a certain amount of time
+ */
 onMounted(() => {
   const visitedBefore = localStorage.getItem('visitedBefore');
   if (!visitedBefore) {
-    showChatPrompt.value = true;
+    showChatHint.value = true;
     localStorage.setItem('visitedBefore', 'true');
     setTimeout(() => {
-      showChatPrompt.value = false;
+      showChatHint.value = false;
     }, 7000); // Adjust timeout as needed (1000ms = 1 second)
   }
 });
@@ -112,7 +134,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div v-if="showChatPrompt" class="chat-prompt">
+    <div v-if="showChatHint" class="chat-prompt">
       <div class="cloud">
         <p>If you need a safe space, </p>
         <p>I'm here for you!</p>
@@ -125,6 +147,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+/* chat window styling */
 
 .chatbot {
   position: fixed;
@@ -180,7 +204,6 @@ onMounted(() => {
 .chat-window.open .chat-input {
   opacity: 1;
 }
-
 
 .close-btn {
   background-color: var(--bg-color);
@@ -262,6 +285,8 @@ onMounted(() => {
   background-color: var(--hover-color);
 }
 
+/* floating button styling */
+
 .floating-button {
   position: fixed;
   bottom: 1.25rem;
@@ -290,9 +315,7 @@ onMounted(() => {
   background-color: var(--hover-color);
 }
 
-/* =======================
-   Responsive typing indicator
-   ======================= */
+/* Responsive typing indicator */
 
 .tiblock {
   align-items: center;

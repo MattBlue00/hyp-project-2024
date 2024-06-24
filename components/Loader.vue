@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+/**
+ * This component describes the loader, it is displayed before the actual content of pages has loaded.
+ */
 </script>
 
 <template>

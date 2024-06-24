@@ -1,15 +1,23 @@
 <script setup lang="ts">
+/**
+ * This component describes the card of the activities, that is of projects and services,
+ * displaying their title and image
+ */
 interface Props {
-  img: string;
-  name: string;
-  height?: string;
+  img: string; // The image src
+  name: string; // The name of the activity
+  height?: string; // The height of the card's container
 }
 
 const { img, name, height } = defineProps<Props>();
 
+/**
+ * computed function for alt displaying
+ */
 const altPicture = computed(() => {
   return "Picture of the '" + name + "' activity";
 });
+
 </script>
 
 <template>
@@ -22,6 +30,7 @@ const altPicture = computed(() => {
 </template>
 
 <style scoped>
+
 .activity-card-container{
   display: flex;
   flex-direction: column;
@@ -48,4 +57,5 @@ const altPicture = computed(() => {
   text-align: center;
   margin: auto;
 }
+
 </style>
