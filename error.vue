@@ -57,4 +57,11 @@ const { error } = defineProps<Props>();
   display: flex;
   padding-bottom: 3rem;
 }
+
+@media(max-width: 760px){
+  .error-links{
+    justify-content: center;
+  }
+}
+
 </style>
