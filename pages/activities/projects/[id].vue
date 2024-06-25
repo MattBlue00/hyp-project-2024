@@ -85,7 +85,10 @@ useSeoMeta({
     <div v-else v-if="project">
 
       <!-- Project title, image, and supervisor -->
-      <h1 class="activity-title">{{ project?.name }}</h1>
+      <div class="activity-title">
+        <h2 class="activity-orientational-info"> Project </h2>
+        <h1>{{ project!.name }}</h1>
+      </div>
       <section>
         <div v-if="is_project_loading || is_person_loading">
           <Loader/>

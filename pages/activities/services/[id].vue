@@ -98,8 +98,9 @@ useSeoMeta({
 
 <template>
   <main>
-    <div>
-      <h1 class="activity-title">{{ service!.name }}</h1>
+    <div class="activity-title">
+      <h2 class="activity-orientational-info"> Service </h2>
+      <h1>{{ service!.name }}</h1>
     </div>
 
     <div>

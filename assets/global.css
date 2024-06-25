@@ -31,7 +31,7 @@ body {
     scroll-behavior: smooth;
     min-width: 250px;
     min-height: 600px;
-    color: #400E2A;
+    color: var(--dark-violet-color);
 }
 
 * {
@@ -40,10 +40,15 @@ body {
 
 .activity-title{
     display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     margin-top: 3rem;
     margin-bottom: 2rem;
+}
+
+.activity-orientational-info{
+    color: var(--orientational-info-color);
 }
 
 .card-list-wrapper {
