@@ -93,6 +93,7 @@ useSeoMeta({
 
   <main>
 
+    <h2 class="orientational-info"> Our team </h2>
     <!-- Person name, picture, and details -->
     <section>
       <div v-if="is_person_loading">
@@ -175,6 +176,16 @@ useSeoMeta({
 .list-container{
   margin-left: 5rem;
   margin-right: 5rem;
+}
+
+.orientational-info{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: var(--orientational-info-color);
 }
 
 </style>
