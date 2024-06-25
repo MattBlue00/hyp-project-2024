@@ -54,6 +54,7 @@ const { error } = defineProps<Props>();
 }
 
 .error-links{
+  display: flex;
   padding-bottom: 3rem;
 }
 </style>
