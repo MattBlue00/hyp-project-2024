@@ -1,75 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Hypermedia Applications (Web and Multimedia) project - A.Y. 2023/2024
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project consists of two parts:
+- a [__usability evaluation report__](https://github.com/MattBlue00/hyp-project-2024/blob/main/deliverables/Usability%20Evaluation%20Project.pdf) carried out on the [__Unicef__](https://www.unicef.org) website;
+- a prototype of a [__web application__](https://sherise-teagreen.vercel.app) for an imaginary company that aims at helping abused women, delivered with a [__design document__](https://github.com/MattBlue00/hyp-project-2024/blob/main/deliverables/Design%20Report.pdf) and a [__technology document__](https://github.com/MattBlue00/hyp-project-2024/blob/main/deliverables/Technology%20Report.pdf).
 
-## Setup
+This repository contains all the source code of the web application and a "deliverables" folder with the mentioned documents.
 
-Make sure to install the dependencies:
+## Group members 
 
-```bash
-# npm
-npm install
+- [__Emanuele Musto__](https://github.com/Nume99)
+- [__Riccardo Speroni__](https://github.com/Riccardo-Speroni)
+- [__Matteo Spreafico__](https://github.com/MattBlue00)
+- [__Manuel Tacca__](https://github.com/manuel-tacca)
 
-# pnpm
-pnpm install
+## Evaluation
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Our project was assigned a score of 30L (30/30 cum laude).
